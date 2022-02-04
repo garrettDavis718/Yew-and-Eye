@@ -1,0 +1,19 @@
+﻿<Window x:Class="DefaultLogin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DefaultLogin"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="607" Width="293">
+    <Grid>
+        <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Height="26" Margin="146,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Height="26" Margin="146,224,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="104"/>
+        <Label x:Name="usernameLabel" Content="Username: " HorizontalAlignment="Left" Margin="46,118,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="passLabel" Content="Password: " HorizontalAlignment="Left" Margin="46,224,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="loginBtn" Content="Login" HorizontalAlignment="Center" Margin="0,296,0,0" VerticalAlignment="Top" Height="39" Width="104" Click="loginBtn_Click"/>
+        <TextBox x:Name="outputBox" HorizontalAlignment="Left" Height="149" Margin="46,400,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Background="Black" Foreground="White"/>
+        <Label x:Name="TitleLabel" Content="Title" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+    </Grid>
+</Window>
