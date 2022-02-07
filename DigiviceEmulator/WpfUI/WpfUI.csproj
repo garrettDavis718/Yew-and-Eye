@@ -100,5 +100,11 @@
       <Name>DigiviceEmulatorLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\background.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
