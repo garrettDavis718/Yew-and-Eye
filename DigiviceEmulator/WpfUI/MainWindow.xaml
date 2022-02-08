@@ -5,19 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="DiviVice" Height="604.525" Width="890.791" Background="#FF3E3E3E">
+        Title="DigiVice" Height="816.354" Width="1080.143" Background="#FF3E3E3E">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="400" VerticalAlignment="Top"  Source="Images\background.jpeg"/>
-        <Border BorderThickness="6" HorizontalAlignment="Left" Height="400" Margin="651,0,0,0" VerticalAlignment="Top" Width="225" BorderBrush="#FF343232"/>
-        <Button x:Name="Button_Quit" Content="QUIT" HorizontalAlignment="Left" Margin="651,494,0,0" VerticalAlignment="Top" Width="222" Height="70" Click="Button_Click_1"/>
-        <Button x:Name="Button_Reset" Content="RESET" HorizontalAlignment="Left" Margin="651,405,0,0" VerticalAlignment="Top" Width="222" Height="70"/>
-        <Button x:Name="Button_Clean" Content="Clean" Width="180" Height="70" Margin="0,114,22,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <Button x:Name="Button_Dance" Content="Dance" Width="180" Height="70" Margin="0,207,22,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <Button x:Name="Button_Play" Content="Play" Width="180" Height="70" Margin="0,307,22,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <Button Content="Feed" Width="180" Height="70" Margin="0,20,22,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <Border x:Name="Border_Monster" BorderBrush="#FF343232" BorderThickness="6" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="655" Padding="0"/>
-        <Border BorderBrush="#FF343232" BorderThickness="6" HorizontalAlignment="Left" Height="168" VerticalAlignment="Top" Width="651" Padding="0" Margin="0,400,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Height="159" Margin="10,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="636" FontSize="23"><Run Text="&gt;&gt; Example Text."/><LineBreak/><Run Text="&gt;&gt; This is where statements about the monster's behavior goes."/><LineBreak/><Run Text="&gt;&gt; Your monster has started dancing!"/><LineBreak/><Run Text="&gt;&gt; Your monsters stomach is growling..."/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="10,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="385" Width="636" FontSize="18"><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/><LineBreak/><Run Text="TEST"/></TextBlock>
+        <Border BorderThickness="6" HorizontalAlignment="Left" Height="554" Margin="651,0,0,0" VerticalAlignment="Top" Width="413" BorderBrush="#FF343232"/>
+        <Button x:Name="Button_Quit" Content="QUIT" HorizontalAlignment="Left" Margin="656,687,0,0" VerticalAlignment="Top" Width="406" Height="83" Click="Button_Click_Quit" Background="#FFE68888" Panel.ZIndex="1"/>
+        <Button x:Name="Button_Reset" Content="RESET" HorizontalAlignment="Left" Margin="656,554,0,0" VerticalAlignment="Top" Width="406" Height="85" Background="#FFF18D8D" Panel.ZIndex="1"/>
+        <Button x:Name="Button_Clean" Content="Clean" Width="382" Height="100" Margin="0,154,16,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Button x:Name="Button_Play" Content="Play" Width="382" Height="100" Margin="0,287,16,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Button x:Name="Button_Dance" Content="Dance" Width="382" Height="100" Margin="0,430,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" IsEnabled="False" Background="#FFDDDDDD" Opacity="0.5"/>
+        <Button Content="Feed" Width="382" Height="100" Margin="0,20,16,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Border x:Name="Border_Monster" BorderBrush="#FF343232" BorderThickness="6,6,8,6" HorizontalAlignment="Left" Height="554" VerticalAlignment="Top" Width="651" Padding="0"/>
+        <Border BorderBrush="#FF343232" BorderThickness="6" HorizontalAlignment="Left" Height="230" VerticalAlignment="Top" Width="656" Padding="0" Margin="0,549,0,0"/>
+        <Border BorderBrush="#FF343232" BorderThickness="6,10,6,6" HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="421" Padding="0" Margin="651,554,0,0" Background="#FF343232"/>
+        <TextBlock HorizontalAlignment="Left" Height="216" Margin="15,554,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="636" FontSize="23" Panel.ZIndex="1"><Run Text="&gt;&gt; Example Text."/><LineBreak/><Run Text="&gt;&gt; This is where statements about the monster's behavior goes."/><LineBreak/><Run Text="&gt;&gt; Your monster has started dancing!"/><LineBreak/><Run Text="&gt;&gt; Your monsters stomach is growling..."/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="4,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="544" Width="640" FontSize="21" Foreground="White" Panel.ZIndex="1" LineHeight="32" Padding="3,6,0,3" FontFamily="Courier New" FontWeight="ExtraLight" LineStackingStrategy="BlockLineHeight">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="Images/monster_background.png" TileMode="FlipY" Stretch="UniformToFill"/>
+            </TextBlock.Background><Run Text="1"/><LineBreak/><Run Text="2"/><LineBreak/><Run Text="3"/><LineBreak/><Run Text="4"/><LineBreak/><Run Text="5"/><LineBreak/><Run Text="6"/><LineBreak/><Run Text="7"/><LineBreak/><Run Text="8"/><LineBreak/><Run Text="9"/><LineBreak/><Run Text="10"/><LineBreak/><Run Text="11"/><LineBreak/><Run Text="12"/><LineBreak/><Run Text="13"/><LineBreak/><Run Text="14"/><LineBreak/><Run Text="15"/><LineBreak/><Run Text="123456789:123456789:123456789:123456789:123456789:"/><LineBreak/><Run Text=""/><LineBreak/></TextBlock>
     </Grid>
 </Window>
