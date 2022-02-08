@@ -27,18 +27,44 @@ namespace WpfUI
             InitializeComponent();
             /*if (monster == null)         
             {
-                //TODO - Code monster egg system here
+                //TODO - code monster egg system here
             }
             else
             {
-                monster = //TODO - grab users monster from their database.
+                monster =  *grab users monster from their database*
             }
             */
 		}
-
+        
+        //TODO - add functionality to buttons as their functions are made
         private void Button_Click_Quit(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Reset_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Dance_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Play_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Clean_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

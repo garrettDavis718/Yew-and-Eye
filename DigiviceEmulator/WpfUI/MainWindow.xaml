@@ -9,11 +9,11 @@
     <Grid>
         <Border BorderThickness="6" HorizontalAlignment="Left" Height="554" Margin="651,0,0,0" VerticalAlignment="Top" Width="413" BorderBrush="#FF343232"/>
         <Button x:Name="Button_Quit" Content="QUIT" HorizontalAlignment="Left" Margin="656,687,0,0" VerticalAlignment="Top" Width="406" Height="83" Click="Button_Click_Quit" Background="#FFE68888" Panel.ZIndex="1" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="Button_Reset" Content="RESET" HorizontalAlignment="Left" Margin="656,556,0,0" VerticalAlignment="Top" Width="406" Height="85" Background="#FFF18D8D" Panel.ZIndex="1" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="Button_Clean" Content="Clean" Width="382" Height="100" Margin="0,154,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36"/>
-        <Button x:Name="Button_Play" Content="Play" Width="382" Height="100" Margin="0,287,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36"/>
-        <Button x:Name="Button_Dance" Content="Dance" Width="382" Height="100" Margin="0,430,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" IsEnabled="False" Background="#FFDDDDDD" Opacity="0.5" FontSize="36"/>
-        <Button Content="Feed" Width="382" Height="100" Margin="0,20,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36"/>
+        <Button x:Name="Button_Reset" Content="RESET" HorizontalAlignment="Left" Margin="656,556,0,0" VerticalAlignment="Top" Width="406" Height="85" Background="#FFF18D8D" Panel.ZIndex="1" FontSize="36" FontWeight="Bold" FontStyle="Italic" Click="Button_Reset_Click"/>
+        <Button x:Name="Button_Clean" Content="Clean" Width="382" Height="100" Margin="0,154,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36" Click="Button_Clean_Click"/>
+        <Button x:Name="Button_Play" Content="Play" Width="382" Height="100" Margin="0,287,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36" Click="Button_Play_Click"/>
+        <Button x:Name="Button_Dance" Content="Dance" Width="382" Height="100" Margin="0,430,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" IsEnabled="False" Background="#FFDDDDDD" Opacity="0.5" FontSize="36" Click="Button_Dance_Click"/>
+        <Button Content="Feed" Width="382" Height="100" Margin="0,20,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36" Click="Button_Click"/>
         <Border x:Name="Border_Monster" BorderBrush="#FF343232" BorderThickness="6,6,8,6" HorizontalAlignment="Left" Height="554" VerticalAlignment="Top" Width="651" Padding="0"/>
         <Border BorderBrush="#FF343232" BorderThickness="6" HorizontalAlignment="Left" Height="230" VerticalAlignment="Top" Width="656" Padding="0" Margin="0,549,0,0"/>
         <Border BorderBrush="#FF343232" BorderThickness="6,10,6,6" HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="421" Padding="0" Margin="651,554,0,0" Background="#FF343232"/>
