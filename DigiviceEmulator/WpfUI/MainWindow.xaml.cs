@@ -42,10 +42,9 @@ namespace WpfUI
             */
         }
 
-        private void settingsButton_Click(object sender, RoutedEventArgs e)
+        private void quitButton_Click(object sender, RoutedEventArgs e)
         {
-            Settings window = new Settings();
-            window.ShowDialog();    
+            this.Close();
         }
     }
 }
