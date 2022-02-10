@@ -23,8 +23,14 @@ namespace WpfUI
 	{
 		public MainWindow()
 		{
-            Monster monster;              
             InitializeComponent();
+            Monster monster;
+            /*
+            TextBlock_Hunger.Text = "0";
+            TextBlock_Hygiene.Text = "0";
+            Textblock_Mood.Text = "0";
+            TextBlock_Output.Text = " ";
+            */
             /*if (monster == null)         
             {
                 //TODO - code monster egg system here
@@ -34,37 +40,12 @@ namespace WpfUI
                 monster =  *grab users monster from their database*
             }
             */
-		}
-        
-        //TODO - add functionality to buttons as their functions are made
-        private void Button_Click_Quit(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
 
-        private void Button_Reset_Click(object sender, RoutedEventArgs e)
+        private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Button_Dance_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Play_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Clean_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Feed_Click(object sender, RoutedEventArgs e)
-        {
-
+            Settings window = new Settings();
+            window.ShowDialog();    
         }
     }
 }

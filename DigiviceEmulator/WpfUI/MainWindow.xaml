@@ -5,29 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="DigiVice" Height="816.354" Width="1080.143" Background="#FF3E3E3E">
+        Title="DigiVice"
+        FontSize="24" 
+        FontFamily="Courier New"
+        Foreground="White"
+        Height="861.812" 
+        Width="1239.247" 
+        Background="#FF3E3E3E">
+
     <Grid>
-        <Border BorderThickness="6" HorizontalAlignment="Left" Height="554" Margin="651,0,0,0" VerticalAlignment="Top" Width="413" BorderBrush="#FF343232"/>
-        <Button x:Name="Button_Quit" Content="QUIT" HorizontalAlignment="Left" Margin="656,687,0,0" VerticalAlignment="Top" Width="406" Height="83" Click="Button_Click_Quit" Background="#FFE68888" Panel.ZIndex="1" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="Button_Reset" Content="RESET" HorizontalAlignment="Left" Margin="656,556,0,0" VerticalAlignment="Top" Width="406" Height="85" Background="#FFF18D8D" Panel.ZIndex="1" FontSize="36" FontWeight="Bold" FontStyle="Italic" Click="Button_Reset_Click"/>
-        <Button x:Name="Button_Clean" Content="Clean" Width="382" Height="100" Margin="0,154,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36" Click="Button_Clean_Click"/>
-        <Button x:Name="Button_Play" Content="Play" Width="382" Height="100" Margin="0,287,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36" Click="Button_Play_Click"/>
-        <Button x:Name="Button_Dance" Content="Dance" Width="382" Height="100" Margin="0,430,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" IsEnabled="False" Background="#FFDDDDDD" Opacity="0.5" FontSize="36" Click="Button_Dance_Click"/>
-        <Button x:Name="Button_Feed" Content="Feed" Width="382" Height="100" Margin="0,20,16,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="36" Click="Button_Feed_Click"/>
-        <Border x:Name="Border_Monster" BorderBrush="#FF343232" BorderThickness="6,6,8,6" HorizontalAlignment="Left" Height="554" VerticalAlignment="Top" Width="651" Padding="0"/>
-        <Border BorderBrush="#FF343232" BorderThickness="6" HorizontalAlignment="Left" Height="230" VerticalAlignment="Top" Width="656" Padding="0" Margin="0,549,0,0"/>
-        <Border BorderBrush="#FF343232" BorderThickness="6,10,6,6" HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="421" Padding="0" Margin="651,554,0,0" Background="#FF343232"/>
-        <TextBlock x:Name="TextBlock_Output" HorizontalAlignment="Left" Height="178" Margin="15,592,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="636" FontSize="23" Panel.ZIndex="1"><Run Text="&gt;&gt; Example Text."/><LineBreak/><Run Text="&gt;&gt; This is where statements about the monster's behavior goes."/><LineBreak/><Run Text="&gt;&gt; Your monster has started dancing!"/><LineBreak/><Run Text="&gt;&gt; Your monsters stomach is growling..."/></TextBlock>
-        <TextBlock x:Name="TextBlock_monster" HorizontalAlignment="Left" Margin="4,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="544" Width="647" FontSize="21" Foreground="White" Panel.ZIndex="1" LineHeight="32" Padding="8,12,0,3" FontFamily="Courier New" FontWeight="ExtraLight" LineStackingStrategy="BlockLineHeight">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        
+        <!--Monster Display-->
+        <TextBlock x:Name="monsterTextblock" Grid.Column="1" Grid.Row="1" Panel.ZIndex="0" Grid.RowSpan="4" 
+                   FontSize="21" Foreground="White" LineHeight="32" FontWeight="ExtraLight" MinHeight="512" 
+                   MinWidth="630">
             <TextBlock.Background>
                 <ImageBrush ImageSource="Images/monster_background.png" TileMode="FlipY" Stretch="UniformToFill"/>
-            </TextBlock.Background><Run/><LineBreak/><Run/><LineBreak/><Run Text="                 ________________"/><LineBreak/><Run Text="                /          |,,,| \"/><LineBreak/><Run Text="               /           \___/  \"/><LineBreak/><Run Text="              /                    \"/><LineBreak/><Run Text="             /     __               \"/><LineBreak/><Run Text="            /     /,,\               \"/><LineBreak/><Run Text="           /     /,,,,|               \"/><LineBreak/><Run Text="          |     |,,,,/                 |"/><LineBreak/><Run Text="          |      \__/                  |"/><LineBreak/><Run Text="          |                            |"/><LineBreak/><Run Text="           \               ___        /"/><LineBreak/><Run Text="            \              |_|       /"/><LineBreak/><Run Text="             \                      /"/><LineBreak/><Run Text="              \____________________/"/></TextBlock>
-        <Rectangle HorizontalAlignment="Left" Height="34" Margin="4,553,0,0" VerticalAlignment="Top" Width="647" Fill="#FF292929"/>
-        <TextBlock x:Name="TextBlock_Hygiene" HorizontalAlignment="Left" Margin="113,553,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="33" Width="69" Foreground="White" FontSize="24"/>
-        <TextBlock x:Name="Textblock_Mood" HorizontalAlignment="Left" Margin="580,553,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="33" Width="65" Foreground="White" FontSize="24" RenderTransformOrigin="0.727,0.488"/>
-        <TextBlock x:Name="TextBlock_Hunger" HorizontalAlignment="Left" Margin="350,553,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="33" Width="55" Foreground="White" FontSize="24"/>
-        <Label x:Name="Label_Mood" Content="MOOD:" HorizontalAlignment="Left" Margin="503,552,0,0" VerticalAlignment="Top" Height="33" Width="80" FontSize="20" Foreground="White"/>
-        <Label x:Name="Label_Hunger" Content="HUNGER:" HorizontalAlignment="Left" Margin="252,552,0,0" VerticalAlignment="Top" Height="37" Width="101" FontSize="20" Foreground="White"/>
-        <Label x:Name="Label_Hygiene1" Content="HYGIENE:" HorizontalAlignment="Left" Margin="15,553,0,0" VerticalAlignment="Top" Height="36" Width="95" FontSize="20" Foreground="White"/>
+            </TextBlock.Background>
+            <Run Text=""/><LineBreak/><Run/><LineBreak/><Run Text="                 ________________"/><LineBreak/><Run Text="                /          |,,,| \"/><LineBreak/><Run Text="               /           \___/  \"/><LineBreak/><Run Text="              /                    \"/><LineBreak/><Run Text="             /     __               \"/><LineBreak/><Run Text="            /     /,,\               \"/><LineBreak/><Run Text="           /     /,,,,|               \"/><LineBreak/><Run Text="          |     |,,,,/                 |"/><LineBreak/><Run Text="          |      \__/                  |"/><LineBreak/><Run Text="          |                            |"/><LineBreak/><Run Text="           \               ___        /"/><LineBreak/><Run Text="            \              |_|       /"/><LineBreak/><Run Text="             \                      /"/><LineBreak/><Run Text="              \____________________/"/>
+        </TextBlock>
+
+        <!--Status Bar-->
+        <Rectangle x:Name="statusBarRectangle" Grid.Column="1" Grid.Row="5" Fill="#FF292929"/>
+        <DockPanel Grid.Column="1" Grid.Row="5" LastChildFill="False">
+            <TextBlock x:Name="moodLabelTextBlock" Text="Mood:" Margin="10,10,5,10"/>
+            <TextBlock x:Name="moodTextBlock" Text="0" Margin="0,10,10,10"/>
+            <TextBlock x:Name="hungerLabelTextBlock" Text="Hunger:" Margin="0,10,5,10"/>
+            <TextBlock x:Name="hungerTextBlock" Text="0" Margin="0,10,10,10"/>
+            <TextBlock x:Name="hygieneLabelTextBlock" Text="Hygiene:" Margin="0,10,5,10"/>
+            <TextBlock x:Name="hygieneTextBlock" Text="0" Margin="0,10,10,10"/>
+        </DockPanel>
+
+        <!--Output Display-->
+        <Border x:Name="outputBorder" Grid.Column="1" Grid.Row="6" Panel.ZIndex="1" Grid.RowSpan="2" BorderThickness="10,0,10,10" 
+                BorderBrush="#FF292929"/>
+        <TextBlock x:Name="outputTextbox" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" Margin="15"
+                   Text=">> This is example text."/>
+
+        <!--Button Interactions-->
+        <Border x:Name="interactionBorder" Grid.Column="2" Grid.Row="1" Grid.RowSpan="7" BorderThickness="10" 
+                BorderBrush="#FF343232" Grid.ColumnSpan="2"/>
+        <Button x:Name="playButton" Grid.Column="2" Grid.Row="1" Content="Play" Margin="10,15" 
+                DockPanel.Dock="Top" MinHeight="50" Background="#FF7C7C7C" Foreground="White" Grid.ColumnSpan="2"/>
+        <Button x:Name="cleanButton" Grid.Column="2" Grid.Row="2" Content="Clean" Margin="10,15" 
+                DockPanel.Dock="Top" MinHeight="50" Background="#FF7C7C7C" Foreground="White" Grid.ColumnSpan="2"/>
+        <Button x:Name="feedButton" Grid.Column="2" Grid.Row="3" Content="Feed" Margin="10,15" 
+                DockPanel.Dock="Top" MinHeight="50" Background="#FF7C7C7C" Foreground="White" Grid.ColumnSpan="2"/>
+        <Button x:Name="danceButton" Grid.Column="2" Grid.Row="4" Content="Dance" Margin="10,15" 
+                DockPanel.Dock="Top" MinHeight="50" Background="#FF7C7C7C" Foreground="White" Grid.ColumnSpan="2"/>
+        
+        <!--Settings Area-->
+        <Button x:Name="settingsButton" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                Margin="10,0,10,10" Background="{x:Null}" BorderBrush="{x:Null}" Click="settingsButton_Click">
+            <Image Source="Images/settings_icon.png"/>
+        </Button>
+
     </Grid>
 </Window>
