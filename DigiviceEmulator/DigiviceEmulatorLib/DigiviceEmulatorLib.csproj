@@ -46,6 +46,7 @@
     <Compile Include="EmailOps.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityOps.cs" />
     <Compile Include="TimeOps.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
