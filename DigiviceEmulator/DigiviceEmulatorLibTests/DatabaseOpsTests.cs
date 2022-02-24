@@ -12,20 +12,21 @@ namespace DigiviceEmulatorLib.Tests
 	[TestClass()]
 	public class DatabaseOpsTests
 	{
-		public static string DatabasePath { get; } = @"../../UnitTests.db";
 		public static User User { get; set; } = new User("testEmail", "testHash");
 
 		[TestMethod()]
 		public void OpenConnectionTest()
 		{
-			Assert.IsTrue(DatabaseOps.OpenConnection(DatabasePath));
+			DatabaseOps.DatabasePath = @"../../UnitTests.db";
+			Assert.IsTrue(DatabaseOps.OpenConnection());
 			DatabaseOps.CloseConnection();
 		}
 
 		[TestMethod()]
 		public void CloseConnectionTest()
 		{
-			if (DatabaseOps.OpenConnection(DatabasePath))
+			DatabaseOps.DatabasePath = @"../../UnitTests.db";
+			if (DatabaseOps.OpenConnection())
 			{
 				Assert.IsTrue(DatabaseOps.CloseConnection());
 			}
@@ -34,7 +35,8 @@ namespace DigiviceEmulatorLib.Tests
 		[TestMethod()]
 		public void CreateUserTest()
 		{
-			if (DatabaseOps.OpenConnection(DatabasePath))
+			DatabaseOps.DatabasePath = @"../../UnitTests.db";
+			if (DatabaseOps.OpenConnection())
 			{
 				Assert.IsTrue(DatabaseOps.CreateUser(User));
 				DatabaseOps.DeleteUser(User);
@@ -45,7 +47,8 @@ namespace DigiviceEmulatorLib.Tests
 		[TestMethod()]
 		public void UpdateUserTest()
 		{
-			if (DatabaseOps.OpenConnection(DatabasePath))
+			DatabaseOps.DatabasePath = @"../../UnitTests.db";
+			if (DatabaseOps.OpenConnection())
 			{
 				DatabaseOps.CreateUser(User);
 				User.PasswordHash = "newHash";
@@ -58,7 +61,8 @@ namespace DigiviceEmulatorLib.Tests
 		[TestMethod()]
 		public void DeleteUserTest()
 		{
-			if (DatabaseOps.OpenConnection(DatabasePath))
+			DatabaseOps.DatabasePath = @"../../UnitTests.db";
+			if (DatabaseOps.OpenConnection())
 			{
 				DatabaseOps.CreateUser(User);
 				Assert.IsTrue(DatabaseOps.DeleteUser(User));
@@ -69,10 +73,11 @@ namespace DigiviceEmulatorLib.Tests
 		[TestMethod()]
 		public void GetPasswordHashTest()
 		{
-			if (DatabaseOps.OpenConnection(DatabasePath))
+			DatabaseOps.DatabasePath = @"../../UnitTests.db";
+			if (DatabaseOps.OpenConnection())
 			{
 				DatabaseOps.CreateUser(User);
-				string passwordHash = DatabaseOps.GetPasswordHash(User);
+				string passwordHash = DatabaseOps.GetPasswordHash(User.Email);
 				Assert.AreEqual(passwordHash, "testHash");
 				DatabaseOps.DeleteUser(User);
 				DatabaseOps.CloseConnection();
