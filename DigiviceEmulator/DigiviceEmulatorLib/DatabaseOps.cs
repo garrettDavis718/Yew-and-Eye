@@ -22,9 +22,9 @@ namespace DigiviceEmulatorLib
 		/// <param name="databasePath">path to database, used for creating
 		/// connection string.</param>
 		/// <returns>true if successful. false otherwise.</returns>
-		public static bool OpenConnection(string databasePath)
+		public static bool OpenConnection()
 		{
-			string connectionString = $"Data Source={Path.GetFullPath(databasePath)}";
+			string connectionString = $"Data Source={Path.GetFullPath(DatabasePath)}";
 			Connection = new SQLiteConnection(connectionString);
 			Connection.Open();
 			return Connection.State is ConnectionState.Open;
@@ -85,10 +85,10 @@ namespace DigiviceEmulatorLib
 		/// </summary>
 		/// <param name="email">email address associated with user.</param>
 		/// <returns>password hash associated with user.</returns>
-		public static string GetPasswordHash(User user)
+		public static string GetPasswordHash(string email)
 		{
 			string output = string.Empty;
-			string query = $"SELECT password_hash FROM user WHERE email = '{user.Email}'";
+			string query = $"SELECT password_hash FROM user WHERE email = '{email}';";
 			using (SQLiteDataReader dataReader = SelectQuery(query))
 			{
 				while (dataReader.Read())
@@ -192,6 +192,11 @@ namespace DigiviceEmulatorLib
 				return command.ExecuteReader();
 			}
 		}
+
+		/// <summary>
+		/// relative path to database.
+		/// </summary>
+		public static string DatabasePath { get; set; } = @"../../digivice.db";
 
 		/// <summary>
 		/// sql connection obj to be used in queries.
