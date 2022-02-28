@@ -79,19 +79,15 @@
   <ItemGroup>
     <Compile Include="DatabaseOps.cs" />
     <Compile Include="EmailOps.cs" />
-    <Compile Include="LoginOps.cs" />
-    <Compile Include="Plans.cs" />
+    <Compile Include="Controller.cs" />
+    <Compile Include="Objects\Plan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityOps.cs" />
-    <Compile Include="TimeOps.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Objects\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="UsersDB.db" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />

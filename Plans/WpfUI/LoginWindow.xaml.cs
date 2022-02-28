@@ -36,7 +36,7 @@ namespace WpfUI
             string email = EmailTextBox.Text;
             string password = PasswordTextBox.Password;
             User user = new User(email, password);
-            MessageBox.Show(System.IO.Path.GetFullPath(@"..\PlansLib\UsersDB.db"));
+            MessageBox.Show(System.IO.Path.GetFullPath(@"..\UserDB.db"));
 
             Controller.CreateUser(email, password);
             //DatabaseOps.OpenConnection(@"..\UsersDB.db");

@@ -9,7 +9,7 @@ namespace PlansLib
     /// <summary>
     /// class for plans
     /// </summary>
-    public class Plans
+    public class Plan
     {
         
     }

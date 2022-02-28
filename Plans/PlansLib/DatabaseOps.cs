@@ -23,7 +23,7 @@ namespace PlansLib
 		/// <returns>true if successful. false otherwise.</returns>
 		public static bool OpenConnection()
 		{
-			string connectionString = $"Data Source={DatabasePath}";
+			string connectionString = $"Data Source={GetDBPath()}";
 			Connection = new SQLiteConnection(connectionString);
 			Connection.Open();
 			return Connection.State is ConnectionState.Open;
@@ -193,9 +193,12 @@ namespace PlansLib
 			}
 		}
 		/// <summary>
-		/// Database path string, needs to be setup to work from any machine
+		/// Database path string, return string path for db file
 		/// </summary>
-		private static string DatabasePath = @"C:\Users\garre\Documents\GitHub\Yew-and-Eye\Plans\PlansLib\UsersDB.db";
+		public static string GetDBPath()
+		{
+			return Path.GetFullPath(@"..\UserDB.db");			
+		}
 		/// <summary>
 		/// sql connection obj to be used in queries.
 		/// </summary>
