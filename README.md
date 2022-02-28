@@ -1,4 +1,4 @@
-# DigiiTrade
+# Yew & Eye Software
 
 ## this should be updated and polished as projects are developed.
 
