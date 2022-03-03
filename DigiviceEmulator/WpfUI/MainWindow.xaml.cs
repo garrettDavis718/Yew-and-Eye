@@ -23,6 +23,11 @@ namespace WpfUI
 		public MainWindow()
 		{
 			InitializeComponent();
-		}
-	}
+
+			// Hardcoded varaibles to make sure wpf form works and shows up in the fields
+			DigiNameLabel.Content = "Testing";
+            DigiMoodLabel.Content = "Happy";
+			DigiHealthLabel.Content = 100+"/"+100;
+        }
+    }
 }

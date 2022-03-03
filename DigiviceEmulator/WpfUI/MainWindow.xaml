@@ -6,7 +6,14 @@
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid x:Name="mood">
+        <TextBox x:Name="Digi_pet" HorizontalAlignment="Left" Height="252" Margin="32,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" Text="Digi-pet goes here"/>
+        <Label x:Name="DigiMood" Content="Mood:" HorizontalAlignment="Left" Height="35" Margin="405,72,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label x:Name="DigiMoodLabel" Content="" HorizontalAlignment="Left" Height="35" Margin="457,72,0,0" VerticalAlignment="Top" Width="167"/>
+        <Label x:Name="DigiHealth" Content="Health: " HorizontalAlignment="Left" Height="35" Margin="405,151,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label x:Name="DigiHealthLabel" Content="" HorizontalAlignment="Left" Height="35" Margin="457,151,0,0" VerticalAlignment="Top" Width="167"/>
+        <Button x:Name="DigiFeedBtn" Content="Feed your Digi-pet" HorizontalAlignment="Left" Height="73" Margin="95,308,0,0" VerticalAlignment="Top" Width="230"/>
+        <Label x:Name="DigiName" Content="Name:" HorizontalAlignment="Left" Height="35" Margin="405,25,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label x:Name="DigiNameLabel" Content="" HorizontalAlignment="Left" Height="35" Margin="452,25,0,0" VerticalAlignment="Top" Width="167"/>
     </Grid>
 </Window>
