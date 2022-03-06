@@ -45,12 +45,44 @@ namespace DigiviceEmulatorLib
 		/// <summary>
 		/// current level of health of monster. (higher is better.)
 		/// </summary>
-		public int Health { get; set; }
+		public int Health 
+		{
+			get { return Health; }
+			set
+			{
+				if (value > 100) { Health = 100; }
+				else if (value < 0) { Health = 0; }
+				else { Health = value; }
+			}
+		}
 
 		/// <summary>
 		/// current mood of monster. (higher is better.)
 		/// </summary>
-		public int Mood { get; set; }
+		public int Mood
+		{
+			get { return Mood; }
+			set
+			{
+				if (value > 100) { Mood = 100; }
+				else if (value < 0) { Mood = 0; }
+				else { Mood = value; }
+			}
+		}
+
+		/// <summary>
+		/// current hunger of monster. (lower is better.)
+		/// </summary>
+		public int Hunger
+		{
+			get { return Hunger; }
+			set
+			{
+				if (value > 100) { Hunger = 100; }
+				else if (value < 0) { Hunger = 0; }
+				else { Hunger = value; }
+			}
+		}
 
 		/// <summary>
 		/// date and time of monsters birth.
