@@ -16,7 +16,7 @@
         <PasswordBox x:Name="PasswordTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,0,29,0"  Background="#FF79DEA9"  VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
         <Label x:Name="EmailLbl" Content="Email:" HorizontalAlignment="Left" Height="28" Margin="39,133,0,0" VerticalAlignment="Top" Width="51" FontSize="12"/>
         <Label x:Name="PasswordLbl" Content="Password:" HorizontalAlignment="Left" Height="28" Margin="22,0,0,0" VerticalAlignment="Center" Width="63" FontSize="12"/>
-        <Button Content="Login" HorizontalAlignment="Center" Height="28" Margin="0,290,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click"/>
-        <Button Content="Create New User" HorizontalAlignment="Center" Height="28" Margin="0,334,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click"/>
+        <Button Content="Login" HorizontalAlignment="Center" Height="28" Margin="0,290,0,0" VerticalAlignment="Top" Width="70" Click="Login_Button_Click"/>
+        <Button Content="Create New User" HorizontalAlignment="Center" Height="28" Margin="0,334,0,0" VerticalAlignment="Top" Width="124" Click="Create_User_Button_Click"/>
     </Grid>
 </Window>

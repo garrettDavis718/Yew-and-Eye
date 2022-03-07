@@ -31,17 +31,26 @@ namespace WpfUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
             string email = EmailTextBox.Text;
             string password = PasswordTextBox.Password;
             User user = new User(email, password);
-            MessageBox.Show(System.IO.Path.GetFullPath(@"..\UserDB.db"));
+            MessageBox.Show(SecurityOps.HashString(password));
+            MessageBox.Show(Controller.LoadUser(user).ToString());
 
-            Controller.CreateUser(email, password);
-            //DatabaseOps.OpenConnection(@"..\UsersDB.db");
+            
+            
             
         }
 
+        private void Create_User_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            CreateUserWindow createUserWindow= new CreateUserWindow();
+            this.Hide();
+            createUserWindow.ShowDialog();
+            
+        }
     }
 }

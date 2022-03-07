@@ -12,9 +12,9 @@
                 <DropShadowEffect Color="Black" ShadowDepth="5"/>
             </Label.Effect>
         </Label>
-        <TextBox x:Name="EmailTextBox" VerticalContentAlignment="Center"  Height="39" Margin="100,141,45,0" TextWrapping="Wrap" Background="#FF79DEA9" VerticalAlignment="Top" FontFamily="Cascadia Code" FontSize="13" BorderBrush="#FFB1B1B1"/>
-        <PasswordBox x:Name="PasswordTextBox" VerticalContentAlignment="Center"  Height="39" Margin="100,192,45,0"  Background="#FF79DEA9"  VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
-        <PasswordBox x:Name="PasswordTextBox_Copy" VerticalContentAlignment="Center"  Height="39" Margin="100,93,45,0"  Background="#FF79DEA9"  VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
+        <TextBox x:Name="CreateEmailBox" VerticalContentAlignment="Center"  Height="39" Margin="100,89,45,0" TextWrapping="Wrap" Background="#FF79DEA9" VerticalAlignment="Top" FontFamily="Cascadia Code" FontSize="13" BorderBrush="#FFB1B1B1"/>
+        <PasswordBox x:Name="CreatePassBox" VerticalContentAlignment="Center"  Height="40" Margin="100,141,45,0"  Background="#FF79DEA9"  VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
+        <PasswordBox x:Name="ConfirmCreatePassBox" VerticalContentAlignment="Center"  Height="39" Margin="100,196,45,0"  Background="#FF79DEA9"  VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
         <Button x:Name="CreateUserButton" Content="Create User" HorizontalAlignment="Center" Height="28" Margin="0,266,0,0" VerticalAlignment="Top" Width="124" Click="Create_Button_Click"/>
         <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Center" Height="28" Margin="0,317,0,0" VerticalAlignment="Top" Width="76" Click="Back_Button_Click"/>
         <Label Content="Email:" HorizontalAlignment="Left" Height="30" Margin="33,93,0,0" VerticalAlignment="Top" Width="62"/>

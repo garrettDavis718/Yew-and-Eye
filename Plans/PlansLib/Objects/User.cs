@@ -16,10 +16,10 @@ namespace PlansLib
 		/// </summary>
 		/// <param name="email">email address associated with user.</param>
 		/// <param name="passwordHash">password hash associated with user.</param>
-		public User (string email, string passwordHash)
+		public User (string email, string password)
 		{
 			Email = email;
-			PasswordHash = passwordHash;
+			PasswordHash = SecurityOps.HashString(password);
 		}
 
 		/// <summary>

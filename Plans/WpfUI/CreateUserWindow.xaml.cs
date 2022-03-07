@@ -1,4 +1,5 @@
 ﻿using System;
+using PlansLib;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,15 +25,36 @@ namespace WpfUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Method for the Create New User Button, currently has some messageBoxes attached for testing purposes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Create_Button_Click(object sender, RoutedEventArgs e)
         {
-            //Check if user exists already,
+            User newUser = new User(CreateEmailBox.Text,
+                                    CreatePassBox.Password);
+            if (Controller.CreateUser(newUser))
+            {
+                MessageBox.Show("User " + newUser.Email);
+            }
+            else
+            {
+                MessageBox.Show("Cannot Create User");
+            }
 
         }
 
+        /// <summary>
+        /// Back Button method, takes user back to login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow loginWindow = new LoginWindow();
+            this.Hide();
+            loginWindow.ShowDialog();
         }
     }
 }

@@ -17,16 +17,23 @@ namespace PlansLib
 		/// <param name="email"></param>
 		/// <param name="password"></param>
 		/// <returns></returns>
-		public static bool CreateUser(string email, string password)
+		public static bool CreateUser(User user)
 		{
-			string passwordHash = SecurityOps.HashString(password);
+			string passwordHash = SecurityOps.HashString(user.PasswordHash);
 
 			if (DatabaseOps.OpenConnection())
 			{
-				bool result = DatabaseOps.CreateUser(new User(email,
-															  passwordHash));
-				DatabaseOps.CloseConnection();
-				return result;
+				if (DatabaseOps.GetPasswordHash(user).Equals(string.Empty))
+				{
+					bool result = DatabaseOps.CreateUser(new User(user.Email,
+																  user.PasswordHash));
+					DatabaseOps.CloseConnection();
+					return result;
+				}
+				else
+				{
+					return false;
+				}
 			}
 			else
 			{
@@ -40,12 +47,22 @@ namespace PlansLib
 		/// <param name="email"></param>
 		/// <param name="password"></param>
 		/// <returns></returns>
-		public static void LoadUser(User user)
+		public static bool LoadUser(User user)
 		{
+			bool results = false;
+
 			if (DatabaseOps.OpenConnection())
 			{
 				string passwordHash = DatabaseOps.GetPasswordHash(user);
-			}
+				results = SecurityOps.VerifyHash(passwordHash, user.PasswordHash);
+
+				DatabaseOps.CloseConnection();
+
+            }
+			return results;
 		}
+
+
+
 	}
 }
