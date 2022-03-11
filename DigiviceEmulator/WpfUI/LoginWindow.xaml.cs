@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DigiviceEmulatorLib;
 
 namespace WpfUI
 {
@@ -24,14 +25,33 @@ namespace WpfUI
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            string email = emailTextBox.Text;
-            string password = passwordTextBox.Text;
-        }
-
         private void NewUserButton_Click(object sender, RoutedEventArgs e)
         {
+            CreateUserWindow createUserWindow = new CreateUserWindow();
+            this.Hide();
+            createUserWindow.ShowDialog();
+        }
+
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        {
+            string email = EmailTextBox.Text;
+            string password = PasswordTextBox.Password;
+            if (Controller.Login(email, password) == true)
+            {
+                MessageBox.Show("Logged in as " + email);
+            }
+            else
+            {
+                MessageBox.Show("Failed to login");
+            }
+        }
+
+        private void Create_User_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            CreateUserWindow createUserWindow = new CreateUserWindow();
+            this.Hide();
+            createUserWindow.ShowDialog();
 
         }
     }

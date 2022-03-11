@@ -39,9 +39,6 @@ namespace WpfUI
             MessageBox.Show(SecurityOps.HashString(password));
             MessageBox.Show(Controller.LoadUser(user).ToString());
 
-            
-            
-            
         }
 
         private void Create_User_Button_Click(object sender, RoutedEventArgs e)

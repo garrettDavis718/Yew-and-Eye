@@ -196,7 +196,7 @@ namespace DigiviceEmulatorLib
 		/// <summary>
 		/// relative path to database.
 		/// </summary>
-		public static string DatabasePath { get; set; } = @"../../digivice.db";
+		public static string DatabasePath { get; set; } = @"../../DigiviceDB.db";
 
 		/// <summary>
 		/// sql connection obj to be used in queries.

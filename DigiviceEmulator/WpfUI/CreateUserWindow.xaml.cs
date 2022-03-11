@@ -1,5 +1,4 @@
 ﻿using System;
-using PlansLib;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DigiviceEmulatorLib;
 
 namespace WpfUI
 {
@@ -32,13 +32,14 @@ namespace WpfUI
         /// <param name="e"></param>
         private void Create_Button_Click(object sender, RoutedEventArgs e)
         {
-            User newUser = new User(CreateEmailBox.Text,
-                                    CreatePassBox.Password);
+            string email = CreateEmailBox.Text;
+            string password = CreatePassBox.Password;
+
             if (CreatePassBox.Password == ConfirmCreatePassBox.Password)
             {
-                if (Controller.CreateUser(newUser))
+                if (Controller.CreateUser(email, password)) 
                 {
-                    MessageBox.Show("User " + newUser.Email);
+                    MessageBox.Show("User " + email);
                 }
                 else
                 {

@@ -25,6 +25,7 @@ namespace PlansLib
 			{
 				if (DatabaseOps.GetPasswordHash(user).Equals(string.Empty))
 				{
+					
 					bool result = DatabaseOps.CreateUser(new User(user.Email,
 																  user.PasswordHash));
 					DatabaseOps.CloseConnection();
@@ -55,10 +56,13 @@ namespace PlansLib
 			{
 				string passwordHash = DatabaseOps.GetPasswordHash(user);
 				results = SecurityOps.VerifyHash(passwordHash, user.PasswordHash);
-
 				DatabaseOps.CloseConnection();
 
-            }
+			}
+			else
+			{
+				results = false;
+			}
 			return results;
 		}
 
