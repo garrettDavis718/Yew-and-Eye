@@ -109,5 +109,10 @@ namespace DigiviceEmulatorLib
 			enteredHash = SecurityOps.HashString(password);
 			return SecurityOps.VerifyHash(enteredHash, storedHash);
 		}
+
+		/// <summary>
+		/// the user currently playing the game.
+		/// </summary>
+		public static User User { get; set; }
 	}
 }

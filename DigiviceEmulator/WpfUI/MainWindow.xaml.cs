@@ -25,22 +25,7 @@ namespace WpfUI
             InitializeComponent();
         }
 
-        private void quitButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void resetButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void danceButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void feedButton_Click(object sender, RoutedEventArgs e)
+        private void playButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -50,9 +35,24 @@ namespace WpfUI
 
         }
 
-        private void playButton_Click(object sender, RoutedEventArgs e)
+        private void feedButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void danceButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void quitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

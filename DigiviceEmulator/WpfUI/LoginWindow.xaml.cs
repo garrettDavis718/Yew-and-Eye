@@ -23,6 +23,7 @@ namespace WpfUI
         public LoginWindow()
         {
             InitializeComponent();
+
         }
 
         private void NewUserButton_Click(object sender, RoutedEventArgs e)
@@ -40,6 +41,8 @@ namespace WpfUI
             {
                 MessageBox.Show("Logged in as " + email);
                 MainWindow mainWindow = new MainWindow();
+                Controller.User.Email = email;
+                Controller.User.PasswordHash = SecurityOps.HashString(password);
                 this.Hide();
                 mainWindow.ShowDialog();
             }
@@ -51,11 +54,9 @@ namespace WpfUI
 
         private void Create_User_Button_Click(object sender, RoutedEventArgs e)
         {
-
             CreateUserWindow createUserWindow = new CreateUserWindow();
             this.Hide();
             createUserWindow.ShowDialog();
-
         }
     }
 }
