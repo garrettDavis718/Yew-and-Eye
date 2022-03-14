@@ -39,6 +39,9 @@ namespace WpfUI
             if (Controller.Login(email, password) == true)
             {
                 MessageBox.Show("Logged in as " + email);
+                MainWindow mainWindow = new MainWindow();
+                this.Hide();
+                mainWindow.ShowDialog();
             }
             else
             {
