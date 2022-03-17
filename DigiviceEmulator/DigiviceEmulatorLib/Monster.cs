@@ -11,6 +11,10 @@ namespace DigiviceEmulatorLib
 	/// </summary>
 	public class Monster
 	{
+		private int mood;
+		private int hygiene;
+		private int hunger;
+
 		/// <summary>
 		/// Monster object. 
 		/// </summary>
@@ -23,19 +27,26 @@ namespace DigiviceEmulatorLib
 					   AnimationSet animations,
 					   int health,
 					   int mood,
-					   DateTime dateOfBirth)
+					   int dateOfBirth)
 		{
 			Name = name;
 			Animations = animations;
-			Health = health;
 			Mood = mood;
 			DateOfBirth = dateOfBirth;
+		}
+
+		public Monster()
+		{
+			Name = "Empty";
+			Mood = 100;
+			Hygiene = 100;
+			Hunger = 0;
 		}
 
 		/// <summary>
 		/// user-given name.
 		/// </summary>
-		public string Name { get; }
+		public string Name { get; set; }
 
 		/// <summary>
 		/// animations for given monster.
@@ -43,30 +54,30 @@ namespace DigiviceEmulatorLib
 		public AnimationSet Animations { get; set; }
 
 		/// <summary>
-		/// current level of health of monster. (higher is better.)
-		/// </summary>
-		public int Health 
-		{
-			get { return Health; }
-			set
-			{
-				if (value > 100) { Health = 100; }
-				else if (value < 0) { Health = 0; }
-				else { Health = value; }
-			}
-		}
-
-		/// <summary>
 		/// current mood of monster. (higher is better.)
 		/// </summary>
 		public int Mood
 		{
-			get { return Mood; }
+			get { return mood; }
 			set
 			{
-				if (value > 100) { Mood = 100; }
-				else if (value < 0) { Mood = 0; }
-				else { Mood = value; }
+				if (value > 100) { mood = 100; }
+				else if (value < 0) { mood = 0; }
+				else { mood = value; }
+			}
+		}
+
+		/// <summary>
+		/// current hygiene of monster. (higher is better.)
+		/// </summary>
+		public int Hygiene
+		{
+			get { return hygiene; }
+			set
+			{
+				if (value > 100) { hygiene = 100; }
+				else if (value < 0) { hygiene = 0; }
+				else { hygiene = value; }
 			}
 		}
 
@@ -75,18 +86,20 @@ namespace DigiviceEmulatorLib
 		/// </summary>
 		public int Hunger
 		{
-			get { return Hunger; }
+			get { return hunger; }
 			set
 			{
-				if (value > 100) { Hunger = 100; }
-				else if (value < 0) { Hunger = 0; }
-				else { Hunger = value; }
+				if (value > 100) { hunger = 100; }
+				else if (value < 0) { hunger = 0; }
+				else { hunger = value; }
 			}
 		}
 
 		/// <summary>
 		/// date and time of monsters birth.
 		/// </summary>
-		public DateTime DateOfBirth { get; }
+		public int DateOfBirth { get; set; }
+
+		//TODO - turn this into datetime format later.
 	}
 }

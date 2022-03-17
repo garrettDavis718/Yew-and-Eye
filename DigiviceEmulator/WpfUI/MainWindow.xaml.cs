@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DigiviceEmulatorLib;
 
 namespace WpfUI
 {
@@ -23,24 +24,10 @@ namespace WpfUI
         public MainWindow()
         {
             InitializeComponent();
+            Controller.LoadMonster();       
         }
 
-        private void quitButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void resetButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void danceButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void feedButton_Click(object sender, RoutedEventArgs e)
+        private void playButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -50,9 +37,24 @@ namespace WpfUI
 
         }
 
-        private void playButton_Click(object sender, RoutedEventArgs e)
+        private void feedButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void danceButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void quitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

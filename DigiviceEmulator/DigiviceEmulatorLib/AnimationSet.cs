@@ -29,24 +29,32 @@ namespace DigiviceEmulatorLib
 			Dance = dance;
 		}
 
+		public AnimationSet()
+        {
+			Idle = new string[4] { "1", "2", "3", "4"};
+			Eat = new string[4] { "1", "2", "3", "4" };
+			Play = new string[4] { "1", "2", "3", "4" };
+			Dance = new string[4] { "1", "2", "3", "4" };
+		}
+
 		/// <summary>
 		/// idle animation.
 		/// </summary>
-		public string[] Idle { get; }
+		public string[] Idle { get; set; }
 
 		/// <summary>
 		/// eating animation.
 		/// </summary>
-		public string[] Eat { get; }
+		public string[] Eat { get; set; }
 
 		/// <summary>
 		/// playing animation.
 		/// </summary>
-		public string[] Play { get; }
+		public string[] Play { get; set; }
 
 		/// <summary>
 		/// dancing animation.
 		/// </summary>
-		public string[] Dance { get; }
+		public string[] Dance { get; set; }
 	}
 }
