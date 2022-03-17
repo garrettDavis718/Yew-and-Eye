@@ -99,6 +99,55 @@ namespace DigiviceEmulatorLib
 			return output;
 		}
 
+		public static Monster GetUserMonster(User user)
+        {
+			string query = $"SELECT owned_digimon_id, digimon_name, digimon_mood, digimon_hygiene, digimon_hunger, digimon_dob " +
+						   $"FROM user WHERE email = '{user.Email}';";
+			int monsterid = 0;
+			Monster monster = new Monster();
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+			// Getting all basic stats on monster here
+				while (dataReader.Read())
+				{
+					monsterid = dataReader.GetInt32(0);
+					monster.Name = dataReader.GetString(1);
+					monster.Mood = dataReader.GetInt32(2);
+					monster.Hygiene = dataReader.GetInt32(3);
+					monster.Hunger = dataReader.GetInt32(4);
+					monster.DateOfBirth = dataReader.GetInt32(5);
+				}
+			}
+
+			//Getting the animations for the monster here
+			query = $"SELECT * " +
+					$"FROM animations " +
+					$"WHERE digimon_id ='{monsterid}';";
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+				string[][] animations = new string[4][];
+				while (dataReader.Read())
+				{
+					int reader = 1;
+					for (int i = 0; i < 4; i++)
+                    {
+						string[] temp = new string[4];
+						temp[0] = dataReader.GetString(reader);
+						temp[0] = dataReader.GetString(reader+1);
+						temp[0] = dataReader.GetString(reader+2);
+						temp[0] = dataReader.GetString(reader+3);
+						reader += 4;
+						animations[i] = temp;
+					}
+				}
+				monster.Animations = new AnimationSet(animations[0],
+													  animations[1],
+													  animations[2],
+													  animations[3]);
+			}
+			return monster;
+		}
+
 		/// <summary>
 		/// execute update query on database. 
 		/// </summary>

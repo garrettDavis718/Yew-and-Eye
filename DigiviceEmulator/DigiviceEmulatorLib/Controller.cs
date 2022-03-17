@@ -111,8 +111,34 @@ namespace DigiviceEmulatorLib
 		}
 
 		/// <summary>
-		/// the user currently playing the game.
+		/// loads the user's monster into game based on email & password. 
 		/// </summary>
-		public static User User { get; set; }
+		/// <param name="email">email associated with user.</param>
+		/// <returns>true if user is authorized, false otherwise.</returns>
+		public static bool LoadMonster()
+        {
+			if (DatabaseOps.OpenConnection())
+            {
+				monster = DatabaseOps.GetUserMonster(user);
+            }
+            else
+            {
+				return false;
+            }
+
+			return true;
+        }
+
+
+		/// <summary>
+		/// the current monster in the game.
+		/// </summary>
+		public static Monster monster { get; set; }
+
+
+		/// <summary>
+		/// the current user in the game.
+		/// </summary>
+		public static User user { get; set; }
 	}
 }

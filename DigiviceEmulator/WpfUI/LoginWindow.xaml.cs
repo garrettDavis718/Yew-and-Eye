@@ -39,10 +39,9 @@ namespace WpfUI
             string password = PasswordTextBox.Password;
             if (Controller.Login(email, password) == true)
             {
-                MessageBox.Show("Logged in as " + email);
+                MessageBox.Show("Logged in as " + email);          
+                Controller.user = new User(email, SecurityOps.HashString(password));
                 MainWindow mainWindow = new MainWindow();
-                Controller.User.Email = email;
-                Controller.User.PasswordHash = SecurityOps.HashString(password);
                 this.Hide();
                 mainWindow.ShowDialog();
             }

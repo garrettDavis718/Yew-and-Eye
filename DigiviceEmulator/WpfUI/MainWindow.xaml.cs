@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DigiviceEmulatorLib;
 
 namespace WpfUI
 {
@@ -23,6 +24,7 @@ namespace WpfUI
         public MainWindow()
         {
             InitializeComponent();
+            Controller.LoadMonster();       
         }
 
         private void playButton_Click(object sender, RoutedEventArgs e)

@@ -22,6 +22,12 @@ namespace DigiviceEmulatorLib
 			PasswordHash = passwordHash;
 		}
 
+		public User()
+		{
+			Email = "none";
+			PasswordHash = "none";
+		}
+
 		/// <summary>
 		/// email address associated with user.
 		/// </summary>
