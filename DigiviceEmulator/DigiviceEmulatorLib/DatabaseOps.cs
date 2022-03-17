@@ -99,6 +99,11 @@ namespace DigiviceEmulatorLib
 			return output;
 		}
 
+		/// <summary>
+		/// loads the users monster into the controller area of the game.
+		/// </summary>
+		/// <param name="user">the user currently playing the game.</param>
+		/// <returns>the monster to be used in game.</returns>
 		public static Monster GetUserMonster(User user)
         {
 			string query = $"SELECT owned_digimon_id, digimon_name, digimon_mood, digimon_hygiene, digimon_hunger, digimon_dob " +
