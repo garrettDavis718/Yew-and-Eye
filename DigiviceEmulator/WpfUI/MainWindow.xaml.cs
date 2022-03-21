@@ -23,8 +23,7 @@ namespace WpfUI
     {
         public MainWindow()
         {
-            InitializeComponent();
-            Controller.LoadMonster();       
+            InitializeComponent();     
         }
 
         private void playButton_Click(object sender, RoutedEventArgs e)

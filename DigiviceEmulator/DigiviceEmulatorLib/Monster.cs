@@ -16,7 +16,6 @@ namespace DigiviceEmulatorLib
 		/// <summary>
 		/// monster attributes. 
 		/// </summary>
-
 		public enum Attributes
 		{
 			name,
@@ -57,7 +56,7 @@ namespace DigiviceEmulatorLib
 		{
 			int maxValue = 100,
 				minValue = 0,
-			    restrictedInt;
+				restrictedInt;
 			if (input > maxValue)
 			{
 				restrictedInt = maxValue;
@@ -71,6 +70,7 @@ namespace DigiviceEmulatorLib
 				restrictedInt = input;
 			}
 			return restrictedInt;
+		}
 
 		/// <summary>
 		/// user-given name.
