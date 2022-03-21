@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,8 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using PlansLib;
-
+using DigiviceEmulatorLib;
 
 namespace WpfUI
 {
@@ -25,29 +23,39 @@ namespace WpfUI
         public LoginWindow()
         {
             InitializeComponent();
+
         }
-        /// <summary>
-        /// Login Button click event method. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
+        private void NewUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateUserWindow createUserWindow = new CreateUserWindow();
+            this.Hide();
+            createUserWindow.ShowDialog();
+        }
+
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
             string email = EmailTextBox.Text;
             string password = PasswordTextBox.Password;
-            User user = new User(email, password);
-            MessageBox.Show(SecurityOps.HashString(password));
-            MessageBox.Show(Controller.LoadUser(user).ToString());
-
+            if (Controller.Login(email, password) == true)
+            {
+                MessageBox.Show("Logged in as " + email);          
+                Controller.user = new User(email, SecurityOps.HashString(password));
+                MainWindow mainWindow = new MainWindow();
+                this.Hide();
+                mainWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Failed to login");
+            }
         }
 
         private void Create_User_Button_Click(object sender, RoutedEventArgs e)
         {
-
-            CreateUserWindow createUserWindow= new CreateUserWindow();
+            CreateUserWindow createUserWindow = new CreateUserWindow();
             this.Hide();
             createUserWindow.ShowDialog();
-            
         }
     }
 }

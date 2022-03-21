@@ -197,7 +197,7 @@ namespace PlansLib
 		/// </summary>
 		public static string GetDBPath()
 		{
-			return Path.GetFullPath(@"..\UserDB.db");			
+			return Path.GetFullPath(@"..\PlansDB.db");			
 		}
 		/// <summary>
 		/// sql connection obj to be used in queries.

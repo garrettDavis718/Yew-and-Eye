@@ -16,6 +16,7 @@ namespace DigiviceEmulatorLib
 		/// <summary>
 		/// monster attributes. 
 		/// </summary>
+
 		public enum Attributes
 		{
 			name,
@@ -70,7 +71,6 @@ namespace DigiviceEmulatorLib
 				restrictedInt = input;
 			}
 			return restrictedInt;
-		}
 
 		/// <summary>
 		/// user-given name.
@@ -173,7 +173,7 @@ namespace DigiviceEmulatorLib
 		}
 
 		/// <summary>
-		/// current level of health of monster. (higher is better.)
+		/// current mood of monster. (higher is better.)
 		/// </summary>
 		public static int Health
 		{
@@ -198,7 +198,7 @@ namespace DigiviceEmulatorLib
 		}
 
 		/// <summary>
-		/// current mood of monster. (higher is better.)
+		/// current hygiene of monster. (higher is better.)
 		/// </summary>
 		public static int Mood
 		{
