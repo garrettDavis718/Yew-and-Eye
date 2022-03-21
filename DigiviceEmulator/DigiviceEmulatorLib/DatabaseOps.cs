@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
 using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace DigiviceEmulatorLib
 {
@@ -78,6 +76,75 @@ namespace DigiviceEmulatorLib
 		{
 			string query = $"DELETE FROM user WHERE email = '{user.Email}' AND password_hash = '{user.PasswordHash}';";
 			return DeleteQuery(query) is 1;
+		}
+
+		/// <summary>
+		/// set monster attribute in db table. 
+		/// </summary>
+		/// <param name="attribute">monster attribute to set.</param>
+		/// <param name="value">value to insert into attribute.</param>
+		/// <returns>true if successful, false if not. </returns>
+		public static bool SetMonsterAttribute(Monster.Attributes attribute, int value)
+		{
+			string query = $"UPDATE monster SET {attribute} = {value};";
+			return UpdateQuery(query) is 1;
+		}
+
+		/// <summary>
+		/// set monster attribute in db table. 
+		/// </summary>
+		/// <param name="attribute">monster attribute to set.</param>
+		/// <param name="value">value to insert into attribute.</param>
+		/// <returns>true if successful, false if not. </returns>
+		public static bool SetMonsterAttribute(Monster.Attributes attribute, string value)
+		{
+			string query = $"UPDATE monster SET {attribute} = '{value}';";
+			return UpdateQuery(query) is 1;
+		}
+
+		/// <summary>
+		/// set monster attribute in db table. 
+		/// </summary>
+		/// <param name="attribute">monster attribute to set.</param>
+		/// <param name="value">value to insert into attribute.</param>
+		/// <returns>true if successful, false if not. </returns>
+		public static bool SetMonsterAttribute(Monster.Attributes attribute, DateTime value)
+		{
+			string query = $"UPDATE monster SET {attribute} = '{value}';";
+			return UpdateQuery(query) is 1;
+		}
+
+		/// <summary>
+		/// get monster attribute from db table.
+		/// </summary>
+		/// <typeparam name="T">int, string, or DateTime.</typeparam>
+		/// <param name="attribute">monster attribute to get.</param>
+		/// <returns>attribute as text, int, or DateTime.</returns>
+		public static dynamic GetMonsterAttribute<T>(Monster.Attributes attribute)
+		{
+			string query = $"SELECT {attribute} FROM monster;";
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+				if (dataReader.Read())
+				{
+					if ((int)attribute < 2)
+					{
+						return dataReader.GetString(0);
+					}
+					else if ((int)attribute < 7)
+					{
+						return dataReader.GetInt32(0);
+					}
+					else
+					{
+						return DateTime.Parse(dataReader.GetString(0));
+					}
+				}
+				else
+				{
+					return "RECORD NOT FOUND.";
+				}
+			}
 		}
 
 		/// <summary>

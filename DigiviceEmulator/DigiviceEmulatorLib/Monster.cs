@@ -3,103 +3,273 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace DigiviceEmulatorLib
 {
 	/// <summary>
-	/// monster object.
+	/// monster class.
 	/// </summary>
-	public class Monster
+	public static class Monster
 	{
-		private int mood;
-		private int hygiene;
-		private int hunger;
+		/// <summary>
+		/// monster attributes. 
+		/// </summary>
+
+		public enum Attributes
+		{
+			name,
+			animation,
+			type,
+			state,
+			health,
+			mood,
+			hygiene,
+			date_of_birth,
+		}
 
 		/// <summary>
-		/// Monster object. 
+		/// monster types. corresponds to bestiary entries.
 		/// </summary>
-		/// <param name="name">user-given name.</param>
-		/// <param name="animations">animations for given monster.</param>
-		/// <param name="health">current level of health of monster. (higher is better.)</param>
-		/// <param name="mood">current mood of monster. (higher is better.)</param>
-		/// <param name="dateOfBirth">date and time of monsters birth.</param>
-		public Monster(string name,
-					   AnimationSet animations,
-					   int health,
-					   int mood,
-					   int dateOfBirth)
+		public enum Types
 		{
-			Name = name;
-			Animations = animations;
-			Mood = mood;
-			DateOfBirth = dateOfBirth;
+			Faunamon,
 		}
 
-		public Monster()
+		/// <summary>
+		/// state of monster. used by animation classes. 
+		/// </summary>
+		public enum States
 		{
-			Name = "Empty";
-			Mood = 100;
-			Hygiene = 100;
-			Hunger = 0;
+			idle,
+			eating,
+			playing,
+			dancing
 		}
+
+		/// <summary>
+		/// restrict input to between 2 numbers. 
+		/// </summary>
+		/// <param name="input">input to be evaluated.</param>
+		/// <returns>returns input restricted between min and max values.</returns>
+		private static int RestrictInputRange(int input)
+		{
+			int maxValue = 100,
+				minValue = 0,
+			    restrictedInt;
+			if (input > maxValue)
+			{
+				restrictedInt = maxValue;
+			}
+			else if (input < minValue)
+			{
+				restrictedInt = minValue;
+			}
+			else
+			{
+				restrictedInt = input;
+			}
+			return restrictedInt;
 
 		/// <summary>
 		/// user-given name.
 		/// </summary>
-		public string Name { get; set; }
+		public static string Name
+		{
+			get 
+			{
+				string val = "";
+				if (DatabaseOps.OpenConnection())
+				{
+					val = DatabaseOps.GetMonsterAttribute<string>(Monster.Attributes.name);
+					DatabaseOps.CloseConnection();
+				}
+				return val; 
+			}
+			set 
+			{ 
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.name, value);
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
 
 		/// <summary>
 		/// animations for given monster.
 		/// </summary>
-		public AnimationSet Animations { get; set; }
+		public static AnimationSet Animations
+		{
+			get
+			{
+				AnimationSet val = null;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = JsonSerializer.Deserialize<AnimationSet>(DatabaseOps.GetMonsterAttribute<string>(Monster.Attributes.animation));
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.animation, JsonSerializer.Serialize(value));
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
+
+		/// <summary>
+		/// type of monster. corresponds to bestiary entries.
+		/// </summary>
+		public static Types Type
+		{
+			get
+			{
+				Types val = 0;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = (Monster.Types)DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.type);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.type, (int)value);
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
+
+		/// <summary>
+		/// current state of monster. used by animation classes.
+		/// </summary>
+		public static States State
+		{
+			get
+			{
+				States val = 0;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = (Monster.States)DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.state);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.state, (int)value);
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
 
 		/// <summary>
 		/// current mood of monster. (higher is better.)
 		/// </summary>
-		public int Mood
+		public static int Health
 		{
-			get { return mood; }
+			get
+			{
+				int val = 0;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.health);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
 			set
 			{
-				if (value > 100) { mood = 100; }
-				else if (value < 0) { mood = 0; }
-				else { mood = value; }
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.health, RestrictInputRange(value));
+					DatabaseOps.CloseConnection();
+				}
 			}
 		}
 
 		/// <summary>
 		/// current hygiene of monster. (higher is better.)
 		/// </summary>
-		public int Hygiene
+		public static int Mood
 		{
-			get { return hygiene; }
+			get
+			{
+				int val = 0;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.mood);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
 			set
 			{
-				if (value > 100) { hygiene = 100; }
-				else if (value < 0) { hygiene = 0; }
-				else { hygiene = value; }
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.mood, RestrictInputRange(value));
+					DatabaseOps.CloseConnection();
+				}
 			}
 		}
 
 		/// <summary>
-		/// current hunger of monster. (lower is better.)
+		/// current level of hygiene. (higher is better.)
 		/// </summary>
-		public int Hunger
+		public static int Hygiene
 		{
-			get { return hunger; }
+			get
+			{
+				int val = 0;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.hygiene);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
 			set
 			{
-				if (value > 100) { hunger = 100; }
-				else if (value < 0) { hunger = 0; }
-				else { hunger = value; }
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.hygiene, RestrictInputRange(value));
+					DatabaseOps.CloseConnection();
+				}
 			}
 		}
 
 		/// <summary>
 		/// date and time of monsters birth.
 		/// </summary>
-		public int DateOfBirth { get; set; }
-
-		//TODO - turn this into datetime format later.
+		public static DateTime DateOfBirth
+		{
+			get
+			{
+				DateTime val = DateTime.UtcNow;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = DatabaseOps.GetMonsterAttribute<DateTime>(Monster.Attributes.date_of_birth);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.date_of_birth, value);
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
 	}
 }
