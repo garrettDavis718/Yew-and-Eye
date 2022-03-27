@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfUI.MapsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="MapsWindow" Height="450" Width="800">
+    <Grid>
+        <m:Map CredentialsProvider="Akd_oh3Wgox4uknrbOWQh2hi2fyRdlsEa4GLl8Rn4kZtHEevMmDLbCCV-6P4puKJ" 
+               x:Name="PlansMap" Center="35.0527,-78.8784" ZoomLevel="16" Mode="AerialWithLabels" />
+        <m:Pushpin Location="35.0666,-78.9258"/>
+        <TextBox x:Name="searchBox" Margin="602,49,52,0" TextWrapping="Wrap" VerticalAlignment="Top" 
+                 RenderTransformOrigin="-0.796,1.004"/>
+        <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Margin="748,48,0,0" 
+                VerticalAlignment="Top" RenderTransformOrigin="-2.152,0.703" Width="52"/>
+
+
+
+    </Grid>
+</Window>
