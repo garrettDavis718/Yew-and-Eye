@@ -22,6 +22,7 @@ namespace WpfUI
     /// </summary>
     public partial class LoginWindow : Window
     {
+        
         public LoginWindow()
         {
             InitializeComponent();
@@ -38,16 +39,15 @@ namespace WpfUI
             User user = new User(email, password);
             MessageBox.Show(SecurityOps.HashString(password));
             MessageBox.Show(Controller.LoadUser(user).ToString());
-
         }
 
         private void Create_User_Button_Click(object sender, RoutedEventArgs e)
         {
 
-            CreateUserWindow createUserWindow= new CreateUserWindow();
+            CreateUserWindow createUserWindow = new CreateUserWindow();
             this.Hide();
             createUserWindow.ShowDialog();
-            
+
         }
     }
 }

@@ -24,6 +24,9 @@ namespace WpfUI
             InitializeComponent();
 
             PlansMap.Mode = new AerialMode(true);
+            //MapsWindow mapsWindows = new MapsWindow();
+            //this.Hide();
+            //mapsWindows.ShowDialog();
         }
 
 
