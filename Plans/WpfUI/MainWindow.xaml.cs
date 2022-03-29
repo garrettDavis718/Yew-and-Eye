@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PlansLib;
 
 namespace WpfUI
 {
@@ -20,9 +21,17 @@ namespace WpfUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public MainWindow()
+		public MainWindow(User user)
 		{
+				
 			InitializeComponent();
+			UserLbl.Content = user.FirstName + " " + user.LastName;
 		}
-	}
+
+        private void CreatePlansBtn_Click(object sender, RoutedEventArgs e)
+        {
+			MapsWindow mapsWindow = new MapsWindow();
+			mapsWindow.Show();
+        }
+    }
 }

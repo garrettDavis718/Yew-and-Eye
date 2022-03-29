@@ -39,6 +39,18 @@ namespace WpfUI
             User user = new User(email, password);
             MessageBox.Show(SecurityOps.HashString(password));
             MessageBox.Show(Controller.LoadUser(user).ToString());
+            
+            user = Controller.LoadUser(user);
+            if (user != null)
+            {
+                MainWindow mainWindow = new MainWindow(user);
+                this.Hide();
+                mainWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect username or password");
+            }
         }
 
         private void Create_User_Button_Click(object sender, RoutedEventArgs e)

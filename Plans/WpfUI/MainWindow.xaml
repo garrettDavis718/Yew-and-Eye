@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="453" Width="528" Background="#FF7EEDB3" WindowStartupLocation="CenterScreen">
+
     <Grid>
-        
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="49" Margin="0,58,0,0" VerticalAlignment="Top" Width="140" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="18">
+            <Label.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="5"/>
+            </Label.Effect>
+        </Label>
+        <Label x:Name="UserLbl" Content="Label" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" VerticalAlignment="Top" Width="76"/>
+        <ListBox x:Name="PlanBox" HorizontalAlignment="Center" Height="95" Margin="0,134,0,0" VerticalAlignment="Top" Width="434" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name="CreatePlansBtn" Content="Create Plan" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Height="47" Width="95" Click="CreatePlansBtn_Click"/>
+
     </Grid>
 </Window>

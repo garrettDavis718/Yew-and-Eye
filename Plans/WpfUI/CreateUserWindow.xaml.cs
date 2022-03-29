@@ -33,12 +33,17 @@ namespace WpfUI
         private void Create_Button_Click(object sender, RoutedEventArgs e)
         {
             User newUser = new User(CreateEmailBox.Text,
-                                    CreatePassBox.Password);
+                                    CreatePassBox.Password,
+                                    CreateFirstNameBox.Text,
+                                    CreateLastNameBox.Text);
             if (CreatePassBox.Password == ConfirmCreatePassBox.Password)
             {
                 if (Controller.CreateUser(newUser))
                 {
-                    MessageBox.Show("User " + newUser.Email);
+                    MessageBox.Show("User " + newUser.FirstName + " " + newUser.LastName + " created!");
+                    this.Hide();
+                    MainWindow mainWindow = new MainWindow(newUser);
+                    mainWindow.Show();
                 }
                 else
                 {
