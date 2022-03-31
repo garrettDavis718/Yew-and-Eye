@@ -2,9 +2,13 @@ Plans Instruction:
 
 1) Clone repo to your system
 
-2) copy the x86 and x64 folders to Plans > WpfUI > bin > Debug (fixes .dll error)
+2) Run program
+*if program is saying output type cannot be classlibrary,
+*change project startup options in solution properties
 
-3) Copy plansDb to Plans WpfUI > Bin
+3) copy the x86 and x64 folders to Plans > WpfUI > bin > Debug (fixes .dll error)
 
-4) If necessary, manage nuget packages of WpfUI solution and see if needs restored or if missing
+4) Copy plansDb to Plans WpfUI > Bin
+
+5) If necessary, manage nuget packages of WpfUI library and see if needs restored or if missing
 sqlite.data.core
