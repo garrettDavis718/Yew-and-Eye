@@ -1,0 +1,10 @@
+Plans Instruction: 
+
+1) Clone repo to your system
+
+2) copy the x86 and x64 folders to Plans > WpfUI > bin > Debug (fixes .dll error)
+
+3) Copy plansDb to Plans WpfUI > Bin
+
+4) If necessary, manage nuget packages of WpfUI solution and see if needs restored or if missing
+sqlite.data.core
