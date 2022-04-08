@@ -11,19 +11,7 @@ namespace PlansLib.Tests
     [TestClass()]
     public class DatabaseOpsTests
     {
-        [TestMethod()]
-        public void GetFirstNameTest(User user)
-        {
-            Assert.Fail();
-        }
+
     }
 }
 
-namespace PlansLibTests
-{
-    [TestClass()]
-    public class DatabaseOpsTests
-    {
-        
-    }
-}

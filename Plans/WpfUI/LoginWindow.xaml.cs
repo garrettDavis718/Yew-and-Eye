@@ -36,13 +36,12 @@ namespace WpfUI
         {
             string email = EmailTextBox.Text;
             string password = PasswordTextBox.Password;
-            User user = new User(email, password);
-            MessageBox.Show(SecurityOps.HashString(password));
-            MessageBox.Show(Controller.LoadUser(user).ToString());
+            User user = new User(email, password); 
             
             user = Controller.LoadUser(user);
             if (user != null)
             {
+                MessageBox.Show(Controller.LoadUser(user).ToString());
                 MainWindow mainWindow = new MainWindow(user);
                 this.Hide();
                 mainWindow.Show();

@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUI", "WpfUI\WpfUI.csproj", "{44E92D73-E9B8-4F26-B15F-FE42BDF2FA10}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E09142E-7576-4837-B570-297B97CB7B3D}"
+	ProjectSection(SolutionItems) = preProject
+		PlansMaps\RESTandWPFwithXML\MainWindow.xaml = PlansMaps\RESTandWPFwithXML\MainWindow.xaml
+		PlansMaps\RESTandWPFwithXML\MainWindow.xaml.cs = PlansMaps\RESTandWPFwithXML\MainWindow.xaml.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
