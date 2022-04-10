@@ -42,12 +42,12 @@ namespace WpfUI
                 {
                     MessageBox.Show("User " + newUser.FirstName + " " + newUser.LastName + " created!");
                     this.Hide();
+
                     CreateUserProfile createUserProfile = new CreateUserProfile();
                     this.Hide();
                     createUserProfile.ShowDialog();
 
-                    MainWindow mainWindow = new MainWindow(newUser);
-                    mainWindow.Show();
+                    
                 }
                 else
                 {

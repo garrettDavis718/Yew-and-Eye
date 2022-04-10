@@ -26,21 +26,18 @@ namespace WpfUI
         {
             InitializeComponent();
 
-            //This will display the user input 
-            fNameLabel.Content = createProfile.FirstName;
-            lNameLabel.Content = createProfile.LastName;
-            ageLabel.Content = createProfile.Age;
+            //This will display the user's Profile
+            userNameLabel.Content = createProfile.FirstName + " " + createProfile.LastName + ", " + createProfile.Age;
             cityLabel.Content = createProfile.City;
-            bioLabel.Content = createProfile.Bio;
-
+            bioTextBlock.Text = createProfile.Bio;
         }
 
         private void welcomeToPlansButton_Click(object sender, RoutedEventArgs e)
         {
             User newUser = new User();
-           
-                MainWindow mainWindow = new MainWindow(newUser);
-                mainWindow.Show();
+            //This will display the main window when the welcome To Plans button is clicked 
+            MainWindow mainWindow = new MainWindow(newUser);
+            mainWindow.Show();
         }
 
 

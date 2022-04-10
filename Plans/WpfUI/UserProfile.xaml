@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="UserProfile" Height="1000" Width="800" >
+        Title="UserProfile" Height="700" Width="800" >
     <Grid Background="#FF7EEDB3" Margin="0,0,2,-1">
-        <Label Content="First Name:" HorizontalAlignment="Left" Margin="397,35,0,0" VerticalAlignment="Top"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="397,86,0,0" VerticalAlignment="Top" x:Name="fNameLabel" Height="31" Width="157" Background="White" BorderBrush="Black"/>
-        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="397,145,0,0" VerticalAlignment="Top"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="397,198,0,0" VerticalAlignment="Top" x:Name="lNameLabel" Height="31" Width="157" Background="White" BorderBrush="Black"/>
-        <Label Content="Age:" HorizontalAlignment="Left" Margin="397,255,0,0" VerticalAlignment="Top"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="397,313,0,0" VerticalAlignment="Top" x:Name="ageLabel" Height="31" Width="157" Background="White" BorderBrush="Black"/>
-        <Label Content="City:" HorizontalAlignment="Left" Margin="397,383,0,0" VerticalAlignment="Top"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="397,414,0,0" VerticalAlignment="Top" x:Name="cityLabel"  Height="31" Width="157" Background="White" BorderBrush="Black"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="397,497,0,0" VerticalAlignment="Top" x:Name="bioLabel" Height="137" Width="237" Background="White" BorderBrush="Black"/>
-        <Label Content="Bio:" HorizontalAlignment="Left" Margin="397,466,0,0" VerticalAlignment="Top"/>
-        <Button Content="Welcome To Plans!" HorizontalAlignment="Left" Margin="426,694,0,0" VerticalAlignment="Top" Width="128" x:Name="welcomeToPlansButton" Height="38" Click="welcomeToPlansButton_Click"/>
+        <Border >
+            <Grid Background="White" Height="500" Width="400" Margin="134,93,264,92" >
+                <Label Content="cityLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" x:Name="cityLabel"  Height="30" Width="92" BorderBrush="Black" FontFamily="Tahoma" FontSize="16"/>
+                <Button Content="Welcome To Plans!" HorizontalAlignment="Left" Margin="118,434,0,0" VerticalAlignment="Top" Width="128" x:Name="welcomeToPlansButton" Height="38" Click="welcomeToPlansButton_Click"/>
+                <Label x:Name="userNameLabel"  Content="Label" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" FontSize="18" Width="427" FontStretch="Medium" FontFamily="Tahoma" FontWeight="Bold" FontStyle="Normal" BorderBrush="#FF7EEDB3" BorderThickness="5"/>
+                <TextBlock x:Name="bioTextBlock" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="107" Width="304" />
+                <Label Content="About me:" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="164" Width="428" BorderBrush="#FF7EEDB3" BorderThickness="5" FontSize="16"/>
+                <Image HorizontalAlignment="Center" Height="147" VerticalAlignment="Top"  Width="400" Source="/download.jpg" Stretch="UniformToFill"/>
+            </Grid>
+        </Border>
+       
+
     </Grid>
 </Window>
 

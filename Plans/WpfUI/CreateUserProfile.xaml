@@ -5,21 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="CreateUserProfile" Height="1000" Width="800">
+        Title="CreateUserProfile" Height="700" Width="600">
     <Grid Background="#FF7EEDB3">
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="411,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="firstNameTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="411,277,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="lastNameTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="411,343,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="ageTextBox"/>
-        <Label Content="First Name:" HorizontalAlignment="Left" Margin="411,176,0,0" VerticalAlignment="Top"/>
-        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="411,251,0,0" VerticalAlignment="Top"/>
-        <Label Content="Age" HorizontalAlignment="Left" Margin="411,317,0,0" VerticalAlignment="Top"/>
-        <Label Content="City" HorizontalAlignment="Left" Margin="411,381,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="411,407,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="cityTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="244" Margin="411,490,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324" x:Name="bioTextBox"/>
-        <Label Content="Bio" HorizontalAlignment="Left" Margin="411,464,0,0" VerticalAlignment="Top"/>
-
-        <Label Content="Create Profile" HorizontalAlignment="Left" Margin="374,72,0,0" VerticalAlignment="Top" Height="99" Width="186"/>
-        <Button Content="Create Profile" HorizontalAlignment="Left" Margin="324,780,0,0" VerticalAlignment="Top" Width="75" Click="createProfileButton_Click" AutomationProperties.Name="createProfileButton"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,157,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="firstNameTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="lastNameTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,259,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="ageTextBox"/>
+        <Label Content="First Name:" HorizontalAlignment="Left" Margin="237,131,0,0" VerticalAlignment="Top"/>
+        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="237,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="Age" HorizontalAlignment="Left" Margin="237,233,0,0" VerticalAlignment="Top"/>
+        <Label Content="City" HorizontalAlignment="Left" Margin="237,284,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="cityTextBox"/>
+        <TextBox HorizontalAlignment="Center" Height="244" Margin="0,369,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324" x:Name="bioTextBox"/>
+        <Label Content="Bio" HorizontalAlignment="Left" Margin="138,342,0,0" VerticalAlignment="Top"/>
+        <Button Content="Create Profile" HorizontalAlignment="Left" Margin="253,634,0,0" VerticalAlignment="Top" Width="98" Click="createProfileButton_Click" AutomationProperties.Name="createProfileButton" Height="40" Background="#FF4A8F98"/>
+        <Image HorizontalAlignment="Center" Height="66" Margin="0,33,0,0" VerticalAlignment="Top" Width="600" Source="/download.jpg" Stretch="UniformToFill"/>
 
     </Grid>
 </Window>
