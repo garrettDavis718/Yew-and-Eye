@@ -95,6 +95,7 @@
     <Compile Include="DatabaseOps.cs" />
     <Compile Include="EmailOps.cs" />
     <Compile Include="Controller.cs" />
+    <Compile Include="Objects\CreateProfile.cs" />
     <Compile Include="Objects\Plan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityOps.cs" />
