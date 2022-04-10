@@ -38,17 +38,9 @@ namespace WpfUI
         private void welcomeToPlansButton_Click(object sender, RoutedEventArgs e)
         {
             User newUser = new User();
-            if (Controller.CreateUser(newUser))
-            {
-
-                
+           
                 MainWindow mainWindow = new MainWindow(newUser);
                 mainWindow.Show();
-            }
-            else
-            {
-                MessageBox.Show("Cannot Create User");
-            }
         }
 
 
