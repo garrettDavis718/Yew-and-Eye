@@ -18,24 +18,25 @@ using WpfUI.Properties;
 namespace WpfUI
 {
     /// <summary>
-    /// Interaction logic for UserProfile.xaml
+    /// Display the user's Profile
     /// </summary>
     public partial class UserProfile : Window
     {
+        //The object retrieves the data from the create profile class
         public UserProfile(CreateProfile createProfile)
         {
             InitializeComponent();
-
-            //This will display the user's Profile
+            
+            //the data store in the properties will display in the labels and textblock
             userNameLabel.Content = createProfile.FirstName + " " + createProfile.LastName + ", " + createProfile.Age;
             cityLabel.Content = createProfile.City;
             bioTextBlock.Text = createProfile.Bio;
         }
 
+        //This will display the main window when the welcome To Plans button is clicked 
         private void welcomeToPlansButton_Click(object sender, RoutedEventArgs e)
         {
             User newUser = new User();
-            //This will display the main window when the welcome To Plans button is clicked 
             MainWindow mainWindow = new MainWindow(newUser);
             mainWindow.Show();
         }
