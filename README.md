@@ -184,4 +184,4 @@ Project Link: [https://github.com/garrettDavis718/Yew-and-Eye](https://github.co
 [issues-shield]: https://img.shields.io/github/issues/garrettDavis718/Yew-and-Eye.svg?style=for-the-badge
 [issues-url]: https://github.com/garrettDavis718/Yew-and-Eye/issues
 [license-shield]: https://img.shields.io/github/license/garrettDavis718/Yew-and-Eye.svg?style=for-the-badge
-[license-url]: https://github.com/garrettDavis718/Yew-and-Eye/blob/master/LICENSE.txt
+[license-url]: https://github.com/garrettDavis718/Yew-and-Eye/blob/master/LICENSE
