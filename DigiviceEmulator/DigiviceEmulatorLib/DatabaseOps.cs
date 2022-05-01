@@ -46,39 +46,6 @@ namespace DigiviceEmulatorLib
 		}
 
 		/// <summary>
-		/// create entry in user table.
-		/// </summary>
-		/// <param name="user">user to be stored.</param>
-		/// <returns>true if successful, false otherwise.</returns>
-		public static bool CreateUser(User user)
-		{
-			string query = $"INSERT INTO user (email, password_hash) VALUES ('{user.Email}', '{user.PasswordHash}');";
-			return InsertQuery(query) is 1;
-		}
-
-		/// <summary>
-		/// update password in user table.
-		/// </summary>
-		/// <param name="user">user to be updated.</param>
-		/// <returns>true if successful, false otherwise.</returns>
-		public static bool UpdateUser(User user)
-		{
-			string query = $"UPDATE user SET password_hash = '{user.PasswordHash}' WHERE email = '{user.Email}';";
-			return UpdateQuery(query) is 1;
-		}
-
-		/// <summary>
-		/// delete entry from user table.
-		/// </summary>
-		/// <param name="user">user to be removed.</param>
-		/// <returns>true if successful, false otherwise.</returns>
-		public static bool DeleteUser(User user)
-		{
-			string query = $"DELETE FROM user WHERE email = '{user.Email}' AND password_hash = '{user.PasswordHash}';";
-			return DeleteQuery(query) is 1;
-		}
-
-		/// <summary>
 		/// set monster attribute in db table. 
 		/// </summary>
 		/// <param name="attribute">monster attribute to set.</param>
@@ -115,6 +82,18 @@ namespace DigiviceEmulatorLib
 		}
 
 		/// <summary>
+		/// set user attributes in db table. 
+		/// </summary>
+		/// <param name="attribute">user attribute to set.</param>
+		/// <param name="value">value to insert into attribute.</param>
+		/// <returns>true if successful, false if not.</returns>
+		public static bool SetUserAttribute(User.Attributes attribute, string value)
+		{
+			string query = $"UPDATE user SET {attribute} = '{value}';";
+			return UpdateQuery(query) is 1;
+		}
+
+		/// <summary>
 		/// get monster attribute from db table.
 		/// </summary>
 		/// <typeparam name="T">int, string, or DateTime.</typeparam>
@@ -131,7 +110,7 @@ namespace DigiviceEmulatorLib
 					{
 						return dataReader.GetString(0);
 					}
-					else if ((int)attribute < 7)
+					else if ((int)attribute < 10)
 					{
 						return dataReader.GetInt32(0);
 					}
@@ -148,14 +127,14 @@ namespace DigiviceEmulatorLib
 		}
 
 		/// <summary>
-		/// get password hash for selected user using email.
+		/// get user attribute from table.
 		/// </summary>
-		/// <param name="email">email address associated with user.</param>
-		/// <returns>password hash associated with user.</returns>
-		public static string GetPasswordHash(string email)
+		/// <param name="attribute">user attribute to get.</param>
+		/// <returns>attribute as text.</returns>
+		public static string GetUserAttribute(User.Attributes attribute)
 		{
 			string output = string.Empty;
-			string query = $"SELECT password_hash FROM user WHERE email = '{email}';";
+			string query = $"SELECT {attribute} FROM user";
 			using (SQLiteDataReader dataReader = SelectQuery(query))
 			{
 				while (dataReader.Read())

@@ -25,6 +25,9 @@ namespace DigiviceEmulatorLib
 			health,
 			mood,
 			hygiene,
+			health_increments,
+			mood_increments,
+			hygiene_increments,
 			date_of_birth,
 		}
 
@@ -242,6 +245,81 @@ namespace DigiviceEmulatorLib
 				if (DatabaseOps.OpenConnection())
 				{
 					DatabaseOps.SetMonsterAttribute(Monster.Attributes.hygiene, RestrictInputRange(value));
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
+
+		/// <summary>
+		/// total increments made to health.
+		/// </summary>
+		public static int HealthIncrements
+		{
+			get
+			{
+				int val = 0;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.health_increments);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.health_increments, value);
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
+
+		/// <summary>
+		/// total increments made to mood.
+		/// </summary>
+		public static int MoodIncrements
+		{
+			get
+			{
+				int val = 0;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.mood_increments);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.mood_increments, value);
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
+
+		/// <summary>
+		/// total increments made to hygiene. 
+		/// </summary>
+		public static int HygieneIncrements
+		{
+			get
+			{
+				int val = 0;
+				if (DatabaseOps.OpenConnection())
+				{
+					val = DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.hygiene_increments);
+					DatabaseOps.CloseConnection();
+				}
+				return val;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetMonsterAttribute(Monster.Attributes.hygiene_increments, value);
 					DatabaseOps.CloseConnection();
 				}
 			}

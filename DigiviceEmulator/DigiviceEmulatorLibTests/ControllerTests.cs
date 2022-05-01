@@ -12,46 +12,22 @@ namespace DigiviceEmulatorLib.Tests
 	public class ControllerTests
 	{
 		[TestMethod()]
-		public void CreateUserTest()
-		{
-			string email = "testEmail",
-				   password = "testPassword";
-			DatabaseOps.DatabasePath = @"../../UnitTests.db";
-			Assert.IsTrue(Controller.CreateUser(email, password));
-			Controller.DeleteUser(email, password);
-		}
-
-		[TestMethod()]
-		public void UpdatePasswordTest()
-		{
-			string email = "testEmail",
-				   password = "testPassword",
-				   newPassword = "newPassword";
-			DatabaseOps.DatabasePath = @"../../UnitTests.db";
-			Controller.CreateUser(email, password);
-			Assert.IsTrue(Controller.UpdatePassword(email, newPassword));
-			Controller.DeleteUser(email, newPassword);
-		}
-
-		[TestMethod()]
 		public void LoginTest()
 		{
 			string email = "testEmail",
-				   password = "testPassword";
+				   password = "testHash";
 			DatabaseOps.DatabasePath = @"../../UnitTests.db";
 			Controller.CreateUser(email, password);
 			Assert.IsTrue(Controller.Login(email, password));
-			Controller.DeleteUser(email, password);
 		}
 
 		[TestMethod()]
-		public void DeleteUserTest()
+		public void CreateUserTest()
 		{
 			string email = "testEmail",
-				   password = "testPassword";
+				   password = "testHash";
 			DatabaseOps.DatabasePath = @"../../UnitTests.db";
-			Controller.CreateUser(email, password);
-			Assert.IsTrue(Controller.DeleteUser(email, password));
+			Assert.IsTrue(Controller.CreateUser(email, password));
 		}
 	}
 }

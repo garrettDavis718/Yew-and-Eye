@@ -9,33 +9,65 @@ namespace DigiviceEmulatorLib
 	/// <summary>
 	/// object for users.
 	/// </summary>
-	public class User
+	public static class User
 	{
 		/// <summary>
-		/// object for users.
+		/// user attributes.
 		/// </summary>
-		/// <param name="email">email address associated with user.</param>
-		/// <param name="passwordHash">password hash associated with user.</param>
-		public User (string email, string passwordHash)
+		public enum Attributes
 		{
-			Email = email;
-			PasswordHash = passwordHash;
-		}
-
-		public User()
-		{
-			Email = "none";
-			PasswordHash = "none";
+			email,
+			password_hash,
 		}
 
 		/// <summary>
 		/// email address associated with user.
 		/// </summary>
-		public string Email { get; set; }
+		public static string Email
+		{
+			get
+			{
+				string output = null;
+				if (DatabaseOps.OpenConnection())
+				{
+					output = DatabaseOps.GetUserAttribute(User.Attributes.email);
+					DatabaseOps.CloseConnection();
+				}
+				return output;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetUserAttribute(User.Attributes.email, value);
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
 
 		/// <summary>
 		/// password hash associated with user.
 		/// </summary>
-		public string PasswordHash { get; set; }
+		public static string PasswordHash
+		{
+			get
+			{
+				string output = null;
+				if (DatabaseOps.OpenConnection())
+				{
+					output = DatabaseOps.GetUserAttribute(User.Attributes.password_hash);
+					DatabaseOps.CloseConnection();
+				}
+				return output;
+			}
+			set
+			{
+				if (DatabaseOps.OpenConnection())
+				{
+					DatabaseOps.SetUserAttribute(User.Attributes.password_hash, value);
+					DatabaseOps.CloseConnection();
+				}
+			}
+		}
 	}
 }

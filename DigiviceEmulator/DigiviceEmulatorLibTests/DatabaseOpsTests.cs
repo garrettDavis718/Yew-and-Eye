@@ -12,9 +12,10 @@ namespace DigiviceEmulatorLib.Tests
 	[TestClass()]
 	public class DatabaseOpsTests
 	{
-		public static User User { get; set; } = new User("testEmail", "testHash");
 		public static string name = "testName",
-							 animations = "testAnimations";
+							 animations = "testAnimations",
+							 email = "testEmail",
+							 passwordHash = "testHash";
 		public static Monster.Types type = Monster.Types.Faunamon;
 		public static Monster.States state = Monster.States.idle;
 		public static int health = 10,
@@ -41,32 +42,6 @@ namespace DigiviceEmulatorLib.Tests
 		}
 
 		[TestMethod()]
-		public void CreateUserTest()
-		{
-			DatabaseOps.DatabasePath = @"../../UnitTests.db";
-			if (DatabaseOps.OpenConnection())
-			{
-				Assert.IsTrue(DatabaseOps.CreateUser(User));
-				DatabaseOps.DeleteUser(User);
-				DatabaseOps.CloseConnection();
-			}
-		}
-
-		[TestMethod()]
-		public void UpdateUserTest()
-		{
-			DatabaseOps.DatabasePath = @"../../UnitTests.db";
-			if (DatabaseOps.OpenConnection())
-			{
-				DatabaseOps.CreateUser(User);
-				User.PasswordHash = "newHash";
-				Assert.IsTrue(DatabaseOps.UpdateUser(User));
-				DatabaseOps.DeleteUser(User);
-				DatabaseOps.CloseConnection();
-			}
-		}
-
-		[TestMethod()]
 		public void SetMonsterAttributeTest()
 		{
 			DatabaseOps.DatabasePath = @"../../UnitTests.db";
@@ -79,33 +54,34 @@ namespace DigiviceEmulatorLib.Tests
 				Assert.IsTrue(DatabaseOps.SetMonsterAttribute(Monster.Attributes.health, health));
 				Assert.IsTrue(DatabaseOps.SetMonsterAttribute(Monster.Attributes.mood, mood));
 				Assert.IsTrue(DatabaseOps.SetMonsterAttribute(Monster.Attributes.hygiene, hygiene));
+				Assert.IsTrue(DatabaseOps.SetMonsterAttribute(Monster.Attributes.health_increments, health));
+				Assert.IsTrue(DatabaseOps.SetMonsterAttribute(Monster.Attributes.mood_increments, mood));
+				Assert.IsTrue(DatabaseOps.SetMonsterAttribute(Monster.Attributes.hygiene_increments, hygiene));
 				Assert.IsTrue(DatabaseOps.SetMonsterAttribute(Monster.Attributes.date_of_birth, dateOfBirth));
 				DatabaseOps.CloseConnection();
 			}
 		}
 
 		[TestMethod()]
-		public void DeleteUserTest()
+		public void SetUserAttributeTest()
 		{
 			DatabaseOps.DatabasePath = @"../../UnitTests.db";
 			if (DatabaseOps.OpenConnection())
 			{
-				DatabaseOps.CreateUser(User);
-				Assert.IsTrue(DatabaseOps.DeleteUser(User));
+				Assert.IsTrue(DatabaseOps.SetUserAttribute(User.Attributes.email, email));
+				Assert.IsTrue(DatabaseOps.SetUserAttribute(User.Attributes.password_hash, passwordHash));
 				DatabaseOps.CloseConnection();
 			}
 		}
 
 		[TestMethod()]
-		public void GetPasswordHashTest()
+		public void GetUserAttributeTest()
 		{
 			DatabaseOps.DatabasePath = @"../../UnitTests.db";
 			if (DatabaseOps.OpenConnection())
 			{
-				DatabaseOps.CreateUser(User);
-				string passwordHash = DatabaseOps.GetPasswordHash(User.Email);
-				Assert.AreEqual(passwordHash, "testHash");
-				DatabaseOps.DeleteUser(User);
+				Assert.AreEqual(email, DatabaseOps.GetUserAttribute(User.Attributes.email));
+				Assert.AreEqual(SecurityOps.HashString(passwordHash), DatabaseOps.GetUserAttribute(User.Attributes.password_hash));
 				DatabaseOps.CloseConnection();
 			}
 		}
@@ -123,6 +99,9 @@ namespace DigiviceEmulatorLib.Tests
 				Assert.AreEqual(health, DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.health));
 				Assert.AreEqual(mood, DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.mood));
 				Assert.AreEqual(hygiene, DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.hygiene));
+				Assert.AreEqual(health, DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.health_increments));
+				Assert.AreEqual(mood, DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.mood_increments));
+				Assert.AreEqual(hygiene, DatabaseOps.GetMonsterAttribute<int>(Monster.Attributes.hygiene_increments));
 				Assert.AreEqual(dateOfBirth, DatabaseOps.GetMonsterAttribute<DateTime>(Monster.Attributes.date_of_birth));
 				DatabaseOps.CloseConnection();
 			}
