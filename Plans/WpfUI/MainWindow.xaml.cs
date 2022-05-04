@@ -37,8 +37,23 @@ namespace WpfUI
 
         private void SearchPlansBtn_Click(object sender, RoutedEventArgs e)
         {
-			MapsWindow mapsWindow = new MapsWindow();
-			mapsWindow.Show();
+			
+			if (MessageBox.Show("Do you want to search Plans by Maps?", "Plans", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+			{
+				//do no stuff
+				Scheduler scheduler = new Scheduler();
+				scheduler.Show();
+			}
+			else
+			{
+				//do yes stuff
+				MapsWindow mapsWindow = new MapsWindow();
+				mapsWindow.Show();
+			}
+
+
+
+			
 		}
     }
 }
