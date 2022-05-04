@@ -15,7 +15,8 @@
         </Label>
         <Label x:Name="UserLbl" Content="Label" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" VerticalAlignment="Top" Width="76"/>
         <ListBox x:Name="PlanBox" HorizontalAlignment="Center" Height="95" Margin="0,134,0,0" VerticalAlignment="Top" Width="434" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Button x:Name="CreatePlansBtn" Content="Create Plan" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Height="47" Width="95" Click="CreatePlansBtn_Click"/>
+        <Button x:Name="CreatePlansBtn" Content="Create Plan" HorizontalAlignment="Left" Margin="316,307,0,0" VerticalAlignment="Top" Height="47" Width="95" Click="CreatePlansBtn_Click" RenderTransformOrigin="1.562,0.627"/>
+        <Button x:Name="SearchPlansBtn" Content="Search Plans" Margin="134,307,303,0" VerticalAlignment="Top" Height="47" Click="SearchPlansBtn_Click"/>
 
     </Grid>
 </Window>

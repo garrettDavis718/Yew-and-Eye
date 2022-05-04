@@ -84,6 +84,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Scheduler.xaml.cs">
+      <DependentUpon>Scheduler.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MapsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scheduler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

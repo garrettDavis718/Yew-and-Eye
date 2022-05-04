@@ -30,8 +30,15 @@ namespace WpfUI
 
         private void CreatePlansBtn_Click(object sender, RoutedEventArgs e)
         {
+			Scheduler scheduler = new Scheduler();
+			scheduler.Show();
+
+		}
+
+        private void SearchPlansBtn_Click(object sender, RoutedEventArgs e)
+        {
 			MapsWindow mapsWindow = new MapsWindow();
 			mapsWindow.Show();
-        }
+		}
     }
 }
