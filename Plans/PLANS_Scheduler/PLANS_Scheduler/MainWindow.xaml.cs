@@ -23,22 +23,9 @@ namespace PLANS_Scheduler
         public MainWindow()
         {
             InitializeComponent();
-            //EventsQnA.Text = "Hello Word!";
-
-
-
-            //if (DateSelect == DateTime.Now)
-            //{
-            //    EventsQnA.Text = "Test";
-            //}
-
+    
 
         }
-
-
-
-
-
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
@@ -115,7 +102,7 @@ namespace PLANS_Scheduler
                 }
                 else if (planNOW == planFOUR)
                 {
-                    PlansTextBlock.Text = "Plans for " + planFOUR.ToShortDateString() + "\n" + "\tUser: June Race" + "\n" + "\tLocation: Parks Pier" + "\n" + "\tTime: 1 - 3PM";
+                    PlansTextBlock.Text = "Plans for " + planFOUR.ToShortDateString() + "\n" + "\tUser: Susie Rink" + "\n" + "\tLocation: Kellies Krafts" + "\n" + "\tTime: 5 - 7PM";
                 }
 
             }

@@ -28,3 +28,18 @@ E:\Current Classes\Norris\Capstone_CSC-289\PLANS_Scheduler\PLANS_Scheduler\obj\D
 E:\Current Classes\Norris\Capstone_CSC-289\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.csproj.CoreCompileInputs.cache
 E:\Current Classes\Norris\Capstone_CSC-289\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.exe
 E:\Current Classes\Norris\Capstone_CSC-289\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.pdb
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\bin\Debug\PLANS_Scheduler.exe.config
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\bin\Debug\PLANS_Scheduler.exe
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\bin\Debug\PLANS_Scheduler.pdb
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.csproj.AssemblyReference.cache
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\MainWindow.g.cs
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\App.g.cs
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler_MarkupCompile.cache
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler_MarkupCompile.lref
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\MainWindow.baml
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.g.resources
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.Properties.Resources.resources
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.csproj.GenerateResource.cache
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.csproj.CoreCompileInputs.cache
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.exe
+C:\Users\garciar2566\Source\Repos\Yew-and-Eye\Plans\PLANS_Scheduler\PLANS_Scheduler\obj\Debug\PLANS_Scheduler.pdb
