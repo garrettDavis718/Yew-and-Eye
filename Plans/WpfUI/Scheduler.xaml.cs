@@ -40,7 +40,6 @@ namespace WpfUI
 
             // PLANS Placeholders til merge
             DateTime planONE = new DateTime(2022, 5, 4, 0, 0, 0);
-
             DateTime planTWO = new DateTime(2022, 5, 9, 0, 0, 0);
             DateTime planTHREE = new DateTime(2022, 5, 13, 0, 0, 0);
             DateTime planFOUR = new DateTime(2022, 5, 20, 0, 0, 0);
