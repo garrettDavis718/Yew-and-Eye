@@ -246,6 +246,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style   x:Key="RedLabel" TargetType="{x:Type Label}" BasedOn="{StaticResource LabelStyle}">
+            <Setter Property="Foreground" Value="#FFA42E2E"/>
+        </Style>
     </Window.Resources>
     <Grid Margin="0,10,0,0">
         <Grid.RowDefinitions>
@@ -267,13 +274,12 @@
         <Calendar x:Name="Plans1" Margin="57,5,55,351" Grid.Row="1"/>
 
         <!--TEXTBOX-->
-        <TextBox HorizontalAlignment="Left" Height="36" Margin="90,10,0,0" TextWrapping="Wrap" Text="SCHEDULER" VerticalAlignment="Top" Width="124" SelectionOpacity="-2" FontSize="22" Background="#FF666161" SpellCheck.IsEnabled="True" Foreground="White"/>
-        <TextBox x:Name="UserXName" HorizontalAlignment="Center" Height="27" Margin="22,67,36,0" TextWrapping="Wrap" Text="TODO:DISPLAY USER NAME" VerticalAlignment="Top" Width="242" Background="{x:Null}" BorderBrush="#FFCCD0DC" FontSize="18" Foreground="#FFFBF4F4"/>
+        <TextBox x:Name="UserXName" HorizontalAlignment="Center" Height="27" Margin="38,72,20,0" TextWrapping="Wrap" Text="TODO:DISPLAY USER NAME" VerticalAlignment="Top" Width="242" Background="{x:Null}" BorderBrush="#FFCCD0DC" FontSize="18" Foreground="#FFFBF4F4"/>
         <TextBox x:Name ="PlansTextBlock" HorizontalAlignment="Left" Height="115" Margin="22,312,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="258"/>
         <!--TEXTBLOCK-->
         <TextBlock x:Name ="DateSelect" HorizontalAlignment="Left" Height="32" Margin="40,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"
                    Text="{Binding ElementName=Plans1, Path=SelectedDate}" FontSize="20" Foreground="White" Grid.Row="1"/>
-        
+
         <!--BUTTONS-->
         <Button x:Name="CheckButton" Content="CHECK DATE" HorizontalAlignment="Left" Height="22" Margin="90,173,0,0" VerticalAlignment="Top" Width="124" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}" Click="CheckButton_Click" Grid.Row="1"/>
         <Button x:Name="SaveButton" Content="Save Plan" HorizontalAlignment="Left" Height="24" Margin="65,263,0,0" VerticalAlignment="Top" Width="60" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}" Grid.Row="1" Click="SaveButton_Click"/>
@@ -282,6 +288,13 @@
         <Button x:Name="PlansButton" Content="Plans" HorizontalAlignment="Left" Height="29" Margin="110,451,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource ButtonStyle5}" Grid.Row="1" Click="PlansButton_Click"/>
         <Button x:Name="ProfileButton" Content="Profile" HorizontalAlignment="Left" Height="29" Margin="220,451,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource ButtonStyle5}" Grid.Row="1" Click="ProfileButton_Click"/>
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="110,505,0,15" Width="70" Style="{DynamicResource ButtonStyle4}" Click="ExitButton_Click" Grid.Row="1"/>
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="40,-9,120,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3">
+            <Label.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="5"/>
+            </Label.Effect>
+        </Label>
+        <Label Content="SCHEDULER" HorizontalAlignment="Left" Height="37" Margin="159,40,0,0" VerticalAlignment="Top" Width="105" Foreground="#FFE20B0B" FontSize="16" FontWeight="Bold"/>
+
 
     </Grid>
 </Window>
