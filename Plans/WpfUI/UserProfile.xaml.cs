@@ -41,7 +41,6 @@ namespace WpfUI
             mainWindow.Show();
         }
 
-
     }
 }
 

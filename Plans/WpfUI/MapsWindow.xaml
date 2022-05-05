@@ -143,19 +143,25 @@
             </ComboBox>
         </Canvas>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,18,121">
+        <!--MAP RESULT-->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,10,121" Background="#FF7EEDB3">
             <Label Name="ErrorMessage" Visibility="Collapsed" ></Label>
             <ScrollViewer Name="SearchResults" Visibility="Collapsed" Height="300">
                 <StackPanel Name="AddressList" ></StackPanel>
             </ScrollViewer>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="382,0,0,121" >
+
+        <!--MAP-->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="382,0,0,121" >            
             <m:Map x:Name="myMap" ZoomLevel="16" Center="35.071890,-78.926870" 
-                   CredentialsProvider="ArRifk6122ZB2RSEec6gQgmQte_NcFEvVXoj7Er8B-nzf9du4Xdd1mr1j9Sug378" Mode="AerialWithLabels" Height="365" Width="414"/>
+                   CredentialsProvider="ArRifk6122ZB2RSEec6gQgmQte_NcFEvVXoj7Er8B-nzf9du4Xdd1mr1j9Sug378" Mode="AerialWithLabels" Height="365" Margin="10,0,-4,0"/>
             <Label x:Name="myMapLabel" Visibility="Hidden" HorizontalAlignment="Center" Content="Use + and - to zoom in and out" />
         </StackPanel>
-        <Button x:Name="ScheduleButton" Content="Scheduler" Grid.Column="1" HorizontalAlignment="Left" Height="45" Margin="125,404,0,0" Grid.Row="1" VerticalAlignment="Top" Width="145" Style="{DynamicResource ButtonStyle1}" Click="SchedulerButton_Click"/>
-        <Button x:Name="ProfileButton" Content="Profile" HorizontalAlignment="Left" Height="45" Margin="106,404,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Style="{DynamicResource ButtonStyle2}" Click="ProfileButton_Click"/>
+        
+        <!--BUTTONS-->
+        <Button x:Name="PlansButton" Content="Plans" HorizontalAlignment="Left" Height="45" Margin="40,404,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Style="{DynamicResource ButtonStyle2}" Click="PlansButton_Click"/>
+        <Button x:Name="ProfileButton" Content="Profile" HorizontalAlignment="Left" Height="45" Margin="328,404,0,0" VerticalAlignment="Top" Width="130" Style="{DynamicResource ButtonStyle2}" Click="ProfileButton_Click" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Button x:Name="ScheduleButton" Content="Scheduler" Grid.Column="1" HorizontalAlignment="Left" Height="45" Margin="214,404,0,0" Grid.Row="1" VerticalAlignment="Top" Width="146" Style="{DynamicResource ButtonStyle1}" Click="SchedulerButton_Click"/>
 
 
     </Grid>

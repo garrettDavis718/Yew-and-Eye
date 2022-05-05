@@ -187,7 +187,7 @@ namespace WpfUI
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This button should take user to Profile!", "Merge User Profile");
+            MessageBox.Show("This button should take user to Profile!", "Merge User Profile");           
         }
 
         private void SchedulerButton_Click(object sender, RoutedEventArgs e)
@@ -195,6 +195,11 @@ namespace WpfUI
             MessageBox.Show("This button should take user to Scheduler!", "Merge Scheduler");
             Scheduler scheduler = new Scheduler();
             scheduler.Show();
+        }
+
+        private void PlansButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

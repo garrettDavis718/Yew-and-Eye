@@ -129,8 +129,13 @@ namespace WpfUI
         {
             MessageBox.Show("This button should let User return to Profile", "Merge User Profile");
             
-            //MainWindow mainwindow = new MainWindow();
+            //MainWindow mainwindow = new MainWindow(user);
             //mainwindow.Show();
+        }
+
+        private void PlansButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

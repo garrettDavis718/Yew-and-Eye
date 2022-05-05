@@ -101,7 +101,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid Margin="0,0,-8,0">
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="402" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="500"/>
         <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="49" Margin="0,58,0,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="36" Foreground="#FF7EEDB3">
             <Label.Effect>
