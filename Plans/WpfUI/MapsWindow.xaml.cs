@@ -185,7 +185,14 @@ namespace WpfUI
             FindandDisplayNearbyPOI(searchResponse);
         }
 
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This button should take user to Profile!", "Merge User Profile");
+        }
 
-
+        private void SchedulerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This button should take user to Scheduler!", "Merge Scheduler");
+        }
     }
 }

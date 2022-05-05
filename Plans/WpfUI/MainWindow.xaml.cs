@@ -49,11 +49,7 @@ namespace WpfUI
 				//do yes stuff
 				MapsWindow mapsWindow = new MapsWindow();
 				mapsWindow.Show();
-			}
-
-
-
-			
+			}			
 		}
     }
 }

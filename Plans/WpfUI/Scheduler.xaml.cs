@@ -126,6 +126,9 @@ namespace WpfUI
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This button should let User return to Profile", "Merge User Profile");
+            
+            //MainWindow mainwindow = new MainWindow();
+            //mainwindow.Show();
         }
     }
 }
