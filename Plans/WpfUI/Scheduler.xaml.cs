@@ -121,6 +121,8 @@ namespace WpfUI
         private void MapButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This button should let User return to Maps", "Merge Maps");
+            MapsWindow mapsWindow = new MapsWindow();
+            mapsWindow.Show();
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)

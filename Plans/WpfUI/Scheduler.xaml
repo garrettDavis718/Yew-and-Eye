@@ -260,7 +260,7 @@
 
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Stroke="Black" Width="300" RenderTransformOrigin="0.489,0.503" Margin="0,-19,0,-14" Grid.RowSpan="3"/>
 
-        <Calendar x:Name="Plans1" Margin="57,26,55,330" Grid.Row="1"/>
+        <Calendar x:Name="Plans1" Margin="57,5,55,351" Grid.Row="1"/>
 
         <Rectangle Fill="#FF16161B" HorizontalAlignment="Left" Height="136" Margin="10,301,0,0" Stroke="Black" VerticalAlignment="Top" Width="280" RadiusX="5" RadiusY="5" Grid.Row="1"/>
         <Rectangle Fill="#FF16161B" HorizontalAlignment="Left" Height="51" Margin="10,199,0,0" Stroke="Black" VerticalAlignment="Top" Width="280" RenderTransformOrigin="0.5,1.317" RadiusX="5" RadiusY="5" Grid.Row="1"/>
@@ -273,8 +273,8 @@
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="110,442,0,44" Width="70" Style="{DynamicResource ButtonStyle4}" Click="ExitButton_Click" Grid.Row="1"/>
 
 
-        <TextBox HorizontalAlignment="Left" Height="36" Margin="94,10,0,0" TextWrapping="Wrap" Text="PLANNER" VerticalAlignment="Top" Width="103" SelectionOpacity="-2" FontSize="22" Background="#FF666161" SpellCheck.IsEnabled="True" Foreground="White"/>
-        <TextBox x:Name="PlanName" HorizontalAlignment="Center" Height="27" Margin="40,67,54,0" TextWrapping="Wrap" Text="SHOULD DISPLAY USER" VerticalAlignment="Top" Width="206" Background="{x:Null}" BorderBrush="#FFCCD0DC" FontSize="18" Foreground="#FFFBF4F4"/>
+        <TextBox HorizontalAlignment="Left" Height="36" Margin="90,10,0,0" TextWrapping="Wrap" Text="SCHEDULER" VerticalAlignment="Top" Width="124" SelectionOpacity="-2" FontSize="22" Background="#FF666161" SpellCheck.IsEnabled="True" Foreground="White"/>
+        <TextBox x:Name="UserXName" HorizontalAlignment="Center" Height="27" Margin="22,67,36,0" TextWrapping="Wrap" Text="TODO:DISPLAY USER NAME" VerticalAlignment="Top" Width="242" Background="{x:Null}" BorderBrush="#FFCCD0DC" FontSize="18" Foreground="#FFFBF4F4"/>
         <!--<TextBox x:Name="UserName" HorizontalAlignment="Left" Height="27" Margin="201,69,0,0" TextWrapping="Wrap" Text="User" VerticalAlignment="Top" Width="89" Foreground="#FFFDFDFD" Background="{x:Null}" Grid.RowSpan="2"/>-->
         <TextBlock x:Name ="DateSelect" HorizontalAlignment="Left" Height="32" Margin="40,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"
                    Text="{Binding ElementName=Plans1, Path=SelectedDate}" FontSize="20" Foreground="White" Grid.Row="1"/>
@@ -282,8 +282,7 @@
              FontSize="20" Foreground="White" Grid.Row="1"/>-->
 
 
-        <Button x:Name="CheckButton" Content="CHECK" HorizontalAlignment="Left" Height="22" Margin="10,126,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}" Click="CheckButton_Click" Grid.Row="1"/>
-        <Button x:Name="TestButton2" Content="Test2" HorizontalAlignment="Left" Height="22" Margin="22,153,0,0" VerticalAlignment="Top" Width="35" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle6}" Grid.Row="1"/>
+        <Button x:Name="CheckButton" Content="CHECK DATE" HorizontalAlignment="Left" Height="22" Margin="90,173,0,0" VerticalAlignment="Top" Width="124" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}" Click="CheckButton_Click" Grid.Row="1"/>
         <TextBox x:Name ="PlansTextBlock" HorizontalAlignment="Left" Height="115" Margin="22,312,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="258"/>
 
 

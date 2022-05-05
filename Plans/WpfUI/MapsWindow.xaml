@@ -1,9 +1,9 @@
-﻿<Window x:Class="WpfUI.MapsWindow"
+﻿<Window x:Name="MapWindow" x:Class="WpfUI.MapsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         Title="MapWindow" 
-        Height="632.522" Width="800">
+        Height="632.522" Width="800" Background="#FF28282C">
 
     <Window.Resources>
         <Style x:Key="LabelStyle" TargetType="Label">
@@ -124,10 +124,10 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Canvas Name="SearchParameters" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,36,0">
-            <Label Style="{StaticResource RedLabel}" >Search PLANS Near a Location</Label>
-            <Label Canvas.Left="0" Canvas.Top="24" Foreground="#FF0E6EDC" AllowDrop="True" FontWeight="Bold" Content="Search for"></Label>
+            <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" >Search PLANS Near a Location</Label>
+            <Label Canvas.Left="0" Canvas.Top="24" Foreground="#FF0077FF" AllowDrop="True" FontWeight="Bold" Content="Search for" FontSize="14"></Label>
             <Label Style="{StaticResource LabelStyle}" AllowDrop="True" Canvas.Left="0" Canvas.Top="49" 
-                   Content="Within" FontWeight="Bold" Foreground="#FF0E6EDC" />
+                   Content="Within" FontWeight="Bold" Foreground="#FFC9DC0E" />
             <ComboBox Canvas.Left="50" Name="Distance" Canvas.Top="53" Height="20"   >
                 <ComboBoxItem IsSelected="True">1</ComboBoxItem>
                 <ComboBoxItem>2</ComboBoxItem>
@@ -136,7 +136,7 @@
             <TextBox Height="25" Name="SearchNearby" Width="175" Text="Insert location" Canvas.Left="138" Canvas.Top="52"  />
             <Label Style="{StaticResource BlueLabel}" Canvas.Left="90" Canvas.Top="49" Content="mi of " Height="28" Name="label1" />
             <Button Click="Search_Click" Width="59" Height="24" Grid.ColumnSpan="2" Margin="0,77,251,39" HorizontalAlignment="Right" Canvas.Left="319" Canvas.Top="-25">Search</Button>
-            <ComboBox Name="EntityType" Canvas.Left="73" Canvas.Top="29" Height="21"  Width="117" >
+            <ComboBox Name="EntityType" Canvas.Left="82" Canvas.Top="28" Height="21"  Width="117" >
                 <ComboBoxItem Tag="7011" IsSelected="True">PLANS Available</ComboBoxItem>
                 <ComboBoxItem Tag="5800">PLANS Liked</ComboBoxItem>
                 <ComboBoxItem Tag="7999">PLANS Created</ComboBoxItem>
