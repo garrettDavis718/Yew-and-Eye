@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="422" Width="297" FontSize="14" Background="#FF7EEDB3">
+        Title="LoginWindow" Height="378" Width="297" FontSize="14" Background="#FF7EEDB3">
     <Window.Resources>
         <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
             <Setter Property="FontWeight" Value="Bold"/>
@@ -107,15 +107,21 @@
             </Setter>
         </Style>
     </Window.Resources>
+
     <Grid>
-        <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="371" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="269"/>
+        <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="328" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="269"/>
         <TextBox x:Name="EmailTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,127,29,0" TextWrapping="Wrap" Background="#FF79DEA9" VerticalAlignment="Top" FontFamily="Cascadia Code" FontSize="13" BorderBrush="#FFB1B1B1"/>
-        <PasswordBox x:Name="PasswordTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,0,29,0"  Background="#FF79DEA9"  VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
-        <Label x:Name="EmailLbl" Content="Email:" HorizontalAlignment="Left" Height="28" Margin="39,133,0,0" VerticalAlignment="Top" Width="51" FontSize="12" Foreground="#FF7EEDB3"/>
-        <Label x:Name="PasswordLbl" Content="Password:" HorizontalAlignment="Left" Height="28" Margin="22,0,0,0" VerticalAlignment="Center" Width="63" FontSize="12" Foreground="#FF7EEDB3"/>
-        <Button Content="Login" HorizontalAlignment="Center" Height="28" Margin="0,290,0,0" VerticalAlignment="Top" Width="70" Click="Login_Button_Click" Style="{DynamicResource ButtonStyle1}"/>
-        <Button Content="Create New User" HorizontalAlignment="Center" Height="28" Margin="0,334,0,0" VerticalAlignment="Top" Width="124" Click="Create_User_Button_Click" Style="{DynamicResource ButtonStyle2}"/>
-        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="74,24,69,0" VerticalAlignment="Top" Width="146" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3" RenderTransformOrigin="0.021,0.282">
+        <PasswordBox x:Name="PasswordTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,182,29,126"  Background="#FF79DEA9"  VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
+        <Label x:Name="EmailLbl" Content="Email:" HorizontalAlignment="Left" Height="28" Margin="39,138,0,0" VerticalAlignment="Top" Width="51" FontSize="14" Foreground="#FF7EEDB3" FontWeight="Bold"/>
+        <Label x:Name="PasswordLbl" Content="Password:" HorizontalAlignment="Left" Height="28" Margin="15,193,0,126" VerticalAlignment="Center" Width="75" FontSize="14" Foreground="#FF7EEDB3" FontWeight="Bold"/>
+        <Button Content="Login" HorizontalAlignment="Center" Height="28" Margin="109,247,110,0" VerticalAlignment="Top" Width="70" Click="Login_Button_Click" Style="{DynamicResource ButtonStyle1}"/>
+        <Button Content="Create New User" HorizontalAlignment="Center" Height="28" Margin="82,289,83,0" VerticalAlignment="Top" Width="124" Click="Create_User_Button_Click" Style="{DynamicResource ButtonStyle2}"/>
+        <Label x:Name="GrabLyfe" Content="Grab Life By The..." HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="33" Margin="10,24,167,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" FontSize="11" Foreground="Red" RenderTransformOrigin="0.021,0.282">
+            <Label.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="5"/>
+            </Label.Effect>
+        </Label>
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="82,34,61,0" VerticalAlignment="Top" Width="146" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3" RenderTransformOrigin="0.021,0.282">
             <Label.Effect>
                 <DropShadowEffect Color="Black" ShadowDepth="5"/>
             </Label.Effect>
