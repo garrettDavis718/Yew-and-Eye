@@ -193,7 +193,7 @@ namespace WpfUI
         private void SchedulerButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This button should take user to Scheduler!", "Merge Scheduler");
-            Scheduler scheduler = new Scheduler();
+            SchedulerWindow scheduler = new SchedulerWindow();
             scheduler.Show();
         }
 

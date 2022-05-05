@@ -19,9 +19,9 @@ namespace WpfUI
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class PlansWindow : Window
 	{
-		public MainWindow(User user)
+		public PlansWindow(User user)
 		{
 				
 			InitializeComponent();
@@ -30,7 +30,7 @@ namespace WpfUI
 
         private void CreatePlansBtn_Click(object sender, RoutedEventArgs e)
         {
-			Scheduler scheduler = new Scheduler();
+			SchedulerWindow scheduler = new SchedulerWindow();
 			scheduler.Show();
 
 		}
@@ -41,7 +41,7 @@ namespace WpfUI
 			if (MessageBox.Show("Do you want to search Plans by Maps?", "Plans", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
 			{
 				//do no stuff
-				Scheduler scheduler = new Scheduler();
+				SchedulerWindow scheduler = new SchedulerWindow();
 				scheduler.Show();
 			}
 			else

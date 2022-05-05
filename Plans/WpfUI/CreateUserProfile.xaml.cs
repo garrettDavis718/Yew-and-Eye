@@ -44,7 +44,7 @@ namespace WpfUI
             createProfile.Bio = bioTextBox.Text;
 
             //Will display the user profile window
-            UserProfile userProfile = new UserProfile(createProfile);
+            ProfileWindow userProfile = new ProfileWindow(createProfile);
             this.Hide();
             userProfile.ShowDialog();
 

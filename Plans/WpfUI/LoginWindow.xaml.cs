@@ -42,7 +42,7 @@ namespace WpfUI
             if (user != null)
             {
                 MessageBox.Show(Controller.LoadUser(user).ToString());
-                MainWindow mainWindow = new MainWindow(user);
+                PlansWindow mainWindow = new PlansWindow(user);
                 this.Hide();
                 mainWindow.Show();
             }

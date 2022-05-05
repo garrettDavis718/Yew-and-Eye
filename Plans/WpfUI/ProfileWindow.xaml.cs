@@ -20,10 +20,10 @@ namespace WpfUI
     /// <summary>
     /// Display the user's Profile
     /// </summary>
-    public partial class UserProfile : Window
+    public partial class ProfileWindow : Window
     {
         //The object retrieves the data from the create profile class
-        public UserProfile(CreateProfile createProfile)
+        public ProfileWindow(CreateProfile createProfile)
         {
             InitializeComponent();
             
@@ -37,7 +37,7 @@ namespace WpfUI
         private void welcomeToPlansButton_Click(object sender, RoutedEventArgs e)
         {
             User newUser = new User();
-            MainWindow mainWindow = new MainWindow(newUser);
+            PlansWindow mainWindow = new PlansWindow(newUser);
             mainWindow.Show();
         }
 

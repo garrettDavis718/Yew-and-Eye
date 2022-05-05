@@ -18,9 +18,9 @@ namespace WpfUI
     /// <summary>
     /// Interaction logic for .xaml
     /// </summary>
-    public partial class Scheduler : Window
+    public partial class SchedulerWindow : Window
     {
-        public Scheduler()
+        public SchedulerWindow()
         {
             InitializeComponent();
         }
@@ -135,7 +135,7 @@ namespace WpfUI
 
         private void PlansButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("This button should let User return to Plans Page", "Merge Planner");
         }
     }
 }
