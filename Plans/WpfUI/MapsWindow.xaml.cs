@@ -192,8 +192,9 @@ namespace WpfUI
 
         private void SchedulerButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This button should take user to Scheduler!", "Merge Scheduler");
+            MessageBox.Show("This button should minimize current window then take user to Scheduler!", "Merge Scheduler");
             SchedulerWindow scheduler = new SchedulerWindow();
+            this.Hide();
             scheduler.Show();
         }
 
