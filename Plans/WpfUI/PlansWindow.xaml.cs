@@ -23,12 +23,18 @@ namespace WpfUI
 	public partial class PlansWindow : Window
 	{
 		public User User { get; set; }
+		public List<Plan> UserPlans { get; set; }
 
 		public PlansWindow(User user)
 		{
 			User = user;
 			InitializeComponent();
 			UserLbl.Content = User.FirstName + " " + User.LastName;
+			UserPlans = Controller.LoadPlans(user);
+			foreach (Plan plan in UserPlans)
+			{
+				PlanBox.Items.Add(plan.ToString());
+			}
 		}
 
         private void CreatePlansBtn_Click(object sender, RoutedEventArgs e)

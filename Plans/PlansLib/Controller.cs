@@ -97,6 +97,18 @@ namespace PlansLib
 
 			return plans;
 		}
+		//Load Plan Overload(Load with userid)
+		public static List<Plan> LoadPlans(User user)
+		{
+			List<Plan> plans = new List<Plan>();
+			if (DatabaseOps.OpenConnection())
+			{
+				plans = DatabaseOps.GetPlans(user);
+			}
+			DatabaseOps.CloseConnection();
+
+			return plans;
+		}
 
 
 

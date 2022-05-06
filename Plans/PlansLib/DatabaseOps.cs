@@ -158,6 +158,32 @@ namespace PlansLib
 			}
 			return plans;
 		}
+		/// <summary>
+		/// Returns a list of plans from db given a specific User
+		/// </summary>
+		/// <param name="date"></param>
+		/// <returns></returns>
+		public static List<Plan> GetPlans(User user)
+		{
+
+			string query = $"SELECT description, location, date, userid, planID FROM plans WHERE userid = '{user.UserID}'";
+			List<Plan> plans = new List<Plan>(20);
+			int i = 0;
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+				while (dataReader.Read())
+				{
+					Plan plan = new Plan();
+					plan.Description = dataReader.GetString(0);
+					plan.Location = dataReader.GetString(1);
+					plan.Date = DateTime.Parse(dataReader.GetString(2));
+					plan.UserID = dataReader.GetInt32(3);
+					plan.PlanID = dataReader.GetInt32(4);
+					plans.Add(plan);
+				}
+			}
+			return plans;
+		}
 
 		/// <summary>
 		/// execute update query on database. 
