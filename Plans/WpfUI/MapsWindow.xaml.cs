@@ -190,11 +190,8 @@ namespace WpfUI
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-
             MessageBox.Show("This button should take user to Profile!", "Merge User Profile");
-
-            CreateProfile createProfile = new CreateProfile();
-            ProfileWindow profileWindow = new ProfileWindow(createProfile);
+            ProfileWindow profileWindow = new ProfileWindow(User);
             this.Hide();
             profileWindow.ShowDialog();
         }

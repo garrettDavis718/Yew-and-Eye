@@ -15,7 +15,7 @@ namespace PlansLib.Tests
         [TestMethod()]
         public void CreateUserTest()
         {
-            User user = new User("TedDansen", "testPass", "Ted", "Dansen", 1);
+            User user = new User("TedDansen", "testPass", "Ted", "Dansen", 1, "bio", "city");
 
             Assert.IsFalse(Controller.CreateUser(user));
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PlansLib.Objects;
+using PlansLib;
 
 namespace WpfUI
 {
@@ -23,34 +24,54 @@ namespace WpfUI
         public CreateUserProfile()
         {
             InitializeComponent();
+            //The cursor will start in the first name textbox. Tab to the next textbox
+            firstNameTextBox.Focus();
         }
 
         private void createProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            //The cursor will start in the first name textbox. Tab to the next textbox
-            firstNameTextBox.Focus();
-            lastNameTextBox.Focus();
-            ageTextBox.Focus();
-            cityTextBox.Focus();
-            bioTextBox.Focus();
 
             //Object will get and set the information inputted in to each textbox in the Create User Profile window
-            CreateProfile createProfile = new CreateProfile();
+            //CreateProfile createProfile = new CreateProfile();
 
-            createProfile.FirstName = firstNameTextBox.Text;
-            createProfile.LastName = lastNameTextBox.Text;
-            createProfile.Age = int.Parse(ageTextBox.Text);
-            createProfile.City = cityTextBox.Text;
-            createProfile.Bio = bioTextBox.Text;
+            //createProfile.FirstName = firstNameTextBox.Text;
+            //createProfile.LastName = lastNameTextBox.Text;
+            //createProfile.City = cityTextBox.Text;
+            //createProfile.Bio = bioTextBox.Text;
 
-            //Will display the user profile window
-            ProfileWindow userProfile = new ProfileWindow(createProfile);
-            this.Hide();
-            userProfile.ShowDialog();
+            if (passwordBox.Password == confirmPasswordBox.Password && firstNameTextBox.Text != String.Empty &&
+                lastNameTextBox.Text != String.Empty && cityTextBox.Text != String.Empty &&
+                passwordBox.Password != String.Empty)
+            {
+                User NewUser = new User();
+                NewUser.FirstName = firstNameTextBox.Text;
+                NewUser.LastName = lastNameTextBox.Text;
+                NewUser.City = cityTextBox.Text;
+                NewUser.Bio = bioTextBox.Text;
+                NewUser.Email = emailTextBox.Text;
+                NewUser.PasswordHash = passwordBox.Password;
+                if (Controller.CreateUser(NewUser))
+                {
+                    MessageBox.Show("User " + NewUser.FirstName + " " + NewUser.LastName + " has been created!");
+                    ProfileWindow userProfile = new ProfileWindow(NewUser);
+                    this.Hide();
+                    userProfile.ShowDialog();
+                }
+                else
 
-
+                {
+                    MessageBox.Show("User couldn't be created.");
+                }
+            }
+            else { MessageBox.Show("Please ensure all fields are filled out and your passwords match!"); }
         }
 
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+        }
     }
 }
 

@@ -55,7 +55,7 @@ namespace PlansLib
 		/// <returns>true if successful, false otherwise.</returns>
 		public static bool CreateUser(User user)
 		{
-			string query = $"INSERT INTO user (email, password_hash, first_name, last_name) VALUES ('{user.Email}', '{user.PasswordHash}', '{user.FirstName}', '{user.LastName}');";
+			string query = $"INSERT INTO user (email, password_hash, first_name, last_name, bio, city) VALUES ('{user.Email}', '{user.PasswordHash}', '{user.FirstName}', '{user.LastName}', '{user.Bio}', '{user.City}');";
 			return InsertQuery(query) is 1;
 		}
 
@@ -107,7 +107,7 @@ namespace PlansLib
 		public static User GetUser(User user)
 		{
 			//string output = string.Empty;
-			string query = $"SELECT first_name, last_name, email, userid FROM user WHERE email = '{user.Email}'";
+			string query = $"SELECT first_name, last_name, email, userid, bio, city FROM user WHERE email = '{user.Email}'";
 			//output user
 			User output = new User();
 			using (SQLiteDataReader dataReader = SelectQuery(query))
@@ -118,6 +118,8 @@ namespace PlansLib
 					output.LastName = dataReader.GetString(1);
 					output.Email = dataReader.GetString(2);
 					output.UserID = dataReader.GetInt32(3);
+					output.Bio = dataReader.GetString(4);
+					output.City = dataReader.GetString(5);
 				}
 			}
 			return output;

@@ -55,9 +55,9 @@ namespace WpfUI
         private void Create_User_Button_Click(object sender, RoutedEventArgs e)
         {
 
-            CreateUserWindow createUserWindow = new CreateUserWindow();
+            CreateUserProfile createUserProfile = new CreateUserProfile();
             this.Hide();
-            createUserWindow.ShowDialog();
+            createUserProfile.Show();
 
         }
     }

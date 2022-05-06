@@ -12,7 +12,6 @@ namespace PlansLib
 	/// </summary>
     public class Controller
     {
-
 		/// <summary>
 		/// Create User Method for creating and saving a user into the db
 		/// </summary>

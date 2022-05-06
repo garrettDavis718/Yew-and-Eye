@@ -22,22 +22,23 @@ namespace WpfUI
     /// </summary>
     public partial class ProfileWindow : Window
     {
+        public User User { get; set; }
         //The object retrieves the data from the create profile class
-        public ProfileWindow(CreateProfile createProfile)
+        public ProfileWindow(User user)
         {
+            User = user;
             InitializeComponent();
-            
             //the data store in the properties will display in the labels and textblock
-            userNameLabel.Content = createProfile.FirstName + " " + createProfile.LastName + ", " + createProfile.Age;
-            cityLabel.Content = createProfile.City;
-            bioTextBlock.Text = createProfile.Bio;
+            userNameLabel.Content = User.FirstName + " " + User.LastName;
+            cityLabel.Content = User.City;
+            bioTextBlock.Text = User.Bio;
         }
 
         //This will display the main window when the welcome To Plans button is clicked 
         private void welcomeToPlansButton_Click(object sender, RoutedEventArgs e)
         {
-            User newUser = new User();
-            PlansWindow mainWindow = new PlansWindow(newUser);
+            PlansWindow mainWindow = new PlansWindow(User);
+            this.Hide();
             mainWindow.Show();
         }
 

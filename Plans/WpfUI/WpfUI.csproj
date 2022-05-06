@@ -97,10 +97,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateUserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,9 +111,6 @@
     </Compile>
     <Compile Include="CreateUserProfile.xaml.cs">
       <DependentUpon>CreateUserProfile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CreateUserWindow.xaml.cs">
-      <DependentUpon>CreateUserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>

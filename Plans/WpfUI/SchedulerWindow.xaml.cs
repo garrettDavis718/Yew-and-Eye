@@ -69,7 +69,14 @@ namespace WpfUI
 
         private void MakeButton_Click(object sender, RoutedEventArgs e)
         {
-            SelectedDate = Plans1.SelectedDate.Value.Date;
+            try
+            {
+                SelectedDate = Plans1.SelectedDate.Value.Date;
+            }
+            catch (Exception ex)
+            {
+                SelectedDate = DateTime.Now;
+            }
             PlanCreator planCreator = new PlanCreator(User, SelectedDate);
             planCreator.Show();
 
@@ -78,12 +85,15 @@ namespace WpfUI
         private void MapButton_Click(object sender, RoutedEventArgs e)
         {
             MapsWindow mapsWindow = new MapsWindow(User);
+            this.Hide();
             mapsWindow.Show();
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This button should let User return to Profile", "Merge User Profile");
+            ProfileWindow profileWIndow = new ProfileWindow(User);
+            this.Hide();
+            profileWIndow.Show();
         }
 
         private void PlansButton_Click(object sender, RoutedEventArgs e)
