@@ -8,6 +8,7 @@ using System.Net;
 using System.Xml.XPath;
 using PlansLib;
 using PlansLib.Objects;
+using WpfUI;
 
 namespace WpfUI
 {
@@ -124,6 +125,7 @@ namespace WpfUI
             pushpin.Content = pinLabel;
             pushpin.Location = location;
             myMap.Children.Add(pushpin);
+            
         }
 
         //Show the POI address information and insert pushpins on the map
@@ -179,6 +181,8 @@ namespace WpfUI
             AddressList.Children.Clear();
             ErrorMessage.Visibility = Visibility.Collapsed;
 
+
+            
             SearchNearby.Text = String.Empty;
             //Get latitude and longitude coordinates for specified location
             XmlDocument searchResponse = Geocode(SearchNearby.Text);
@@ -208,6 +212,7 @@ namespace WpfUI
 
         private void PlansButton_Click(object sender, RoutedEventArgs e)
         {
+            
             User user = new User();
             PlansWindow plansWindow = new PlansWindow(user);
             this.Hide();
