@@ -6,6 +6,8 @@ using Microsoft.Maps.MapControl.WPF.Design;
 using System.Xml;
 using System.Net;
 using System.Xml.XPath;
+using PlansLib;
+using PlansLib.Objects;
 
 namespace WpfUI
 {
@@ -16,9 +18,10 @@ namespace WpfUI
     {
 
         string BingMapsKey = "ArRifk6122ZB2RSEec6gQgmQte_NcFEvVXoj7Er8B-nzf9du4Xdd1mr1j9Sug378";
-
-        public MapsWindow()
+        public User User { get; set; }
+        public MapsWindow(User user)
         {
+            User = user;
             InitializeComponent();
         }
 
@@ -177,7 +180,7 @@ namespace WpfUI
             AddressList.Children.Clear();
             ErrorMessage.Visibility = Visibility.Collapsed;
 
-
+            SearchNearby.Text = String.Empty;
             //Get latitude and longitude coordinates for specified location
             XmlDocument searchResponse = Geocode(SearchNearby.Text);
 
@@ -187,20 +190,29 @@ namespace WpfUI
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
+
             MessageBox.Show("This button should take user to Profile!", "Merge User Profile");
+
+            CreateProfile createProfile = new CreateProfile();
+            ProfileWindow profileWindow = new ProfileWindow(createProfile);
+            this.Hide();
+            profileWindow.ShowDialog();
         }
 
         private void SchedulerButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This button should minimize current window then take user to Scheduler!", "Merge Scheduler");
-            SchedulerWindow scheduler = new SchedulerWindow();
+            MessageBox.Show("This button should take user to Scheduler!", "Merge Scheduler");
+            SchedulerWindow scheduler = new SchedulerWindow(User);
             this.Hide();
             scheduler.Show();
         }
 
         private void PlansButton_Click(object sender, RoutedEventArgs e)
         {
-
+            User user = new User();
+            PlansWindow plansWindow = new PlansWindow(user);
+            this.Hide();
+            plansWindow.ShowDialog();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PlansLib.Objects;
 
 namespace PlansLib
 {
@@ -11,6 +12,7 @@ namespace PlansLib
 	/// </summary>
     public class Controller
     {
+
 		/// <summary>
 		/// Create User Method for creating and saving a user into the db
 		/// </summary>
@@ -42,6 +44,22 @@ namespace PlansLib
 		}
 
 		/// <summary>
+		/// Method to Write Create Plan
+		/// </summary>
+		/// <param name="plan"></param>
+		/// <returns></returns>
+		public static bool CreatePlan(Plan plan)
+		{
+			if (DatabaseOps.OpenConnection())
+			{
+				bool results = DatabaseOps.WritePlan(plan);
+				DatabaseOps.CloseConnection();
+				return results;
+			}
+			else { return false; }
+		}
+
+		/// <summary>
 		/// Method to load user from userdb
 		/// </summary>
 		/// <param name="email"></param>
@@ -50,30 +68,39 @@ namespace PlansLib
 		public static User LoadUser(User user)
 		{
 			bool results = false;
-
+			User output = new User();
 			if (DatabaseOps.OpenConnection())
 			{
 				string passwordHash = DatabaseOps.GetPasswordHash(user);
 				results = SecurityOps.VerifyHash(passwordHash, user.PasswordHash);
 				if (results == false)
 				{
-					user = null;
+					output = null;
 				}
 				else
 				{
-					user = DatabaseOps.GetUser(user);
+					output = DatabaseOps.GetUser(user);
 				}
-				
-				DatabaseOps.CloseConnection();
-
 			}
-			else
-			{
-				user = null;
-				results = false;
-			}
-			return user;
+			DatabaseOps.CloseConnection();
+			return output;
 		}
+		//Load Plan From Date
+		public static List<Plan> LoadPlans(DateTime date)
+		{
+			List<Plan> plans = new List<Plan>();
+			if (DatabaseOps.OpenConnection())
+			{
+				plans = DatabaseOps.GetPlans(date);
+			}
+			DatabaseOps.CloseConnection();
+
+			return plans;
+		}
+
+
+
+
 
 
 

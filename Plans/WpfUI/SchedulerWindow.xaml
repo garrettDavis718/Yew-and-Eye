@@ -274,7 +274,7 @@
         <Calendar x:Name="Plans1" Margin="57,5,55,351" Grid.Row="1"/>
 
         <!--TEXTBOX-->
-        <TextBox x:Name="UserXName" HorizontalAlignment="Center" Height="27" Margin="38,72,20,0" TextWrapping="Wrap" Text="TODO:DISPLAY USER NAME" VerticalAlignment="Top" Width="242" Background="{x:Null}" BorderBrush="#FFCCD0DC" FontSize="18" Foreground="#FFFBF4F4"/>
+        <TextBox x:Name="UserName" HorizontalAlignment="Center" Height="27" Margin="38,72,20,0" TextWrapping="Wrap" Text="TODO:DISPLAY USER NAME" VerticalAlignment="Top" Width="242" Background="{x:Null}" BorderBrush="#FFCCD0DC" FontSize="18" Foreground="#FFFBF4F4"/>
         <TextBox x:Name ="PlansTextBlock" HorizontalAlignment="Left" Height="115" Margin="22,312,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="258"/>
         <!--TEXTBLOCK-->
         <TextBlock x:Name ="DateSelect" HorizontalAlignment="Left" Height="32" Margin="40,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"

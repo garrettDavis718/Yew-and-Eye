@@ -26,11 +26,25 @@ namespace PlansLib
 		/// </summary>
 		/// <param name="email">email address associated with user.</param>
 		/// <param name="passwordHash">password hash associated with user.</param>
-		public User (string email, string password, string first_name, string last_name)
+		public User(string email, string password, string first_name, string last_name)
 		{
 			Email = email;
 			PasswordHash = SecurityOps.HashString(password);
-			FirstName = first_name; LastName = last_name;
+			FirstName = first_name;
+			LastName = last_name;
+		}
+		/// <summary>
+		/// object for users.
+		/// </summary>
+		/// <param name="email">email address associated with user.</param>
+		/// <param name="passwordHash">password hash associated with user.</param>
+		public User (string email, string password, string first_name, string last_name, int userID)
+		{
+			Email = email;
+			PasswordHash = SecurityOps.HashString(password);
+			FirstName = first_name; 
+			LastName = last_name;
+			UserID = userID;
 		}
 		/// <summary>
 		/// User object for use in program, doesn't pass arorund the password hash
@@ -38,30 +52,21 @@ namespace PlansLib
 		/// <param name="email"></param>
 		/// <param name="first_name"></param>
 		/// <param name="last_name"></param>
-		public User(string email, string first_name, string last_name)
+		public User(string email, string first_name, string last_name, int userid)
 		{
 			Email = email;
 			FirstName = first_name;
 			LastName = last_name;
+			UserID = userid;
 		}
-
 		/// <summary>
-		/// email address associated with user.
+		/// Fields and Properties
 		/// </summary>
 		public string Email { get; set; }
-
-		/// <summary>
-		/// password hash associated with user.
-		/// </summary>
 		public string PasswordHash { get; set; }
-		
-		/// <summary>
-		/// list to plans currently created by user 
-		/// </summary>
-		public string items { get; set; }
-
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
+		public int UserID { get; set; }
 
 	}
 }

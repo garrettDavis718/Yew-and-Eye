@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="453" Width="528" Background="#FF7EEDB3" WindowStartupLocation="CenterScreen">
+        Title="PlansWindow" Height="453" Width="528" Background="#FF7EEDB3" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">

@@ -34,15 +34,15 @@ namespace WpfUI
         /// <param name="e"></param>
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
+
             string email = EmailTextBox.Text;
             string password = PasswordTextBox.Password;
-            User user = new User(email, password); 
-            
-            user = Controller.LoadUser(user);
-            if (user != null)
+            User user = new User(email, password);
+            User loginUser = new User();
+            loginUser = Controller.LoadUser(user);
+            if (loginUser != null)
             {
-                MessageBox.Show(Controller.LoadUser(user).ToString());
-                PlansWindow mainWindow = new PlansWindow(user);
+                PlansWindow mainWindow = new PlansWindow(loginUser);
                 this.Hide();
                 mainWindow.Show();
             }

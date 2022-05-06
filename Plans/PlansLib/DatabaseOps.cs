@@ -8,6 +8,7 @@ using System.Data;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using PlansLib.Objects;
 
 namespace PlansLib
 {
@@ -106,17 +107,56 @@ namespace PlansLib
 		public static User GetUser(User user)
 		{
 			//string output = string.Empty;
-			string query = $"SELECT first_name, last_name, email FROM user WHERE email = '{user.Email}'";
+			string query = $"SELECT first_name, last_name, email, userid FROM user WHERE email = '{user.Email}'";
+			//output user
+			User output = new User();
 			using (SQLiteDataReader dataReader = SelectQuery(query))
 			{
 				while (dataReader.Read())
 				{
-					user.FirstName = dataReader.GetString(0);
-					user.LastName = dataReader.GetString(1);
-					user.Email = dataReader.GetString(2);
+					output.FirstName = dataReader.GetString(0);
+					output.LastName = dataReader.GetString(1);
+					output.Email = dataReader.GetString(2);
+					output.UserID = dataReader.GetInt32(3);
 				}
 			}
-			return user;
+			return output;
+		}
+		/// <summary>
+		/// Writes Plan to plansDb plans table
+		/// </summary>
+		/// <param name="plan"></param>
+		/// <returns></returns>
+		public static bool WritePlan(Plan plan)
+		{
+			string query = $"INSERT INTO plans (description, location, date, userid) VALUES ('{plan.Description}', '{plan.Location}', '{plan.Date}', '{plan.UserID}');";
+			return InsertQuery(query) is 1;
+		}
+		/// <summary>
+		/// Returns a list of plans from db given a specific datetime value
+		/// </summary>
+		/// <param name="date"></param>
+		/// <returns></returns>
+		public static List<Plan> GetPlans(DateTime date)
+		{
+
+			string query = $"SELECT description, location, date, userid, planID FROM plans WHERE date = '{date.ToShortDateString()}'";
+			List<Plan> plans = new List<Plan>(20);
+			int i = 0;
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+				while (dataReader.Read())
+				{
+					Plan plan = new Plan();
+					plan.Description = dataReader.GetString(0);
+					plan.Location = dataReader.GetString(1);
+					plan.Date = DateTime.Parse(dataReader.GetString(2));
+					plan.UserID = dataReader.GetInt32(3);
+					plan.PlanID = dataReader.GetInt32(4);
+					plans.Add(plan);
+				}
+			}
+			return plans;
 		}
 
 		/// <summary>
@@ -161,7 +201,7 @@ namespace PlansLib
 			{
 				using (SQLiteDataAdapter adapter = new SQLiteDataAdapter { InsertCommand = command })
 				{
-					insertedRowCount = adapter.InsertCommand.ExecuteNonQuery();
+                    insertedRowCount = adapter.InsertCommand.ExecuteNonQuery();
 				}
 			}
 			// create command object & data adapter object using command obj &

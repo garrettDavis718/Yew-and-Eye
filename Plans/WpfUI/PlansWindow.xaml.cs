@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PlansLib;
+using PlansLib.Objects;
 
 namespace WpfUI
 {
@@ -21,35 +22,26 @@ namespace WpfUI
 	/// </summary>
 	public partial class PlansWindow : Window
 	{
+		public User User { get; set; }
+
 		public PlansWindow(User user)
 		{
-				
+			User = user;
 			InitializeComponent();
-			UserLbl.Content = user.FirstName + " " + user.LastName;
+			UserLbl.Content = User.FirstName + " " + User.LastName;
 		}
 
         private void CreatePlansBtn_Click(object sender, RoutedEventArgs e)
         {
-			SchedulerWindow scheduler = new SchedulerWindow();
+			MessageBox.Show(User.FirstName);
+			SchedulerWindow scheduler = new SchedulerWindow(User);
 			scheduler.Show();
-
 		}
 
         private void SearchPlansBtn_Click(object sender, RoutedEventArgs e)
         {
-			
-			if (MessageBox.Show("Do you want to search Plans by Maps?", "Plans", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
-			{
-				//do no stuff
-				SchedulerWindow scheduler = new SchedulerWindow();
-				scheduler.Show();
-			}
-			else
-			{
-				//do yes stuff
-				MapsWindow mapsWindow = new MapsWindow();
-				mapsWindow.Show();
-			}			
+			MapsWindow mapsWindow = new MapsWindow(User);
+			mapsWindow.Show();
 		}
     }
 }
