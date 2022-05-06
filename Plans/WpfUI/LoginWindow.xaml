@@ -108,16 +108,17 @@
         </Style>
     </Window.Resources>
     <Grid Margin="0,0,-8,1">
-        <Grid.RowDefinitions>
-        </Grid.RowDefinitions>
+
+        <!--RECTANGLE-->
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="312" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="269"  RadiusX="5" RadiusY="5" Grid.RowSpan="2"/>
+
+        <!--INPUT-->
         <TextBox x:Name="EmailTextBox" VerticalContentAlignment="Center"  Height="39" Margin="71,110,38,0" TextWrapping="NoWrap" Background="#FF79DEA9" VerticalAlignment="Top" FontFamily="Cascadia Code" FontSize="13" BorderBrush="#FFB1B1B1"/>
         <PasswordBox x:Name="PasswordTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,168,38,0"  Background="#FF79DEA9"  VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
+        
+        <!--LABEL-->
         <Label x:Name="EmailLbl" Content="Email:" HorizontalAlignment="Left" Height="28" Margin="16,121,0,0" VerticalAlignment="Top" Width="50" FontSize="14" Foreground="#FF7EEDB3" FontWeight="Bold" RenderTransformOrigin="-0.471,0.429"/>
         <Label x:Name="PasswordLbl" Content="Password:" HorizontalAlignment="Left" Height="27" Margin="10,168,0,144" VerticalAlignment="Center" Width="75" FontSize="14" Foreground="#FF7EEDB3" FontWeight="Bold"/>
-        <Button Content="Login" HorizontalAlignment="Center" Height="28" Margin="112,227,118,0" VerticalAlignment="Top" Width="70" Click="Login_Button_Click" Style="{DynamicResource ButtonStyle1}"/>
-        <Button Content="Create New User" HorizontalAlignment="Center" Height="28" Margin="90,270,86,0" VerticalAlignment="Top" Width="124" Click="Create_User_Button_Click" Style="{DynamicResource ButtonStyle2}"/>
-
         <Label x:Name="GrabLyfe" Content="Grab Life By The..." HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="33" Margin="16,24,172,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" FontSize="11" Foreground="Red" RenderTransformOrigin="0.021,0.282">
             <Label.Effect>
                 <DropShadowEffect Color="Black" ShadowDepth="5"/>
@@ -128,5 +129,10 @@
                 <DropShadowEffect Color="Black" ShadowDepth="5"/>
             </Label.Effect>
         </Label>
+
+        <!--BUTTON-->
+        <Button Content="Login" HorizontalAlignment="Center" Height="28" Margin="112,227,118,0" VerticalAlignment="Top" Width="70" Click="Login_Button_Click" Style="{DynamicResource ButtonStyle1}"/>
+        <Button Content="Create New User" HorizontalAlignment="Center" Height="28" Margin="90,270,86,0" VerticalAlignment="Top" Width="124" Click="Create_User_Button_Click" Style="{DynamicResource ButtonStyle2}"/>
+
     </Grid>
 </Window>
