@@ -113,7 +113,7 @@
             <RowDefinition Height="69*"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Center" Height="371" Margin="0,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="270" Grid.RowSpan="2"/>
-        <TextBox x:Name="EmailTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,127,29,0" TextWrapping="Wrap" Background="#FF79DEA9" VerticalAlignment="Top" FontFamily="Cascadia Code" FontSize="13" BorderBrush="#FFB1B1B1"/>
+        <TextBox x:Name="EmailTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,127,29,0" TextWrapping="NoWrap" Background="#FF79DEA9" VerticalAlignment="Top" FontFamily="Cascadia Code" FontSize="13" BorderBrush="#FFB1B1B1"/>
         <PasswordBox x:Name="PasswordTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,198,29,0"  Background="#FF79DEA9"  VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
         <Label x:Name="EmailLbl" Content="Email:" HorizontalAlignment="Left" Height="28" Margin="39,133,0,0" VerticalAlignment="Top" Width="51" FontSize="12" Foreground="#FF7EEDB3"/>
         <Label x:Name="PasswordLbl" Content="Password:" HorizontalAlignment="Left" Height="28" Margin="22,203,0,0" VerticalAlignment="Top" Width="63" FontSize="12" Foreground="#FF7EEDB3"/>

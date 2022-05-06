@@ -49,7 +49,7 @@ namespace WpfUI
                 NewUser.City = cityTextBox.Text;
                 NewUser.Bio = bioTextBox.Text;
                 NewUser.Email = emailTextBox.Text;
-                NewUser.PasswordHash = passwordBox.Password;
+                NewUser.PasswordHash = SecurityOps.HashString(passwordBox.Password);
                 if (Controller.CreateUser(NewUser))
                 {
                     MessageBox.Show("User " + NewUser.FirstName + " " + NewUser.LastName + " has been created!");

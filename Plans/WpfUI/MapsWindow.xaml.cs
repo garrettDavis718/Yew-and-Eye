@@ -179,8 +179,6 @@ namespace WpfUI
             SearchResults.Visibility = Visibility.Collapsed;
             AddressList.Children.Clear();
             ErrorMessage.Visibility = Visibility.Collapsed;
-
-            SearchNearby.Text = String.Empty;
             //Get latitude and longitude coordinates for specified location
             XmlDocument searchResponse = Geocode(SearchNearby.Text);
 

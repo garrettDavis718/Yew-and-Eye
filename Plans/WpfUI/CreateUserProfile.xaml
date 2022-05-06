@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="CreateUserProfile" Height="869.04" Width="608">
+        Title="CreateUserProfile" Height="910" Width="608">
     <Grid Background="#FF7EEDB3" Margin="0,0,0,0">
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="firstNameTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,194,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="lastNameTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,145,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="firstNameTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,194,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="lastNameTextBox"/>
         <Label Content="First Name:" HorizontalAlignment="Left" Margin="237,119,0,0" VerticalAlignment="Top"/>
         <Label Content="Last Name:" HorizontalAlignment="Left" Margin="237,168,0,0" VerticalAlignment="Top"/>
         <Label Content="City:" HorizontalAlignment="Left" Margin="237,222,0,0" VerticalAlignment="Top"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="237,276,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="237,336,0,0" VerticalAlignment="Top"/>
-        <Label Content="Confirm Password:" HorizontalAlignment="Left" Margin="237,390,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="237,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="cityTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="237,302,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" x:Name="emailTextBox"/>
-        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="237,362,0,0" VerticalAlignment="Top" Width="120" x:Name="passwordBox"/>
-        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="237,0,0,0" VerticalAlignment="Center" Width="120" x:Name="confirmPasswordBox"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="237,334,0,0" VerticalAlignment="Top"/>
+        <Label Content="Confirm Password:" HorizontalAlignment="Left" Margin="237,388,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="237,248,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="cityTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="237,302,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="emailTextBox"/>
+        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="237,360,0,0" VerticalAlignment="Top" Width="120" x:Name="passwordBox"/>
+        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="237,414,0,0" VerticalAlignment="Top" Width="120" x:Name="confirmPasswordBox"/>
         <TextBox HorizontalAlignment="Left" Height="244" Margin="136,464,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324" x:Name="bioTextBox"/>
         <Label Content="Bio" HorizontalAlignment="Left" Margin="138,438,0,0" VerticalAlignment="Top"/>
         <Button Content="Create Profile" HorizontalAlignment="Center" Margin="0,728,0,0" VerticalAlignment="Top" Width="98" Click="createProfileButton_Click" AutomationProperties.Name="createProfileButton" Height="40" Background="#FF4A8F98"/>
