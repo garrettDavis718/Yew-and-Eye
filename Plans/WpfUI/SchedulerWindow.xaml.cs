@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PlansLib.Objects;
+using PlansLib;
 
 namespace WpfUI
 {
@@ -23,6 +25,10 @@ namespace WpfUI
         public SchedulerWindow()
         {
             InitializeComponent();
+
+            User myUser = new User();
+            UserXName.Text = myUser.FirstName + " " + myUser.LastName;
+
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -111,6 +117,16 @@ namespace WpfUI
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This button should save Plan to User Profile", "Merge User Profile");
+
+            string plans = PlansTextBlock.Text;
+
+            User myUser = new User();
+            PlansWindow plansWindow = new PlansWindow(myUser);
+            plansWindow.PlanBox.Items.Add(plans);
+            plansWindow.ShowDialog();
+            
+
+
         }
 
         private void MakeButton_Click(object sender, RoutedEventArgs e)
@@ -122,20 +138,31 @@ namespace WpfUI
         {
             MessageBox.Show("This button should let User return to Maps", "Merge Maps");
             MapsWindow mapsWindow = new MapsWindow();
+            this.Hide();
             mapsWindow.Show();
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This button should let User return to Profile", "Merge User Profile");
-            
-            //MainWindow mainwindow = new MainWindow(user);
-            //mainwindow.Show();
+
+
+            CreateProfile createProfile = new CreateProfile();
+            ProfileWindow profileWindow = new ProfileWindow(createProfile);
+            this.Hide();
+            profileWindow.ShowDialog();
         }
 
         private void PlansButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This button should let User return to Plans Page", "Merge Planner");
+
+            User user = new User();
+            PlansWindow plansWindow = new PlansWindow(user);
+            this.Hide();
+            plansWindow.ShowDialog();
         }
+
+    
     }
 }
