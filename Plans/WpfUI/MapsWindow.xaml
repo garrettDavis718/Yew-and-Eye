@@ -137,7 +137,7 @@
             <Label Style="{StaticResource BlueLabel}" Canvas.Left="90" Canvas.Top="49" Content="mi of " Height="28" Name="label1" />
             <Button Click="Search_Click" Width="59" Height="24" Grid.ColumnSpan="2" Margin="0,77,251,39" HorizontalAlignment="Right" Canvas.Left="319" Canvas.Top="-25">Search</Button>
             <ComboBox Name="EntityType" Canvas.Left="82" Canvas.Top="28" Height="21"  Width="117" >
-                <ComboBoxItem Tag="7011" IsSelected="True">PLANS Available</ComboBoxItem>
+                <ComboBoxItem Tag="9995" IsSelected="True">PLANS Available</ComboBoxItem>
                 <ComboBoxItem Tag="5800">PLANS Booked</ComboBoxItem>
                 <ComboBoxItem Tag="7999">PLANS Created</ComboBoxItem>
                 <ComboBoxItem Tag="5800">PLANS 4 L8er </ComboBoxItem>                

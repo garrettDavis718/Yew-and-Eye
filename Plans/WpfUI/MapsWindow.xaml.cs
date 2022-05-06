@@ -6,8 +6,6 @@ using Microsoft.Maps.MapControl.WPF.Design;
 using System.Xml;
 using System.Net;
 using System.Xml.XPath;
-using PlansLib;
-using PlansLib.Objects;
 
 namespace WpfUI
 {
@@ -179,7 +177,7 @@ namespace WpfUI
             AddressList.Children.Clear();
             ErrorMessage.Visibility = Visibility.Collapsed;
 
-            SearchNearby.Text = String.Empty;
+
             //Get latitude and longitude coordinates for specified location
             XmlDocument searchResponse = Geocode(SearchNearby.Text);
 
@@ -189,29 +187,19 @@ namespace WpfUI
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
-            
             MessageBox.Show("This button should take user to Profile!", "Merge User Profile");
-
-            CreateProfile createProfile = new CreateProfile();
-            ProfileWindow profileWindow = new ProfileWindow(createProfile);
-            this.Hide();
-            profileWindow.ShowDialog();
         }
 
         private void SchedulerButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This button should take user to Scheduler!", "Merge Scheduler");
             SchedulerWindow scheduler = new SchedulerWindow();
-            this.Hide();
             scheduler.Show();
         }
 
         private void PlansButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            PlansWindow plansWindow = new PlansWindow(user);
-            this.Hide();
-            plansWindow.ShowDialog();
+
         }
     }
 }
