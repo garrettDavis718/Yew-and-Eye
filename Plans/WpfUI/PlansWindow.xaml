@@ -109,11 +109,11 @@
     </Window.Resources>
     <Grid Margin="0,0,-8,0">
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="402" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="532" RadiusX="5" RadiusY="5"/>
-                
+
         <!--BUTTONS-->
         <Button x:Name="CreatePlansBtn" Content="Create Plan" HorizontalAlignment="Left" Margin="150,319,0,0" VerticalAlignment="Top" Height="47" Width="95" Click="CreatePlansBtn_Click" RenderTransformOrigin="1.562,0.627" Style="{DynamicResource ButtonStyle2}"/>
         <Button x:Name="SearchPlansBtn" Content="Search Plans" Margin="308,319,158,0" VerticalAlignment="Top" Height="47" Click="SearchPlansBtn_Click" Style="{DynamicResource ButtonStyle1}"/>
-        <Button x:Name="ReturnProfileBtn" Content="return to profile" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="47" Width="95" Click="ReturnProfileBtn_Click" RenderTransformOrigin="1.562,0.627" Style="{DynamicResource ButtonStyle2}" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF7EEDB3"/>
+        <Button x:Name="ReturnProfileBtn" Content="return to profile" HorizontalAlignment="Left" Margin="21,48,0,0" VerticalAlignment="Top" Height="29" Width="91" Click="ReturnProfileBtn_Click" RenderTransformOrigin="1.562,0.627" Style="{DynamicResource ButtonStyle2}" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF7EEDB3"/>
 
         <!--LABELS-->
         <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="210,30,211,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3" RenderTransformOrigin="0.453,-0.334">
