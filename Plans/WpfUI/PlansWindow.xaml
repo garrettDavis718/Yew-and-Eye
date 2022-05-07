@@ -113,7 +113,7 @@
         <!--BUTTONS-->
         <Button x:Name="CreatePlansBtn" Content="Create Plan" HorizontalAlignment="Left" Margin="150,319,0,0" VerticalAlignment="Top" Height="47" Width="95" Click="CreatePlansBtn_Click" RenderTransformOrigin="1.562,0.627" Style="{DynamicResource ButtonStyle2}"/>
         <Button x:Name="SearchPlansBtn" Content="Search Plans" Margin="308,319,158,0" VerticalAlignment="Top" Height="47" Click="SearchPlansBtn_Click" Style="{DynamicResource ButtonStyle1}"/>
-        <Button x:Name="ReturnProfileBtn" Content="return to profile" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="47" Width="95" Click="CreatePlansBtn_Click" RenderTransformOrigin="1.562,0.627" Style="{DynamicResource ButtonStyle2}" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF7EEDB3"/>
+        <Button x:Name="ReturnProfileBtn" Content="return to profile" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="47" Width="95" Click="ReturnProfileBtn_Click" RenderTransformOrigin="1.562,0.627" Style="{DynamicResource ButtonStyle2}" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF7EEDB3"/>
 
         <!--LABELS-->
         <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="210,30,211,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3" RenderTransformOrigin="0.453,-0.334">
@@ -128,10 +128,10 @@
         <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="4 L8er" Margin="444,97,54,289" />
 
         <!--LISTBOX-->
-        <ListBox x:Name="Plan_Available" HorizontalAlignment="Center" Height="160" Margin="408,133,29,0" VerticalAlignment="Top" Width="124"/>
+        <ListBox x:Name="Plan_Available" HorizontalAlignment="Center" Height="160" Margin="21,133,416,0" VerticalAlignment="Top" Width="124"/>
         <ListBox x:Name="Plan_Booked" HorizontalAlignment="Center" Height="160" Margin="150,133,287,0" VerticalAlignment="Top" Width="124"/>
-        <ListBox x:Name="Plan_Created" HorizontalAlignment="Center" Height="160" Margin="21,133,416,0" VerticalAlignment="Top" Width="124"/>
-        <ListBox x:Name="Plan_4L8er" HorizontalAlignment="Center" Height="160" Margin="279,133,158,0" VerticalAlignment="Top" Width="124"/>
+        <ListBox x:Name="Plan_Created" HorizontalAlignment="Center" Height="160" Margin="279,133,158,0" VerticalAlignment="Top" Width="124"/>
+        <ListBox x:Name="Plan_4L8er" HorizontalAlignment="Center" Height="160" Margin="408,133,29,0" VerticalAlignment="Top" Width="124"/>
 
     </Grid>
 </Window>

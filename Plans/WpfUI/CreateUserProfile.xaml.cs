@@ -70,6 +70,7 @@ namespace WpfUI
         {
             this.Hide();
             LoginWindow loginWindow = new LoginWindow();
+            this.Hide();
             loginWindow.Show();
         }
     }

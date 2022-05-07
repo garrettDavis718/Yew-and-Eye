@@ -78,6 +78,7 @@ namespace WpfUI
                 SelectedDate = DateTime.Now;
             }
             PlanCreator planCreator = new PlanCreator(User, SelectedDate);
+            this.Hide();
             planCreator.Show();
 
         }

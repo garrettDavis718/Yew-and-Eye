@@ -33,7 +33,7 @@ namespace WpfUI
 			UserPlans = Controller.LoadPlans(user);
 			foreach (Plan plan in UserPlans)
 			{
-				PlanBox.Items.Add(plan.ToString());
+				Plan_Created.Items.Add(plan.ToString());
 			}
 		}
 
@@ -50,6 +50,13 @@ namespace WpfUI
 			MapsWindow mapsWindow = new MapsWindow(User);
 			this.Hide();
 			mapsWindow.Show();
+		}
+
+        private void ReturnProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+			ProfileWindow profileWindow = new ProfileWindow(User);
+			this.Hide();
+			profileWindow.ShowDialog();
 		}
     }
 }
