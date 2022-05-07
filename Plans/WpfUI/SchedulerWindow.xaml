@@ -290,7 +290,7 @@
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="110,505,0,15" Width="70" Style="{DynamicResource ButtonStyle4}" Click="ExitButton_Click" Grid.Row="1"/>
         <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="40,-9,120,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3">
             <Label.Effect>
-                <DropShadowEffect Color="Black" ShadowDepth="5"/>
+                <DropShadowEffect Color="#FFF30D0D" ShadowDepth="5"/>
             </Label.Effect>
         </Label>
         <Label Content="SCHEDULER" HorizontalAlignment="Left" Height="37" Margin="159,40,0,0" VerticalAlignment="Top" Width="105" Foreground="#FFE20B0B" FontSize="16" FontWeight="Bold"/>

@@ -5,20 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="UserProfile" Height="700" Width="800" >
-    <Grid Background="#FF7EEDB3" Margin="0,0,2,-1">
-        <Border >
-            <Grid Background="White" Height="500" Width="400" Margin="134,93,264,92" >
-                <Label Content="cityLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" x:Name="cityLabel"  Height="30" Width="92" BorderBrush="Black" FontFamily="Tahoma" FontSize="16"/>
-                <Button Content="Check Plans!" HorizontalAlignment="Left" Margin="118,434,0,0" VerticalAlignment="Top" Width="128" x:Name="welcomeToPlansButton" Height="38" Click="welcomeToPlansButton_Click"/>
-                <Label x:Name="userNameLabel"  Content="Label" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" FontSize="18" Width="427" FontStretch="Medium" FontFamily="Tahoma" FontWeight="Bold" FontStyle="Normal" BorderBrush="#FF7EEDB3" BorderThickness="5"/>
-                <TextBlock x:Name="bioTextBlock" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="107" Width="304" />
-                <Label Content="About me:" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="164" Width="428" BorderBrush="#FF7EEDB3" BorderThickness="5" FontSize="16"/>
-                <Image HorizontalAlignment="Center" Height="147" VerticalAlignment="Top"  Width="400" Source="/download.jpg" Stretch="UniformToFill"/>
-            </Grid>
-        </Border>
+        Title="UserProfile" Height="674.5" Width="458" >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,2,-2" Background="#FF7EEDB3">
+        <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="625" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="428" RadiusX="5" RadiusY="5"/>
+        <Grid Background="White" Width="400" Margin="24,80,24,33" >
+            <Label Content="cityLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" x:Name="cityLabel"  Height="30" Width="92" BorderBrush="Black" FontFamily="Tahoma" FontSize="16"/>
+            <Button Content="Check Plans!" HorizontalAlignment="Left" Margin="140,454,0,0" VerticalAlignment="Top" Width="128" x:Name="welcomeToPlansButton" Height="38" Click="welcomeToPlansButton_Click" Style="{DynamicResource ButtonStyle1}"/>
+            <Label x:Name="userNameLabel"  Content="Label" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" FontSize="18" Width="427" FontStretch="Medium" FontFamily="Tahoma" FontWeight="Bold" FontStyle="Normal" BorderBrush="#FF7EEDB3" BorderThickness="5"/>
+            <TextBlock x:Name="bioTextBlock" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="107" Width="304" />
+            <Label Content="About me:" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="164" Width="428" BorderBrush="#FF7EEDB3" BorderThickness="5" FontSize="16"/>
+            <Image HorizontalAlignment="Center" Height="147" VerticalAlignment="Top"  Width="400" Source="download.jpg" Stretch="UniformToFill"/>
 
 
+        </Grid>
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="70" Margin="149,0,150,0" VerticalAlignment="Top" Width="149" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="52" Foreground="#FF7EEDB3" RenderTransformOrigin="0.021,0.282">
+            <Label.Effect>
+                <DropShadowEffect Color="#FFEA2410" ShadowDepth="5"/>
+            </Label.Effect>
+        </Label>
     </Grid>
 </Window>
 

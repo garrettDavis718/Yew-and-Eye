@@ -142,12 +142,12 @@
                 <ComboBoxItem Tag="7999">PLANS Created</ComboBoxItem>
                 <ComboBoxItem Tag="9996">PLANS 4 L8er</ComboBoxItem>
             </ComboBox>
+            <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="MAPS" Canvas.Left="640" Canvas.Top="62" />
             <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="95" VerticalAlignment="Top" Width="191" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="72" Foreground="#FF7EEDB3" Canvas.Left="465" Canvas.Top="-11">
                 <Label.Effect>
                     <DropShadowEffect Color="#FFEA2410" ShadowDepth="5"/>
                 </Label.Effect>
             </Label>
-            <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="MAPS" Canvas.Left="640" Canvas.Top="62" />
         </Canvas>
 
         <!--MAP RESULT-->
