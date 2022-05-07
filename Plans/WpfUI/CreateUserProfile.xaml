@@ -5,31 +5,146 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="CreateUserProfile" Height="910" Width="608">
-    <Grid Background="#FF7EEDB3" Margin="0,0,0,0">
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,145,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="firstNameTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="237,194,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="lastNameTextBox"/>
-        <Label Content="First Name:" HorizontalAlignment="Left" Margin="237,119,0,0" VerticalAlignment="Top"/>
-        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="237,168,0,0" VerticalAlignment="Top"/>
-        <Label Content="City:" HorizontalAlignment="Left" Margin="237,222,0,0" VerticalAlignment="Top"/>
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="237,276,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="237,334,0,0" VerticalAlignment="Top"/>
-        <Label Content="Confirm Password:" HorizontalAlignment="Left" Margin="237,388,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="237,248,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="cityTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="237,302,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="emailTextBox"/>
-        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="237,360,0,0" VerticalAlignment="Top" Width="120" x:Name="passwordBox"/>
-        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="237,414,0,0" VerticalAlignment="Top" Width="120" x:Name="confirmPasswordBox"/>
-        <TextBox HorizontalAlignment="Left" Height="244" Margin="136,464,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324" x:Name="bioTextBox"/>
-        <Label Content="Bio" HorizontalAlignment="Left" Margin="138,438,0,0" VerticalAlignment="Top"/>
-        <Button Content="Create Profile" HorizontalAlignment="Center" Margin="0,728,0,0" VerticalAlignment="Top" Width="98" Click="createProfileButton_Click" AutomationProperties.Name="createProfileButton" Height="40" Background="#FF4A8F98"/>
-        <Button Content="Back" HorizontalAlignment="Center" Margin="0,790,0,0" VerticalAlignment="Top" Width="44" Click="backButton_Click" AutomationProperties.Name="backButton" Height="20" Background="#FF4A8F98"/>
-        <Image HorizontalAlignment="Center" Height="66" Margin="0,33,0,0" VerticalAlignment="Top" Width="600" Source="/download.jpg" Stretch="UniformToFill"/>
-        <Label x:Name="WelcomeLbl" Content="Create New User" HorizontalContentAlignment ="Center" HorizontalAlignment="Left" Height="38" Margin="24,55,0,0" VerticalAlignment="Top" Width="228" FontFamily="Microsoft JhengHei UI" FontWeight="Bold" FontSize="22">
+        Title="CreateUserProfile" Height="713" Width="545">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FF7EEDB3" Margin="0,0,2,-1">
+        <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="660" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="515"  RadiusX="5" RadiusY="5"/>
+
+        <!--IMAGE-->
+        <Image HorizontalAlignment="Center" Height="202" Margin="0,29,0,0" VerticalAlignment="Top" Width="535" Source="new_user.jpg"/>
+        <Image Margin="219,221,188,338" Source="Image5.png" Stretch="Fill"/>
+
+        <!--LABEL-->
+        <Label Content="First Name:" HorizontalAlignment="Left" Margin="24,236,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="24,285,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="City:" HorizontalAlignment="Left" Margin="24,339,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="24,393,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="24,451,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Confirm Password:" HorizontalAlignment="Left" Margin="24,505,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Bio:" HorizontalAlignment="Left" Margin="486,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="WelcomeLbl" Content="Create New User" HorizontalContentAlignment ="Center" HorizontalAlignment="Left" Height="38" Margin="24,55,0,0" VerticalAlignment="Top" Width="228" FontFamily="Microsoft JhengHei UI" FontSize="24" Foreground="Black" FontWeight="Bold">
             <Label.Effect>
                 <DropShadowEffect Color="Black" ShadowDepth="5"/>
             </Label.Effect>
         </Label>
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="10,0,379,0" VerticalAlignment="Top" Width="146" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3" RenderTransformOrigin="0.021,0.282">
+            <Label.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="5"/>
+            </Label.Effect>
+        </Label>
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="443,236,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="DOB:" HorizontalAlignment="Left" Margin="472,290,0,0" VerticalAlignment="Top" Foreground="White"/>
 
+        <!--TEXTBOX-->
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="24,262,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="firstNameTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="24,311,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="lastNameTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="24,365,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="cityTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="24,419,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="emailTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="188" Margin="189,365,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324" x:Name="bioTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="393,262,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="userNameTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="393,311,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="DOBTextBox"/>
+
+        <!--PASSWORD-->
+        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="24,477,0,0" VerticalAlignment="Top" Width="120" x:Name="passwordBox"/>
+        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="24,531,0,0" VerticalAlignment="Top" Width="120" x:Name="confirmPasswordBox"/>
+
+        <!--BUTTON-->
+        <Button Content="Create Profile" HorizontalAlignment="Center" Margin="207,569,212,0" VerticalAlignment="Top" Width="116" Click="createProfileButton_Click" AutomationProperties.Name="createProfileButton" Height="40" Background="#FF4A8F98" Style="{DynamicResource ButtonStyle1}"/>
+        <Button Content="Back" HorizontalAlignment="Center" Margin="229,626,229,0" VerticalAlignment="Top" Width="77" Click="backButton_Click" AutomationProperties.Name="backButton" Height="26" Background="#FF4A8F98" Style="{DynamicResource ButtonStyle2}"/>
 
     </Grid>
 </Window>
