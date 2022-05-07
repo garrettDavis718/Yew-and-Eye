@@ -105,8 +105,8 @@
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="660" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="515"  RadiusX="5" RadiusY="5"/>
 
         <!--IMAGE-->
-        <Image HorizontalAlignment="Center" Height="202" Margin="0,29,0,0" VerticalAlignment="Top" Width="535" Source="new_user.jpg"/>
-        <Image Margin="219,221,188,338" Source="Image5.png" Stretch="Fill"/>
+        <Image HorizontalAlignment="Center" Height="176" Margin="0,45,0,0" VerticalAlignment="Top" Width="535" Source="new_user.jpg"/>
+        <Image Margin="219,236,194,338" Source="Image5.png" Stretch="Fill"/>
 
         <!--LABEL-->
         <Label Content="First Name:" HorizontalAlignment="Left" Margin="24,236,0,0" VerticalAlignment="Top" Foreground="White"/>

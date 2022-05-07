@@ -7,13 +7,116 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfUI.PlanCreator"
         mc:Ignorable="d"
         Title="PlanCreator" Height="550" Width="300" ResizeMode="NoResize" WindowStartupLocation="Manual" >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid x:Name="BackBtn" Background="#FF28282C">
-        <Button x:Name="CreatePlanBtn" Content="Create Plan" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="44" Width="92" FontSize="14" Click="CreatePlanBtn_Click"/>
-        <TextBox x:Name="DescriptionBox" HorizontalAlignment="Center" Height="106" Margin="0,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" Background="#FFF5F4F4" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
-        <Label Content="Description" HorizontalAlignment="Center" Height="31" Margin="0,51,0,0" VerticalAlignment="Top" Width="92" Background="Transparent" Foreground="#FFF5E0E0" FontSize="16"/>
-        <TextBox x:Name="LocationBox" HorizontalAlignment="Center" Height="35" Margin="0,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Background="#FFF5F4F4" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
-        <Label Content="Location" HorizontalAlignment="Left" Height="31" Margin="113,259,0,0" VerticalAlignment="Top" Width="92" Background="Transparent" Foreground="#FFF5E0E0" FontSize="16"/>
-        <Button x:Name="CreatePlanBtn_Copy" Content="Back" HorizontalAlignment="Center" Margin="0,415,0,0" VerticalAlignment="Top" Height="27" Width="56" FontSize="14"/>
-
+        <Button x:Name="CreatePlanBtn" Content="Create Plan" HorizontalAlignment="Center" Margin="105,418,97,0" VerticalAlignment="Top" Height="44" Width="92" FontSize="14" Click="CreatePlanBtn_Click" Style="{DynamicResource ButtonStyle1}"/>
+        <TextBox x:Name="DescriptionBox" HorizontalAlignment="Center" Height="106" Margin="8,212,6,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Background="#FFF5F4F4" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
+        <Label Content="Description" HorizontalAlignment="Center" Height="31" Margin="105,176,97,0" VerticalAlignment="Top" Width="92" Background="Transparent" Foreground="#FFF5E0E0" FontSize="16"/>
+        <TextBox x:Name="LocationBox" HorizontalAlignment="Center" Height="35" Margin="10,359,6,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" Background="#FFF5F4F4" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
+        <Label Content="Location" HorizontalAlignment="Left" Height="31" Margin="117,323,0,0" VerticalAlignment="Top" Width="71" Background="Transparent" Foreground="#FFF5E0E0" FontSize="16"/>
+        <Button x:Name="CreatePlanBtn_Copy" Content="Back" HorizontalAlignment="Center" Margin="123,479,115,0" VerticalAlignment="Top" Height="27" Width="56" FontSize="14" Style="{DynamicResource ButtonStyle2}"/>
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="48,6,106,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF65E8C4">
+            <Label.Effect>
+                <DropShadowEffect Color="#FFF30D0D" ShadowDepth="5"/>
+            </Label.Effect>
+        </Label>
+        <Label Content="CREATOR" HorizontalAlignment="Left" Height="37" Margin="167,55,0,0" VerticalAlignment="Top" Width="105" Foreground="#FFE20B0B" FontSize="16" FontWeight="Bold"/>
+        <Rectangle Fill="#FF16161B" HorizontalAlignment="Left" Height="51" Margin="8,120,0,0" Stroke="Black" VerticalAlignment="Top" Width="280" RenderTransformOrigin="0.5,1.317" RadiusX="5" RadiusY="5"/>
+        <TextBlock x:Name ="DateSelect" HorizontalAlignment="Left" Height="32" Margin="38,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"
+            Text="{Binding SelectedDate, ElementName=Plans1}" FontSize="20" Foreground="White"/>
+        <Label Content="Date" HorizontalAlignment="Center" Height="31" Margin="123,89,124,0" VerticalAlignment="Top" Width="47" Background="Transparent" Foreground="#FFF5E0E0" FontSize="16"/>
     </Grid>
 </Window>

@@ -68,9 +68,9 @@
         <Grid Background="White" Width="400" Margin="24,80,24,33" >
             <Label Content="cityLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" x:Name="cityLabel"  Height="30" Width="92" BorderBrush="Black" FontFamily="Tahoma" FontSize="16"/>
             <Button Content="Check Plans!" HorizontalAlignment="Left" Margin="140,454,0,0" VerticalAlignment="Top" Width="128" x:Name="welcomeToPlansButton" Height="38" Click="welcomeToPlansButton_Click" Style="{DynamicResource ButtonStyle1}"/>
-            <Label x:Name="userNameLabel"  Content="Label" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" FontSize="18" Width="427" FontStretch="Medium" FontFamily="Tahoma" FontWeight="Bold" FontStyle="Normal" BorderBrush="#FF7EEDB3" BorderThickness="5"/>
+            <Label x:Name="userNameLabel"  Content="Label" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" FontSize="18" Width="427" FontStretch="Medium" FontFamily="Tahoma" FontWeight="Bold" FontStyle="Normal" BorderBrush="#FFF00606" BorderThickness="5" Background="#FFD3CECE"/>
             <TextBlock x:Name="bioTextBlock" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="107" Width="304" />
-            <Label Content="About me:" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="164" Width="428" BorderBrush="#FF7EEDB3" BorderThickness="5" FontSize="16"/>
+            <Label Content="About me:" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="164" Width="428" BorderBrush="#FFF00606" BorderThickness="5" FontSize="16"/>
             <Image HorizontalAlignment="Center" Height="147" VerticalAlignment="Top"  Width="400" Source="download.jpg" Stretch="UniformToFill"/>
 
 
