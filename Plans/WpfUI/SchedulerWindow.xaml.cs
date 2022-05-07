@@ -30,11 +30,14 @@ namespace WpfUI
             User = user;
             InitializeComponent();
             UserName.Text = user.FirstName;
+            SelectedDate = DateTime.Now;
+            DateSelect.Text = DateTime.Now.ToString();
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            Environment.Exit(1);
         }
 
         private void CheckButton_Click(object sender, RoutedEventArgs e)
@@ -52,30 +55,62 @@ namespace WpfUI
 
             SelectedDate = DateTime.Parse(date);
             List<Plan> plans = new List<Plan>();
-            plans = Controller.LoadPlans(SelectedDate);
+            plans = Controller.LoadPlans(SelectedDate.ToShortDateString());
 
-            PlansTextBlock.Clear();
+            PlansBox.Items.Clear();
 
-            foreach (Plan plan in plans)
+            if (plans.Count > 0)
             {
-                PlansTextBlock.Text += plan.ToString() + "\n";
+                PlansBox.Items.Add("Plans for " + date + ":\n");
+                foreach (Plan plan in plans)
+                {
+                    PlansBox.Items.Add(plan.ToString());
+                }
             }
+            else
+            { PlansBox.Items.Add("No plans for : " + date); }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This button should save Plan to User Profile", "Merge User Profile");
+            List<Plan> plans = Controller.LoadPlans(SelectedDate.ToShortDateString());
+            try
+            {
+                string chosenPlan = PlansBox.SelectedItem.ToString();
+                foreach (Plan plan in plans)
+                {
+                    if (plan.ToString().Equals(chosenPlan))
+                    {
+                        User.Plans += plan.PlanID.ToString() + ",";
+                        plan.Users += User.UserID.ToString() + ",";
+                        try
+                        {
+                            Controller.UpdateUserPlans(User);
+                            Controller.UpdatePlanUsers(plan);
+                            MessageBox.Show(chosenPlan + "\nSaved!");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select a plan before saving.");
+            } 
         }
 
         private void MakeButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                SelectedDate = Plans1.SelectedDate.Value.Date;
+                SelectedDate = DateTime.Parse(DateSelect.Text);
             }
             catch (Exception ex)
             {
-                SelectedDate = DateTime.Now;
+                MessageBox.Show("Incorrect Date/Time Input");
             }
             PlanCreator planCreator = new PlanCreator(User, SelectedDate);
             this.Hide();

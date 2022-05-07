@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Maps.MapControl.WPF;
+using System.Collections.Generic;
 using Microsoft.Maps.MapControl.WPF.Design;
 using System.Xml;
 using System.Net;
@@ -19,9 +20,14 @@ namespace WpfUI
 
         string BingMapsKey = "ArRifk6122ZB2RSEec6gQgmQte_NcFEvVXoj7Er8B-nzf9du4Xdd1mr1j9Sug378";
         public User User { get; set; }
+        public List<Plan> MyPlans { get; set; }
+        public List<Plan> LikePlans { get; set; }
+
         public MapsWindow(User user)
         {
             User = user;
+            MyPlans = Controller.LoadPlans(User);
+
             InitializeComponent();
         }
 
@@ -183,7 +189,8 @@ namespace WpfUI
             XmlDocument searchResponse = Geocode(SearchNearby.Text);
 
             //Find and display points of interest near the specified location
-            FindandDisplayNearbyPOI(searchResponse);
+            //FindandDisplayNearbyPOI(searchResponse);
+            showMyPlans();
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
@@ -208,6 +215,69 @@ namespace WpfUI
             plansWindow.ShowDialog();
         }
 
+        public void showMyPlans()
+        {
+            int i = 0;
+            try
+            {
+                foreach (Plan plan in MyPlans)
+                {
+                    double[] coordinates = showCoords(plan.Location.Trim());
+                    double longitude = coordinates[0];
+                    double latitude = coordinates[1];
+                    AddLabel(AddressList, i.ToString());
+                    AddPushpinToMap(latitude, longitude, i.ToString()); i++;
+                }
+                SearchResults.Visibility = Visibility.Visible;
+                myMap.Visibility = Visibility.Visible;
+                myMapLabel.Visibility = Visibility.Visible;
+                myMap.Focus();
+                myMap.Children[0].Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying results");
+            }
+
+        }
+        public double[] showCoords(string address)
+        {
+            double[] coordinates = new double[2];
+
+            foreach(Plan plan in MyPlans)
+            {
+                
+            }
+            XmlDocument xmlDoc = Geocode(address);
+            //Create namespace manager
+            XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
+            nsmgr.AddNamespace("rest", "http://schemas.microsoft.com/search/local/ws/rest/v1");
+
+            //Get all geocode locations in the response 
+            XmlNodeList locationElements = xmlDoc.SelectNodes("//rest:Location", nsmgr);
+            if (locationElements.Count == 0)
+            {
+                ErrorMessage.Visibility = Visibility.Visible;
+                ErrorMessage.Content = "The location you entered could not be geocoded.";
+            }
+            else
+            {
+                string BingMapsKey = "ArRifk6122ZB2RSEec6gQgmQte_NcFEvVXoj7Er8B-nzf9du4Xdd1mr1j9Sug378";
+
+                //Get the geocode location points that are used for display (UsageType=Display)
+                XmlNodeList displayGeocodePoints =
+                        locationElements[0].SelectNodes(".//rest:GeocodePoint/rest:UsageType[.='Display']/parent::node()", nsmgr);
+                double latitude = 0.0;
+                double longitude = 0.0;
+                double.TryParse(displayGeocodePoints[0].SelectSingleNode(".//rest:Latitude", nsmgr).InnerText, out latitude);
+                double.TryParse(displayGeocodePoints[0].SelectSingleNode(".//rest:Longitude", nsmgr).InnerText, out longitude);
+                coordinates[0] = longitude;
+                coordinates[1] = latitude;
+                
+            }
+
+            return coordinates;
+        }
 
        }
 }

@@ -55,18 +55,28 @@ namespace PlansLib
 		/// <returns>true if successful, false otherwise.</returns>
 		public static bool CreateUser(User user)
 		{
-			string query = $"INSERT INTO user (email, password_hash, first_name, last_name, bio, city) VALUES ('{user.Email}', '{user.PasswordHash}', '{user.FirstName}', '{user.LastName}', '{user.Bio}', '{user.City}');";
+			string query = $"INSERT INTO user (email, password_hash, first_name, last_name, bio, city, plans) VALUES ('{user.Email.Trim()}', '{user.PasswordHash.Trim()}', '{user.FirstName.Trim()}', '{user.LastName.Trim()}', '{user.Bio.Trim()}', '{user.City.Trim()}', '{""}');";
 			return InsertQuery(query) is 1;
 		}
 
 		/// <summary>
-		/// update password in user table.
+		/// update plans in user table.
 		/// </summary>
 		/// <param name="user">user to be updated.</param>
 		/// <returns>true if successful, false otherwise.</returns>
-		public static bool UpdateUser(User user)
+		public static bool UpdateUserPlans(User user)
 		{
-			string query = $"UPDATE user SET password_hash = '{user.PasswordHash}' WHERE email = '{user.Email}';";
+			string query = $"UPDATE user SET plans = '{user.Plans}' WHERE email = '{user.Email}';";
+			return UpdateQuery(query) is 1;
+		}
+		/// <summary>
+		/// update users in the plans table
+		/// </summary>
+		/// <param name="user">user to be updated.</param>
+		/// <returns>true if successful, false otherwise.</returns>
+		public static bool UpdatePlanUsers(Plan plan)
+		{
+			string query = $"UPDATE plans SET users = '{plan.Users}' WHERE planID = '{plan.PlanID}';";
 			return UpdateQuery(query) is 1;
 		}
 
@@ -107,7 +117,7 @@ namespace PlansLib
 		public static User GetUser(User user)
 		{
 			//string output = string.Empty;
-			string query = $"SELECT first_name, last_name, email, userid, bio, city FROM user WHERE email = '{user.Email}'";
+			string query = $"SELECT first_name, last_name, email, userid, bio, city, plans FROM user WHERE email = '{user.Email}'";
 			//output user
 			User output = new User();
 			using (SQLiteDataReader dataReader = SelectQuery(query))
@@ -120,6 +130,7 @@ namespace PlansLib
 					output.UserID = dataReader.GetInt32(3);
 					output.Bio = dataReader.GetString(4);
 					output.City = dataReader.GetString(5);
+					output.Plans = dataReader.GetString(6);
 				}
 			}
 			return output;
@@ -131,7 +142,7 @@ namespace PlansLib
 		/// <returns></returns>
 		public static bool WritePlan(Plan plan)
 		{
-			string query = $"INSERT INTO plans (description, location, date, userid) VALUES ('{plan.Description}', '{plan.Location}', '{plan.Date}', '{plan.UserID}');";
+			string query = $"INSERT INTO plans (description, location, date, time, userid, users, city) VALUES ('{plan.Description}', '{plan.Location}', '{plan.Date}', '{plan.Time}', '{plan.UserID}', '{plan.Users}','{plan.City}');";
 			return InsertQuery(query) is 1;
 		}
 		/// <summary>
@@ -139,11 +150,10 @@ namespace PlansLib
 		/// </summary>
 		/// <param name="date"></param>
 		/// <returns></returns>
-		public static List<Plan> GetPlans(DateTime date)
+		public static List<Plan> GetPlans(string date)
 		{
-
-			string query = $"SELECT description, location, date, userid, planID FROM plans WHERE date = '{date.ToShortDateString()}'";
-			List<Plan> plans = new List<Plan>(20);
+			string query = $"SELECT description, location, date, time, userid, planID, users, city FROM plans WHERE date = '{date}'";
+			List<Plan> plans = new List<Plan>();
 			int i = 0;
 			using (SQLiteDataReader dataReader = SelectQuery(query))
 			{
@@ -152,9 +162,12 @@ namespace PlansLib
 					Plan plan = new Plan();
 					plan.Description = dataReader.GetString(0);
 					plan.Location = dataReader.GetString(1);
-					plan.Date = DateTime.Parse(dataReader.GetString(2));
-					plan.UserID = dataReader.GetInt32(3);
-					plan.PlanID = dataReader.GetInt32(4);
+					plan.Date = dataReader.GetString(2);
+					plan.Time = dataReader.GetString(3);
+					plan.UserID = dataReader.GetInt32(4);
+					plan.PlanID = dataReader.GetInt32(5);
+					plan.Users = dataReader.GetString(6);
+					plan.City = dataReader.GetString(7);
 					plans.Add(plan);
 				}
 			}
@@ -168,7 +181,7 @@ namespace PlansLib
 		public static List<Plan> GetPlans(User user)
 		{
 
-			string query = $"SELECT description, location, date, userid, planID FROM plans WHERE userid = '{user.UserID}'";
+			string query = $"SELECT description, location, date, time, userid, planID, users, city FROM plans WHERE userid = '{user.UserID}'";
 			List<Plan> plans = new List<Plan>(20);
 			int i = 0;
 			using (SQLiteDataReader dataReader = SelectQuery(query))
@@ -178,9 +191,12 @@ namespace PlansLib
 					Plan plan = new Plan();
 					plan.Description = dataReader.GetString(0);
 					plan.Location = dataReader.GetString(1);
-					plan.Date = DateTime.Parse(dataReader.GetString(2));
-					plan.UserID = dataReader.GetInt32(3);
-					plan.PlanID = dataReader.GetInt32(4);
+					plan.Date = dataReader.GetString(2);
+					plan.Time = dataReader.GetString(3);
+					plan.UserID = dataReader.GetInt32(4);
+					plan.PlanID = dataReader.GetInt32(5);
+					plan.Users = dataReader.GetString(6);
+					plan.City = dataReader.GetString(7);
 					plans.Add(plan);
 				}
 			}

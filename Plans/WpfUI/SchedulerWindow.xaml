@@ -275,10 +275,10 @@
 
         <!--TEXTBOX-->
         <TextBlock x:Name="UserName" HorizontalAlignment="Center" Height="27" Margin="38,72,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Background="{x:Null}" FontSize="18" Foreground="#FFFBF4F4"/>
-        <TextBox x:Name ="PlansTextBlock" HorizontalAlignment="Left" Height="115" Margin="22,312,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="258"/>
+        <ListBox x:Name ="PlansBox" HorizontalAlignment="Left" Height="115" Margin="22,312,0,0" Grid.Row="1"  VerticalAlignment="Top" Width="258"/>
         <!--TEXTBLOCK-->
-        <TextBlock x:Name ="DateSelect" HorizontalAlignment="Left" Height="32" Margin="40,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"
-                   Text="{Binding ElementName=Plans1, Path=SelectedDate}" FontSize="20" Foreground="White" Grid.Row="1"/>
+        <TextBox x:Name ="DateSelect" HorizontalAlignment="Left" Height="32" Margin="40,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" 
+                   Text="{Binding ElementName=Plans1, Path=SelectedDate}" FontSize="20" Foreground="White" Grid.Row="1" Background="#FF16161B" BorderBrush="#FF16161B"/>
 
         <!--BUTTONS-->
         <Button x:Name="CheckButton" Content="CHECK DATE" HorizontalAlignment="Left" Height="22" Margin="90,173,0,0" VerticalAlignment="Top" Width="124" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}" Click="CheckButton_Click" Grid.Row="1"/>

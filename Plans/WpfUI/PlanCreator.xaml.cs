@@ -29,13 +29,14 @@ namespace WpfUI
             User = user;
             DateTime = dateTime;
             InitializeComponent();
+            DateSelect.Text = dateTime.ToString();
         }
 
         private void CreatePlanBtn_Click(object sender, RoutedEventArgs e)
         {
             if (DescriptionBox.Text != string.Empty && LocationBox.Text != string.Empty)
             {
-                Plan plan = new Plan(DescriptionBox.Text, DateTime, LocationBox.Text, User.UserID);
+                Plan plan = new Plan(DescriptionBox.Text, DateTime.ToShortDateString(), DateTime.ToShortTimeString(), LocationBox.Text, User.UserID, User.UserID.ToString() + ",", User.City);
                 if (Controller.CreatePlan(plan))
                 {
                     MessageBox.Show("Plan created for :" + plan.Date);
@@ -52,6 +53,13 @@ namespace WpfUI
             {
                 MessageBox.Show("Error, You must provide a Location and Description.");
             }
+        }
+
+        private void CreatePlanBtn_Copy_Click(object sender, RoutedEventArgs e)
+        {            
+            SchedulerWindow schedulerWindow = new SchedulerWindow(User);
+            this.Close();
+            schedulerWindow.Show();
         }
     }
 }

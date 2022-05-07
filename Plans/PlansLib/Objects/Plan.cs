@@ -11,29 +11,52 @@ namespace PlansLib.Objects
     {   
         //Fields and properties
         public string Description { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
         public string Location { get; set; }
         public int UserID { get; set; }
         public int PlanID { get; set; }
+        public string Users { get; set; }
+        public string City { get; set; }
 
         public Plan()
         {
             
         }
-        public Plan(string description, DateTime date, string location, int userid)
+        /// <summary>
+        /// Plan Creation Object
+        /// </summary>
+        /// <param name="description"></param>
+        /// <param name="date"></param>
+        /// <param name="location"></param>
+        /// <param name="userid"></param>
+        public Plan(string description, string date, string time, string location, int userid, string users, string city)
         {
             Description = description;
             Date = date;
+            Time = time;
             Location = location;
             UserID = userid;
+            Users = users;
+            City = city;
         }
-        public Plan(string description, DateTime date, string location, int userid, int planid)
+        /// <summary>
+        /// Plan Retrieval Object
+        /// </summary>
+        /// <param name="description"></param>
+        /// <param name="date"></param>
+        /// <param name="location"></param>
+        /// <param name="userid"></param>
+        /// <param name="planid"></param>
+        public Plan(string description, string date, string time, string location, int userid, int planid, string users, string city)
         {
             Description = description;
             Date = date;
             Location = location;
             UserID = userid;
             PlanID = planid;
+            Users = users;
+            City = city;
         }
         public override string ToString()
         {

@@ -41,6 +41,42 @@ namespace PlansLib
 				return false;
 			}
 		}
+		/// <summary>
+		/// Updates the user's plans property
+		/// </summary>
+		/// <param name="user"></param>
+		/// <returns></returns>
+		public static bool UpdateUserPlans(User user)
+		{
+			if (DatabaseOps.OpenConnection())
+			{
+				bool results = DatabaseOps.UpdateUserPlans(user);
+				DatabaseOps.CloseConnection();
+				return results;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/// <summary>
+		/// Updates the plan's user property
+		/// </summary>
+		/// <param name="plan"></param>
+		/// <returns></returns>
+		public static bool UpdatePlanUsers(Plan plan)
+		{
+			if (DatabaseOps.OpenConnection())
+			{
+				bool results = DatabaseOps.UpdatePlanUsers(plan);
+				DatabaseOps.CloseConnection();
+				return results;
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 		/// <summary>
 		/// Method to Write Create Plan
@@ -85,7 +121,7 @@ namespace PlansLib
 			return output;
 		}
 		//Load Plan From Date
-		public static List<Plan> LoadPlans(DateTime date)
+		public static List<Plan> LoadPlans(string date)
 		{
 			List<Plan> plans = new List<Plan>();
 			if (DatabaseOps.OpenConnection())

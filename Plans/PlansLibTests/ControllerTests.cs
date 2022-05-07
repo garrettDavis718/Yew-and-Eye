@@ -15,7 +15,7 @@ namespace PlansLib.Tests
         [TestMethod()]
         public void CreateUserTest()
         {
-            User user = new User("TedDansen", "testPass", "Ted", "Dansen", 1, "bio", "city");
+            User user = new User("TedDansen", "testPass", "Ted", "Dansen", 1, "bio", "city", "test");
 
             Assert.IsFalse(Controller.CreateUser(user));
 
@@ -34,7 +34,7 @@ namespace PlansLib.Tests
         {
             DateTime date = new DateTime(2022, 05, 05, 0, 0, 0);
             
-            List<Plan> plans = Controller.LoadPlans(date);
+            List<Plan> plans = Controller.LoadPlans(date.ToString());
             Console.WriteLine(plans.Count);
             Assert.IsTrue(plans.Count > 0);
         }

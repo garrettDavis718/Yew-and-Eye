@@ -38,7 +38,7 @@ namespace PlansLib
 		/// </summary>
 		/// <param name="email">email address associated with user.</param>
 		/// <param name="passwordHash">password hash associated with user.</param>
-		public User (string email, string password, string first_name, string last_name, int userID, string bio, string city)
+		public User (string email, string password, string first_name, string last_name, int userID, string bio, string city, string plans)
 		{
 			Email = email;
 			PasswordHash = SecurityOps.HashString(password);
@@ -47,6 +47,7 @@ namespace PlansLib
 			UserID = userID;
 			Bio = bio;
 			City = city;
+			Plans = plans;
 		}
 		/// <summary>
 		/// User object for use in program, doesn't pass arorund the password hash
@@ -73,6 +74,7 @@ namespace PlansLib
 		public int UserID { get; set; }
 		public string Bio { get; set; }
 		public string City { get; set; }
+		public string Plans { get; set; }
 
 	}
 }
