@@ -41,12 +41,14 @@ namespace WpfUI
         {
 			MessageBox.Show(User.FirstName);
 			SchedulerWindow scheduler = new SchedulerWindow(User);
+			this.Hide();
 			scheduler.Show();
 		}
 
         private void SearchPlansBtn_Click(object sender, RoutedEventArgs e)
         {
 			MapsWindow mapsWindow = new MapsWindow(User);
+			this.Hide();
 			mapsWindow.Show();
 		}
     }
