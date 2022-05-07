@@ -39,7 +39,6 @@ namespace WpfUI
 
         private void CreatePlansBtn_Click(object sender, RoutedEventArgs e)
         {
-			MessageBox.Show(User.FirstName);
 			SchedulerWindow scheduler = new SchedulerWindow(User);
 			this.Hide();
 			scheduler.Show();

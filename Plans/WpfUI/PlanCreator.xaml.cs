@@ -39,6 +39,9 @@ namespace WpfUI
                 if (Controller.CreatePlan(plan))
                 {
                     MessageBox.Show("Plan created for :" + plan.Date);
+                    SchedulerWindow schedulerWindow = new SchedulerWindow(User);
+                    this.Hide();
+                    schedulerWindow.Show();
                 }
                 else 
                 {
