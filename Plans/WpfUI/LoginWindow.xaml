@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="370.967" Width="305" FontSize="14" Background="#FF7EEDB3">
+        Title="LoginWindow" Height="370.967" Width="305" FontSize="14" Background="#FF65E8C4">
     <Window.Resources>
         <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
             <Setter Property="FontWeight" Value="Bold"/>
@@ -113,18 +113,18 @@
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="312" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="269"  RadiusX="5" RadiusY="5" Grid.RowSpan="2"/>
 
         <!--INPUT-->
-        <TextBox x:Name="EmailTextBox" VerticalContentAlignment="Center"  Height="39" Margin="71,110,38,0" TextWrapping="NoWrap" Background="#FF79DEA9" VerticalAlignment="Top" FontFamily="Cascadia Code" FontSize="13" BorderBrush="#FFB1B1B1"/>
-        <PasswordBox x:Name="PasswordTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,168,38,0"  Background="#FF79DEA9"  VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
+        <TextBox x:Name="EmailTextBox" VerticalContentAlignment="Center"  Height="39" Margin="71,110,38,0" TextWrapping="NoWrap" Background="#FF65E8C4" VerticalAlignment="Top" FontFamily="Cascadia Code" FontSize="13" BorderBrush="#FFB1B1B1"/>
+        <PasswordBox x:Name="PasswordTextBox" VerticalContentAlignment="Center"  Height="39" Margin="90,168,38,0"  Background="#FF65E8C4"  VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="13" BorderBrush="#FFB1B1B1"/>
         
         <!--LABEL-->
-        <Label x:Name="EmailLbl" Content="Email:" HorizontalAlignment="Left" Height="28" Margin="16,121,0,0" VerticalAlignment="Top" Width="50" FontSize="14" Foreground="#FF7EEDB3" FontWeight="Bold" RenderTransformOrigin="-0.471,0.429"/>
-        <Label x:Name="PasswordLbl" Content="Password:" HorizontalAlignment="Left" Height="27" Margin="10,168,0,144" VerticalAlignment="Center" Width="75" FontSize="14" Foreground="#FF7EEDB3" FontWeight="Bold"/>
+        <Label x:Name="EmailLbl" Content="Email:" HorizontalAlignment="Left" Height="28" Margin="16,121,0,0" VerticalAlignment="Top" Width="50" FontSize="14" Foreground="#FF65E8C4" FontWeight="Bold" RenderTransformOrigin="-0.471,0.429"/>
+        <Label x:Name="PasswordLbl" Content="Password:" HorizontalAlignment="Left" Height="27" Margin="10,168,0,144" VerticalAlignment="Center" Width="75" FontSize="14" Foreground="#FF65E8C4" FontWeight="Bold"/>
         <Label x:Name="GrabLyfe" Content="Grab Life By The..." HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="33" Margin="16,24,172,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" FontSize="11" Foreground="Red" RenderTransformOrigin="0.021,0.282">
             <Label.Effect>
                 <DropShadowEffect Color="Black" ShadowDepth="5"/>
             </Label.Effect>
         </Label>
-        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="88,34,66,0" VerticalAlignment="Top" Width="146" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3" RenderTransformOrigin="0.021,0.282">
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="88,34,66,0" VerticalAlignment="Top" Width="146" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF65E8C4" RenderTransformOrigin="0.021,0.282">
             <Label.Effect>
                 <DropShadowEffect Color="#FFEA2410" ShadowDepth="5"/>
             </Label.Effect>

@@ -101,7 +101,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid Background="#FF7EEDB3" Margin="0,0,2,-1">
+    <Grid Background="#FF65E8C4" Margin="0,0,2,-1">
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="660" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="515"  RadiusX="5" RadiusY="5"/>
 
         <!--IMAGE-->
@@ -121,7 +121,7 @@
                 <DropShadowEffect Color="Black" ShadowDepth="5"/>
             </Label.Effect>
         </Label>
-        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="10,0,379,0" VerticalAlignment="Top" Width="146" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3" RenderTransformOrigin="0.021,0.282">
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="10,0,379,0" VerticalAlignment="Top" Width="146" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF65E8C4" RenderTransformOrigin="0.021,0.282">
             <Label.Effect>
                 <DropShadowEffect Color="#FFEA2410" ShadowDepth="5"/>
             </Label.Effect>

@@ -63,7 +63,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid Margin="0,0,2,-2" Background="#FF7EEDB3">
+    <Grid Margin="0,0,2,-2" Background="#FF65E8C4">
         <Rectangle Fill="#FF28282C" HorizontalAlignment="Left" Height="625" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="428" RadiusX="5" RadiusY="5"/>
         <Grid Background="White" Width="400" Margin="24,80,24,33" >
             <Label Content="cityLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,207,0,0" VerticalAlignment="Top" x:Name="cityLabel"  Height="30" Width="92" BorderBrush="Black" FontFamily="Tahoma" FontSize="16"/>
@@ -75,7 +75,7 @@
 
 
         </Grid>
-        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="70" Margin="149,0,150,0" VerticalAlignment="Top" Width="149" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="52" Foreground="#FF7EEDB3" RenderTransformOrigin="0.021,0.282">
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="70" Margin="149,0,150,0" VerticalAlignment="Top" Width="149" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="52" Foreground="#FF65E8C4" RenderTransformOrigin="0.021,0.282">
             <Label.Effect>
                 <DropShadowEffect Color="#FFEA2410" ShadowDepth="5"/>
             </Label.Effect>

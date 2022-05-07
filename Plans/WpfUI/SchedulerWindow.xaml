@@ -288,7 +288,7 @@
         <Button x:Name="PlansButton" Content="Plans" HorizontalAlignment="Left" Height="29" Margin="110,451,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource ButtonStyle5}" Grid.Row="1" Click="PlansButton_Click"/>
         <Button x:Name="ProfileButton" Content="Profile" HorizontalAlignment="Left" Height="29" Margin="220,451,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource ButtonStyle5}" Grid.Row="1" Click="ProfileButton_Click"/>
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="110,505,0,15" Width="70" Style="{DynamicResource ButtonStyle4}" Click="ExitButton_Click" Grid.Row="1"/>
-        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="40,-9,120,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3">
+        <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="40,-9,120,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF65E8C4">
             <Label.Effect>
                 <DropShadowEffect Color="#FFF30D0D" ShadowDepth="5"/>
             </Label.Effect>
