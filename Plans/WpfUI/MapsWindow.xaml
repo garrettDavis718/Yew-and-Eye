@@ -144,7 +144,7 @@
             </ComboBox>
             <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="95" VerticalAlignment="Top" Width="191" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="72" Foreground="#FF7EEDB3" Canvas.Left="465" Canvas.Top="-11">
                 <Label.Effect>
-                    <DropShadowEffect Color="Black" ShadowDepth="5"/>
+                    <DropShadowEffect Color="#FFEA2410" ShadowDepth="5"/>
                 </Label.Effect>
             </Label>
             <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="MAPS" Canvas.Left="640" Canvas.Top="62" />

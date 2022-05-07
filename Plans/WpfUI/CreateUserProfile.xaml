@@ -123,7 +123,7 @@
         </Label>
         <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="10,0,379,0" VerticalAlignment="Top" Width="146" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF7EEDB3" RenderTransformOrigin="0.021,0.282">
             <Label.Effect>
-                <DropShadowEffect Color="Black" ShadowDepth="5"/>
+                <DropShadowEffect Color="#FFEA2410" ShadowDepth="5"/>
             </Label.Effect>
         </Label>
         <Label Content="Username:" HorizontalAlignment="Left" Margin="443,236,0,0" VerticalAlignment="Top" Foreground="White"/>
