@@ -68,7 +68,6 @@ namespace WpfUI
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
             LoginWindow loginWindow = new LoginWindow();
             this.Hide();
             loginWindow.Show();
