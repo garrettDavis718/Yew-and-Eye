@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Connection.svg" />
+    <Resource Include="Image5.png" />
     <Resource Include="treeGRAY1.jpg" />
     <Resource Include="Image7.png" />
     <Resource Include="new_user.jpg" />

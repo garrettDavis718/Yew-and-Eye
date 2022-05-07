@@ -122,16 +122,16 @@
             </Label.Effect>
         </Label>
         <Label x:Name="UserLbl" Content="TODO: DISPLAY USER NAME" HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" VerticalAlignment="Top" Width="218" Foreground="#FFE2EC21" FontSize="16"/>
-        <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="Available" Margin="43,97,432,289" RenderTransformOrigin="0.434,0.519" />
-        <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="Booked" Margin="181,97,311,289" />
-        <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="Created" Margin="307,97,184,289" />
-        <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="4 L8er" Margin="444,97,54,289" />
+        <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="Available" Margin="43,97,416,289" RenderTransformOrigin="0.434,0.519" />
+        <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="Booked" Margin="181,97,287,289" />
+        <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="Created" Margin="307,97,158,289" />
+        <Label Style="{StaticResource RedLabel}" Foreground="#FFE20B0B" FontSize="16" Content="4 L8er" Margin="444,97,29,289" />
 
         <!--LISTBOX-->
-        <ListBox x:Name="Plan_Available" HorizontalAlignment="Center" Height="160" Margin="21,133,416,0" VerticalAlignment="Top" Width="124"/>
-        <ListBox x:Name="Plan_Booked" HorizontalAlignment="Center" Height="160" Margin="150,133,287,0" VerticalAlignment="Top" Width="124"/>
-        <ListBox x:Name="Plan_Created" HorizontalAlignment="Center" Height="160" Margin="279,133,158,0" VerticalAlignment="Top" Width="124"/>
-        <ListBox x:Name="Plan_4L8er" HorizontalAlignment="Center" Height="160" Margin="408,133,29,0" VerticalAlignment="Top" Width="124"/>
+        <ListBox x:Name="Plan_Available" HorizontalAlignment="Center" Height="160" Margin="21,133,416,0" VerticalAlignment="Top" Width="124" FontSize="11"/>
+        <ListBox x:Name="Plan_Booked" HorizontalAlignment="Center" Height="160" Margin="150,133,287,0" VerticalAlignment="Top" Width="124" FontSize="11"/>
+        <ListBox x:Name="Plan_Created" HorizontalAlignment="Center" Height="160" Margin="279,133,158,0" VerticalAlignment="Top" Width="124" FontSize="11"/>
+        <ListBox x:Name="Plan_4L8er" HorizontalAlignment="Center" Height="160" Margin="408,133,29,0" VerticalAlignment="Top" Width="124" FontSize="11"/>
 
     </Grid>
 </Window>
