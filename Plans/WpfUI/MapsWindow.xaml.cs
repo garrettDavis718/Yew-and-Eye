@@ -204,8 +204,8 @@ namespace WpfUI
 
         private void PlansButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            PlansWindow plansWindow = new PlansWindow(user);
+            User myUser = new User();
+            PlansWindow plansWindow = new PlansWindow(myUser);
             this.Hide();
             plansWindow.ShowDialog();
         }
