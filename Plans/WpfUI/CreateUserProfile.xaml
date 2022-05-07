@@ -130,17 +130,17 @@
         <Label Content="DOB:" HorizontalAlignment="Left" Margin="472,290,0,0" VerticalAlignment="Top" Foreground="White"/>
 
         <!--TEXTBOX-->
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="24,262,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="firstNameTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="24,311,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="lastNameTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="24,365,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="cityTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="24,419,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="emailTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="188" Margin="189,365,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324" x:Name="bioTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="393,262,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="userNameTextBox"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="393,311,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="DOBTextBox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="24,262,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="firstNameTextBox" TabIndex="0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="24,311,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="lastNameTextBox" TabIndex="1"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="24,365,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="cityTextBox" TabIndex="2"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="24,419,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="emailTextBox" TabIndex="3"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="393,262,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="userNameTextBox" TabIndex="6"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="393,311,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="120" x:Name="DOBTextBox" TabIndex="7"/>
+        <TextBox HorizontalAlignment="Left" Height="188" Margin="189,365,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324" x:Name="bioTextBox" TabIndex="8"/>
 
         <!--PASSWORD-->
-        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="24,477,0,0" VerticalAlignment="Top" Width="120" x:Name="passwordBox"/>
-        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="24,531,0,0" VerticalAlignment="Top" Width="120" x:Name="confirmPasswordBox"/>
+        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="24,477,0,0" VerticalAlignment="Top" Width="120" x:Name="passwordBox" TabIndex="4"/>
+        <PasswordBox HorizontalAlignment="Left" Height="22" Margin="24,531,0,0" VerticalAlignment="Top" Width="120" x:Name="confirmPasswordBox" TabIndex="5"/>
 
         <!--BUTTON-->
         <Button Content="Create Profile" HorizontalAlignment="Center" Margin="207,569,212,0" VerticalAlignment="Top" Width="116" Click="createProfileButton_Click" AutomationProperties.Name="createProfileButton" Height="40" Background="#FF4A8F98" Style="{DynamicResource ButtonStyle1}"/>
