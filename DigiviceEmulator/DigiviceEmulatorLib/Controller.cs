@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace DigiviceEmulatorLib
 {
@@ -51,11 +54,6 @@ namespace DigiviceEmulatorLib
 		{
 			const string DeathCertSubject = "",
 						 DeathCertBody = "";
-
-			EmailOps.SendEmail(subject: DeathCertSubject,
-							   body: DeathCertBody,
-							   recipients: new string[]{User.Email},
-							   isBodyHtml: true);
 			Controller.Reset();
 		}
 
@@ -64,7 +62,76 @@ namespace DigiviceEmulatorLib
 		/// </summary>
 		public static void Reset()
 		{
-			throw new NotImplementedException();
+			Monster.DateOfBirth = DateTime.UtcNow;
+			string query = "SELECT type, animation FROM bestiary WHERE type = 0;";
+			if (DatabaseOps.OpenConnection())
+			{
+				if (DatabaseOps.GetEvolution(query, out int type, out string animations))
+				{
+					Monster.Type = (Monster.Types)type;
+					Monster.Animations = JsonSerializer.Deserialize<AnimationSet>(animations);
+				}
+				DatabaseOps.CloseConnection();
+			}
+		}
+
+		public static void Evolve()
+		{
+			bool entryFound = false;
+			string query = $"SELECT type, animation FROM bestiary WHERE evolves_from = {(int)Monster.Type} AND req_health <= {Monster.Health} AND req_mood <= {Monster.Mood} AND req_hygiene <= {Monster.Hygiene} ORDER BY RANDOM() LIMIT 1;",
+				   alternateQuery = "SELECT type, animation FROM bestiary WHERE type = 11;";
+			if (DatabaseOps.OpenConnection())
+			{
+				if (DatabaseOps.GetEvolution(query, out int type, out string animations))
+				{
+					Monster.Type = (Monster.Types)type;
+					Monster.Animations = JsonSerializer.Deserialize<AnimationSet>(animations);
+				}
+				else if (DatabaseOps.GetEvolution(alternateQuery, out int altType, out string altAnimations))
+				{
+					Monster.Type = (Monster.Types)altType;
+					Monster.Animations = JsonSerializer.Deserialize<AnimationSet>(altAnimations);
+				}
+				DatabaseOps.CloseConnection();
+			}
+		}
+
+		public static void Feed()
+		{
+			if ((int)Monster.Type > 0)
+			{
+				Monster.State = Monster.States.eating;
+				Monster.HealthIncrements += 3;
+			}
+		}
+
+		public static void Play()
+		{
+			if ((int)Monster.Type > 0)
+			{
+				Monster.State = Monster.States.playing;
+				Monster.MoodIncrements += 3;
+			}
+		}
+
+		public static void Clean()
+		{
+			if ((int)Monster.Type > 0)
+			{
+				Monster.HygieneIncrements += 3;
+			}
+		}
+
+		public static void Dance()
+		{
+			if ((int)Monster.Type > 6
+			   && (int)Monster.Type < 11)
+			{
+				Monster.State = Monster.States.dancing;
+				Monster.HygieneIncrements += 3;
+				Monster.HealthIncrements += 3;
+				Monster.MoodIncrements += 3;
+			}
 		}
 	}
 }

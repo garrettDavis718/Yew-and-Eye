@@ -36,7 +36,14 @@ namespace DigiviceEmulatorLib
 		{
 			if (Connection.State is ConnectionState.Open)
 			{
-				Connection.Close();
+				try
+				{
+					Connection.Close();
+				}
+				catch
+				{
+					Connection.Close();
+				}
 				return Connection.State is ConnectionState.Closed;
 			}
 			else
@@ -91,6 +98,23 @@ namespace DigiviceEmulatorLib
 		{
 			string query = $"UPDATE user SET {attribute} = '{value}';";
 			return UpdateQuery(query) is 1;
+		}
+
+		public static bool GetEvolution(string query, out int type, out string animations)
+		{
+			type = 0;
+			animations = "";
+			bool evolutionFound = false;
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+				while (dataReader.Read())
+				{
+					evolutionFound = true;
+					type = dataReader.GetInt32(0);
+					animations = dataReader.GetString(1);
+				}
+			}
+			return evolutionFound;
 		}
 
 		/// <summary>
@@ -233,16 +257,36 @@ namespace DigiviceEmulatorLib
 		/// <returns>SQLiteDataReader object.</returns>
 		private static SQLiteDataReader SelectQuery(string query)
 		{
+			SQLiteDataReader dataReader = null;
 			using (SQLiteCommand command = new SQLiteCommand(query, Connection))
 			{
-				return command.ExecuteReader();
+				try
+				{
+					dataReader = command.ExecuteReader();
+				}
+				catch
+				{
+					do
+					{
+						if (DatabaseOps.OpenConnection())
+						{
+							using (SQLiteCommand altCommand = new SQLiteCommand(query, Connection))
+							{
+								dataReader = command.ExecuteReader();
+							}
+							DatabaseOps.CloseConnection();
+						}
+					}
+					while (dataReader is null);
+				}
 			}
+			return dataReader;
 		}
 
 		/// <summary>
 		/// relative path to database.
 		/// </summary>
-		public static string DatabasePath { get; set; } = @"../../DigiviceDB.db";
+		public static string DatabasePath { get; set; } = @"../../../DigiviceEmulatorLib/DigiviceDB.db";
 
 		/// <summary>
 		/// sql connection obj to be used in queries.

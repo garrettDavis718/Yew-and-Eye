@@ -45,7 +45,7 @@ namespace DigiviceEmulatorLib
 				|| (int)Monster.Type == 5 || (int)Monster.Type == 6)
 				&& elapsedSeconds > SecondEvolutionTime))
 			{
-				//Controller.Evolve();
+				Controller.Evolve();
 			}
 			if (elapsedSeconds > LifeSpan)
 			{

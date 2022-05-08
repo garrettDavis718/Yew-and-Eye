@@ -20,7 +20,7 @@ namespace DigiviceEmulatorLib
 		/// <param name="recipients">email recipients. group messages can be 
 		/// created using ',' to delimit addresses in single string.</param>
 		/// <param name="isBodyHtml">set to true to display body as html.</param>
-		public static void SendEmail(string subject,
+		public static void SendEail(string subject,
 									 string body,
 									 string[] recipients,
 									 bool isBodyHtml = false)
@@ -56,11 +56,11 @@ namespace DigiviceEmulatorLib
 		/// <summary>
 		/// gmail address to send emails from.
 		/// </summary>
-		private static string GmailAddress { get; } = @"";
+		private static string GmailAddress { get; } = @"DigiviceEmulator@gmail.com";
 
 		/// <summary>
 		/// password to auth gmail address. 
 		/// </summary>
-		private static string Password { get; } = @"";
+		private static string Password { get; } = @"Ftcc2022.";
 	}
 }

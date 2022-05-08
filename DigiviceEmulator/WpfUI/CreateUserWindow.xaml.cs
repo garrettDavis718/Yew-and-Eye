@@ -40,6 +40,7 @@ namespace WpfUI
                 if (Controller.CreateUser(email, password)) 
                 {
                     MessageBox.Show("User " + email);
+                    Controller.Reset();
                 }
                 else
                 {

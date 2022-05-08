@@ -36,7 +36,18 @@ namespace DigiviceEmulatorLib
 		/// </summary>
 		public enum Types
 		{
+			Egg,
 			Faunamon,
+			PlaceHolder2,
+			PlaceHolder3,
+			PlaceHolder4,
+			PlaceHolder5,
+			PlaceHolder6,
+			PlaceHolder7,
+			PlaceHolder8,
+			PlaceHolder9,
+			PlaceHolder10,
+			Dookiemon,
 		}
 
 		/// <summary>
