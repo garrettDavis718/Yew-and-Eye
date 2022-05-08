@@ -120,6 +120,28 @@ namespace PlansLib
 			DatabaseOps.CloseConnection();
 			return output;
 		}
+		/// <summary>
+		/// Method to get the username from a given userid
+		/// </summary>
+		/// <param name="userid"></param>
+		/// <returns></returns>
+		public static string GetUsername(int userid)
+		{
+			string output = "";
+			if (DatabaseOps.OpenConnection())
+			{
+				try
+				{
+					output = DatabaseOps.GetUsername(userid);
+				}
+				catch (Exception ex)
+				{
+					output = "no username available";
+				}
+			}
+			DatabaseOps.CloseConnection();
+			return output;
+		}
 		//Load Plan From Date
 		public static List<Plan> LoadPlans(string date)
 		{
@@ -133,12 +155,35 @@ namespace PlansLib
 			return plans;
 		}
 		//Load Plan Overload(Load with userid)
-		public static List<Plan> LoadPlans(User user)
+		public static List<Plan> LoadPlans(int userid)
 		{
 			List<Plan> plans = new List<Plan>();
 			if (DatabaseOps.OpenConnection())
 			{
-				plans = DatabaseOps.GetPlans(user);
+				plans = DatabaseOps.GetPlans(userid);
+			}
+			DatabaseOps.CloseConnection();
+
+			return plans;
+		}
+		//Load Plan Overload(Load with userid)
+		public static Plan LoadPlanFromPlanID(int planID)
+		{
+			Plan plan = new Plan();
+			if (DatabaseOps.OpenConnection())
+			{
+				plan = DatabaseOps.GetPlansFromPlanID(planID);
+			}
+			DatabaseOps.CloseConnection();
+
+			return plan;
+		}
+		public static List<Plan> LoadPlanFromCity(string city)
+		{
+			List<Plan> plans = new List<Plan>();
+			if (DatabaseOps.OpenConnection())
+			{
+				plans = DatabaseOps.GetPlansFromCity(city);
 			}
 			DatabaseOps.CloseConnection();
 

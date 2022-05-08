@@ -50,6 +50,8 @@ namespace WpfUI
                 NewUser.Bio = bioTextBox.Text;
                 NewUser.Email = emailTextBox.Text;
                 NewUser.PasswordHash = SecurityOps.HashString(passwordBox.Password);
+                NewUser.Username = userNameTextBox.Text;
+
                 if (Controller.CreateUser(NewUser))
                 {
                     MessageBox.Show("User " + NewUser.FirstName + " " + NewUser.LastName + " has been created!");

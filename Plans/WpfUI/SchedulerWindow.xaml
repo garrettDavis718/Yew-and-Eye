@@ -285,9 +285,9 @@
         <Button x:Name="SaveButton" Content="Save Plan" HorizontalAlignment="Left" Height="24" Margin="65,263,0,0" VerticalAlignment="Top" Width="60" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle1}" Grid.Row="1" Click="SaveButton_Click"/>
         <Button x:Name="MakeButton" Content="Make Plan" HorizontalAlignment="Left" Height="24" Margin="172,263,0,0" VerticalAlignment="Top" Width="64" BorderBrush="{x:Null}" Style="{DynamicResource ButtonStyle2}" Grid.Row="1" Click="MakeButton_Click"/>
         <Button x:Name="MapButton" Content="Maps" HorizontalAlignment="Left" Height="29" Margin="10,451,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource ButtonStyle3}" Grid.Row="1" Click="MapButton_Click"/>
-        <Button x:Name="PlansButton" Content="Plans" HorizontalAlignment="Left" Height="29" Margin="110,451,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource ButtonStyle5}" Grid.Row="1" Click="PlansButton_Click"/>
+        <Button x:Name="PlansButton" Content="Plans" HorizontalAlignment="Center" Height="29" Margin="0,451,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource ButtonStyle5}" Grid.Row="1" Click="PlansButton_Click"/>
         <Button x:Name="ProfileButton" Content="Profile" HorizontalAlignment="Left" Height="29" Margin="220,451,0,0" VerticalAlignment="Top" Width="70" Style="{DynamicResource ButtonStyle5}" Grid.Row="1" Click="ProfileButton_Click"/>
-        <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="110,505,0,15" Width="70" Style="{DynamicResource ButtonStyle4}" Click="ExitButton_Click" Grid.Row="1"/>
+        <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Center" Margin="0,501,0,19" Width="70" Style="{DynamicResource ButtonStyle4}" Click="ExitButton_Click" Grid.Row="1"/>
         <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="40,-9,120,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF65E8C4">
             <Label.Effect>
                 <DropShadowEffect Color="#FFF30D0D" ShadowDepth="5"/>

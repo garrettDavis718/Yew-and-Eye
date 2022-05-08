@@ -106,7 +106,7 @@
         <TextBox x:Name="DescriptionBox" HorizontalAlignment="Center" Height="106" Margin="17,215,20,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Background="#FFF5F4F4" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
         <Label Content="Description" HorizontalAlignment="Center" Height="31" Margin="117,179,108,0" VerticalAlignment="Top" Width="92" Background="Transparent" Foreground="#FFF5E0E0" FontSize="16"/>
         <TextBox x:Name="LocationBox" HorizontalAlignment="Center" Height="35" Margin="17,362,22,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" Background="#FFF5F4F4" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
-        <Label Content="Location" HorizontalAlignment="Left" Height="31" Margin="126,326,0,0" VerticalAlignment="Top" Width="71" Background="Transparent" Foreground="#FFF5E0E0" FontSize="16"/>
+        <Label Content="Address" HorizontalAlignment="Left" Height="31" Margin="126,326,0,0" VerticalAlignment="Top" Width="71" Background="Transparent" Foreground="#FFF5E0E0" FontSize="16"/>
         <Button x:Name="CreatePlanBtn_Copy" Content="Back" HorizontalAlignment="Center" Margin="125,478,136,0" VerticalAlignment="Top" Height="27" Width="56" FontSize="14" Style="{DynamicResource ButtonStyle2}" Click="CreatePlanBtn_Copy_Click"/>
         <Label x:Name="PlansLbl" Content="Plans" HorizontalContentAlignment ="Center" HorizontalAlignment="Center" Height="71" Margin="48,6,106,0" VerticalAlignment="Top" Width="140" FontFamily="Myanmar Text" FontWeight="Bold" FontSize="48" Foreground="#FF65E8C4">
             <Label.Effect>

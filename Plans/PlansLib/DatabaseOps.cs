@@ -55,7 +55,7 @@ namespace PlansLib
 		/// <returns>true if successful, false otherwise.</returns>
 		public static bool CreateUser(User user)
 		{
-			string query = $"INSERT INTO user (email, password_hash, first_name, last_name, bio, city, plans) VALUES ('{user.Email.Trim()}', '{user.PasswordHash.Trim()}', '{user.FirstName.Trim()}', '{user.LastName.Trim()}', '{user.Bio.Trim()}', '{user.City.Trim()}', '{""}');";
+			string query = $"INSERT INTO user (email, password_hash, first_name, last_name, bio, city, plans, username) VALUES ('{user.Email.Trim()}', '{user.PasswordHash.Trim()}', '{user.FirstName.Trim()}', '{user.LastName.Trim()}', '{user.Bio.Trim()}', '{user.City.Trim()}', '{""}', '{user.Username.Trim()}');";
 			return InsertQuery(query) is 1;
 		}
 
@@ -117,7 +117,7 @@ namespace PlansLib
 		public static User GetUser(User user)
 		{
 			//string output = string.Empty;
-			string query = $"SELECT first_name, last_name, email, userid, bio, city, plans FROM user WHERE email = '{user.Email}'";
+			string query = $"SELECT first_name, last_name, email, userid, bio, city, plans, username FROM user WHERE email = '{user.Email}'";
 			//output user
 			User output = new User();
 			using (SQLiteDataReader dataReader = SelectQuery(query))
@@ -131,6 +131,27 @@ namespace PlansLib
 					output.Bio = dataReader.GetString(4);
 					output.City = dataReader.GetString(5);
 					output.Plans = dataReader.GetString(6);
+					output.Username = dataReader.GetString(7);
+				}
+			}
+			return output;
+		}
+		/// <summary>
+		/// get first name of user from db with
+		/// </summary>
+		/// <param name="user"></param>
+		/// <returns></returns>
+		public static string GetUsername(int userID)
+		{
+			//string output = string.Empty;
+			string query = $"SELECT username FROM user WHERE userid = '{userID}'";
+			//output user
+			string output = "";
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+				while (dataReader.Read())
+				{
+					output = dataReader.GetString(0);	
 				}
 			}
 			return output;
@@ -178,12 +199,66 @@ namespace PlansLib
 		/// </summary>
 		/// <param name="date"></param>
 		/// <returns></returns>
-		public static List<Plan> GetPlans(User user)
+		public static List<Plan> GetPlans(int userid)
 		{
 
-			string query = $"SELECT description, location, date, time, userid, planID, users, city FROM plans WHERE userid = '{user.UserID}'";
+			string query = $"SELECT description, location, date, time, userid, planID, users, city FROM plans WHERE userid = '{userid}'";
 			List<Plan> plans = new List<Plan>(20);
 			int i = 0;
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+				while (dataReader.Read())
+				{
+					Plan plan = new Plan();
+					plan.Description = dataReader.GetString(0);
+					plan.Location = dataReader.GetString(1);
+					plan.Date = dataReader.GetString(2);
+					plan.Time = dataReader.GetString(3);
+					plan.UserID = dataReader.GetInt32(4);
+					plan.PlanID = dataReader.GetInt32(5);
+					plan.Users = dataReader.GetString(6);
+					plan.City = dataReader.GetString(7);
+					plans.Add(plan);
+				}
+			}
+			return plans;
+		}
+		/// <summary>
+		/// Returns a list of plans from db given a specific User-
+		/// </summary>
+		/// <param name="date"></param>
+		/// <returns></returns>
+		public static Plan GetPlansFromPlanID(int planID)
+		{
+
+			string query = $"SELECT description, location, date, time, userid, planID, users, city FROM plans WHERE planID = '{planID}'";
+			Plan plan = new Plan();
+			int i = 0;
+			using (SQLiteDataReader dataReader = SelectQuery(query))
+			{
+				while (dataReader.Read())
+				{
+					plan.Description = dataReader.GetString(0);
+					plan.Location = dataReader.GetString(1);
+					plan.Date = dataReader.GetString(2);
+					plan.Time = dataReader.GetString(3);
+					plan.UserID = dataReader.GetInt32(4);
+					plan.PlanID = dataReader.GetInt32(5);
+					plan.Users = dataReader.GetString(6);
+					plan.City = dataReader.GetString(7);
+				}
+			}
+			return plan;
+		}
+		/// <summary>
+		/// Returns a list of plans from db given a specific User-
+		/// </summary>
+		/// <param name="date"></param>
+		/// <returns></returns>
+		public static List<Plan> GetPlansFromCity(string city)
+		{
+			string query = $"SELECT description, location, date, time, userid, planID, users, city FROM plans WHERE city = '{city}'";
+			List<Plan> plans = new List<Plan>();
 			using (SQLiteDataReader dataReader = SelectQuery(query))
 			{
 				while (dataReader.Read())

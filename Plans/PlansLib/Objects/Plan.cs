@@ -60,7 +60,8 @@ namespace PlansLib.Objects
         }
         public override string ToString()
         {
-            return this.Description + "\n" + "Location: " + this.Location + "\n" + "Date: " + this.Date.ToString() + "\n";
+            string creatorUsername = Controller.GetUsername(this.UserID);
+            return this.Description + "\n" + "Location: " + this.Location + "\n" + "Date: " + this.Date + " at " + this.Time + "\nCreated By: " + creatorUsername;
         }
     }
 }

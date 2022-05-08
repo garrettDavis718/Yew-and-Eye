@@ -21,13 +21,15 @@ namespace WpfUI
         string BingMapsKey = "ArRifk6122ZB2RSEec6gQgmQte_NcFEvVXoj7Er8B-nzf9du4Xdd1mr1j9Sug378";
         public User User { get; set; }
         public List<Plan> MyPlans { get; set; }
-        public List<Plan> LikePlans { get; set; }
+        public List<Plan> PlansAttending { get; set; }
+        public List<Plan> AvailablePlans { get; set; }
 
         public MapsWindow(User user)
         {
             User = user;
-            MyPlans = Controller.LoadPlans(User);
-
+            MyPlans = Controller.LoadPlans(User.UserID);
+            AvailablePlans = User.GetAvailablePlans();
+            PlansAttending = User.GetPlansAttending();
             InitializeComponent();
         }
 
@@ -190,7 +192,7 @@ namespace WpfUI
 
             //Find and display points of interest near the specified location
             //FindandDisplayNearbyPOI(searchResponse);
-            showMyPlans();
+            displayPlans();
         }
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
@@ -215,30 +217,120 @@ namespace WpfUI
             plansWindow.ShowDialog();
         }
 
-        public void showMyPlans()
+        /// <summary>
+        /// Method to display Plans on Map
+        /// </summary>
+        private void displayPlans()
+        {
+            switch (EntityType.Text)
+            {
+                case "PLANS Available":
+                    displayAvailablePlans();
+                    break;
+                case "PLANS Booked":
+                    displayPlansAttending();
+                    break;
+                case "PLANS Created":
+                    displayMyPlans();
+                    break;
+            }
+            
+        }
+        /// <summary>
+        /// Method to show available plans
+        /// </summary>
+        private void displayAvailablePlans()
         {
             int i = 0;
             try
             {
-                foreach (Plan plan in MyPlans)
+                if (AvailablePlans.Count > 1)
                 {
-                    double[] coordinates = showCoords(plan.Location.Trim());
-                    double longitude = coordinates[0];
-                    double latitude = coordinates[1];
-                    AddLabel(AddressList, i.ToString());
-                    AddPushpinToMap(latitude, longitude, i.ToString()); i++;
+                    foreach (Plan plan in AvailablePlans)
+                    {
+                        double[] coordinates = showCoords(plan.Location.Trim() + "," + plan.City.Trim());
+                        double longitude = coordinates[0];
+                        double latitude = coordinates[1];
+                        AddLabel(AddressList, plan.ToString() + "\n");
+                        AddPushpinToMap(latitude, longitude, i.ToString()); i++;
+                    }
+                    SearchResults.Visibility = Visibility.Visible;
+                    myMap.Visibility = Visibility.Visible;
+                    myMapLabel.Visibility = Visibility.Visible;
+                    myMap.Focus();
+                    myMap.Children[0].Focus();
                 }
-                SearchResults.Visibility = Visibility.Visible;
-                myMap.Visibility = Visibility.Visible;
-                myMapLabel.Visibility = Visibility.Visible;
-                myMap.Focus();
-                myMap.Children[0].Focus();
+                else
+                { MessageBox.Show("No plans available in your city."); }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error displaying results");
             }
-
+        }
+        /// <summary>
+        /// Method to show created plans
+        /// </summary>
+        private void displayMyPlans()
+        {
+            int i = 0;
+            try
+            {
+                if (MyPlans.Count > 1)
+                {
+                    foreach (Plan plan in MyPlans)
+                    {
+                        double[] coordinates = showCoords(plan.Location.Trim() + "," + plan.City.Trim());
+                        double longitude = coordinates[0];
+                        double latitude = coordinates[1];
+                        AddLabel(AddressList, plan.ToString() + "\n");
+                        AddPushpinToMap(latitude, longitude, i.ToString()); i++;
+                    }
+                    SearchResults.Visibility = Visibility.Visible;
+                    myMap.Visibility = Visibility.Visible;
+                    myMapLabel.Visibility = Visibility.Visible;
+                    myMap.Focus();
+                    myMap.Children[0].Focus();
+                }
+                else
+                { MessageBox.Show("No plans created yet."); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying results");
+            }
+        }
+        /// <summary>
+        /// Method to show attending plans
+        /// </summary>
+        private void displayPlansAttending()
+        {
+            int i = 0;
+            try
+            {
+                if (PlansAttending.Count > 1)
+                {
+                    foreach (Plan plan in PlansAttending)
+                    {
+                        double[] coordinates = showCoords(plan.Location.Trim() + "," + plan.City.Trim());
+                        double longitude = coordinates[0];
+                        double latitude = coordinates[1];
+                        AddLabel(AddressList, plan.ToString() + "\n");
+                        AddPushpinToMap(latitude, longitude, i.ToString()); i++;
+                    }
+                    SearchResults.Visibility = Visibility.Visible;
+                    myMap.Visibility = Visibility.Visible;
+                    myMapLabel.Visibility = Visibility.Visible;
+                    myMap.Focus();
+                    myMap.Children[0].Focus();
+                }
+                else
+                { MessageBox.Show("Not currently attending any plans."); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error displaying results");
+            }
         }
         public double[] showCoords(string address)
         {

@@ -24,16 +24,37 @@ namespace WpfUI
 	{
 		public User User { get; set; }
 		public List<Plan> UserPlans { get; set; }
+		public List<Plan> PlansAttending { get; set; }
+		public List<Plan> AvailablePlans { get; set; }
 
 		public PlansWindow(User user)
 		{
 			User = user;
+			UserPlans = Controller.LoadPlans(User.UserID);
+			PlansAttending = User.GetPlansAttending();
+			AvailablePlans = User.GetAvailablePlans();
 			InitializeComponent();
 			UserLbl.Content = User.FirstName + " " + User.LastName;
-			UserPlans = Controller.LoadPlans(user);
+			PopulatePlanBoxes();
+		}
+
+		/// <summary>
+		/// Method to populate the various plan item boxes on this page.
+		/// </summary>
+		private void PopulatePlanBoxes()
+		{
+			
 			foreach (Plan plan in UserPlans)
 			{
-				Plan_Created.Items.Add(plan.ToString());
+				Plan_Created.Items.Add(plan.Description + "\n");
+			}
+			foreach (Plan plan in PlansAttending)
+			{
+				Plan_Booked.Items.Add(plan.Description + "\n");
+			}
+			foreach (Plan plan in AvailablePlans)
+			{
+				Plan_Available.Items.Add(plan.Description + "\n");
 			}
 		}
 

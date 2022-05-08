@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlansLib
+namespace PlansLib.Objects
 {
 	/// <summary>
 	/// object for users.
@@ -38,7 +38,7 @@ namespace PlansLib
 		/// </summary>
 		/// <param name="email">email address associated with user.</param>
 		/// <param name="passwordHash">password hash associated with user.</param>
-		public User (string email, string password, string first_name, string last_name, int userID, string bio, string city, string plans)
+		public User (string email, string password, string first_name, string last_name, int userID, string bio, string city, string plans, string username)
 		{
 			Email = email;
 			PasswordHash = SecurityOps.HashString(password);
@@ -48,6 +48,7 @@ namespace PlansLib
 			Bio = bio;
 			City = city;
 			Plans = plans;
+			Username = username;
 		}
 		/// <summary>
 		/// User object for use in program, doesn't pass arorund the password hash
@@ -65,6 +66,27 @@ namespace PlansLib
 			City = city;
 		}
 		/// <summary>
+		/// Method Returns a list of Plans that the user is attending.
+		/// </summary>
+		/// <returns></returns>
+		public List<Plan> GetPlansAttending()
+		{
+			List<Plan> PlansAttending = new List<Plan>();
+			if (Plans.Length > 1)
+			{
+				foreach (string id in Plans.Split(','))
+				{
+					PlansAttending.Add(Controller.LoadPlanFromPlanID(int.Parse(id)));
+				}
+			}
+			return PlansAttending;
+		}
+		public List<Plan> GetAvailablePlans()
+		{
+			List<Plan> PlansAttending = Controller.LoadPlanFromCity(City);
+			return PlansAttending;
+		}
+		/// <summary>
 		/// Fields and Properties
 		/// </summary>
 		public string Email { get; set; }
@@ -75,6 +97,7 @@ namespace PlansLib
 		public string Bio { get; set; }
 		public string City { get; set; }
 		public string Plans { get; set; }
+		public string Username { get; set; }
 
 	}
 }
