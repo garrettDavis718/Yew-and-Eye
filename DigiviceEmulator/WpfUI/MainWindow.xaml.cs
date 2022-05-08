@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DigiviceEmulatorLib;
 using System.Threading;
+using System.Collections.Concurrent;
 
 namespace WpfUI
 {
@@ -29,27 +30,27 @@ namespace WpfUI
 
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
-
+			Controller.Play();
         }
 
         private void cleanButton_Click(object sender, RoutedEventArgs e)
         {
-
+			Controller.Clean();
         }
 
         private void feedButton_Click(object sender, RoutedEventArgs e)
         {
-
+			Controller.Feed();
         }
 
         private void danceButton_Click(object sender, RoutedEventArgs e)
         {
-
+			Controller.Dance();
         }
 
         private void resetButton_Click(object sender, RoutedEventArgs e)
         {
-
+			Controller.Reset();
         }
 
         private void quitButton_Click(object sender, RoutedEventArgs e)
@@ -72,7 +73,6 @@ namespace WpfUI
 					  AnimationLength = 2;
 			Monster.States? previousState = null;
 			int frameIndex = 0;
-			string nextFrame = null;
 			DateTime notIdleSince = DateTime.UtcNow;
 			while (true)
 			{
@@ -88,16 +88,16 @@ namespace WpfUI
 				switch (Monster.State)
 				{
 					case Monster.States.idle:
-						nextFrame = Monster.Animations.Idle[frameIndex];
+						AnimationQueue.Enqueue(Monster.Animations.Idle[frameIndex]);
 						break;
 					case Monster.States.eating:
-						nextFrame = Monster.Animations.Eat[frameIndex];
+						AnimationQueue.Enqueue(Monster.Animations.Eat[frameIndex]);
 						break;
 					case Monster.States.playing:
-						nextFrame = Monster.Animations.Play[frameIndex];
+						AnimationQueue.Enqueue(Monster.Animations.Play[frameIndex]);
 						break;
 					case Monster.States.dancing:
-						nextFrame = Monster.Animations.Dance[frameIndex];
+						AnimationQueue.Enqueue(Monster.Animations.Dance[frameIndex]);
 						break;
 				}
 				if (Monster.State != Monster.States.idle
@@ -105,14 +105,19 @@ namespace WpfUI
 				{
 					Monster.State = Monster.States.idle;
 				}
-				monsterTextblock.Text = nextFrame;
-				healthTextBlock.Text = Monster.Health.ToString();
-				moodTextBlock.Text = Monster.Mood.ToString();
-				hygieneTextBlock.Text = Monster.Hygiene.ToString();
+				AnimationQueue.TryDequeue(out string result);
+				Dispatcher.BeginInvoke(new ThreadStart(() => monsterTextblock.Text = result));
+				Dispatcher.BeginInvoke(new ThreadStart(() => healthTextBlock.Text = Monster.Health.ToString()));
+				Dispatcher.BeginInvoke(new ThreadStart(() => moodTextBlock.Text = Monster.Mood.ToString()));
+				Dispatcher.BeginInvoke(new ThreadStart(() => hygieneTextBlock.Text = Monster.Hygiene.ToString()));
 				frameIndex = frameIndex == 3 ? 0 : frameIndex + 1;
 				previousState = Monster.State;
 				Thread.Sleep(FrameDelay);
 			}
+
+
 		}
+
+		public ConcurrentQueue<string> AnimationQueue { get; set; } = new ConcurrentQueue<string>();
 	}
 }
