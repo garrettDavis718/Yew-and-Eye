@@ -48,6 +48,7 @@ namespace WpfUI
 			{
 				Plan_Created.Items.Add(plan.Description + "\n");
 			}
+
 			foreach (Plan plan in PlansAttending)
 			{
 				Plan_Booked.Items.Add(plan.Description + "\n");

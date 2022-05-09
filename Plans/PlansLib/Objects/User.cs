@@ -72,7 +72,7 @@ namespace PlansLib.Objects
 		public List<Plan> GetPlansAttending()
 		{
 			List<Plan> PlansAttending = new List<Plan>();
-			if (Plans.Length > 1)
+			if (PlansAttending.Count > 1)
 			{
 				foreach (string id in Plans.Split(','))
 				{
